@@ -1,0 +1,91 @@
+ellipsis() {
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+bounds($distance) {
+  top: $distance;
+  bottom: $distance;
+  right: $distance;
+  left: $distance;
+}
+
+overlay() {
+  position: absolute;
+  bounds(0);
+}
+
+flex-box() {
+  display: flex;
+
+  & > * {
+    flex: auto 0 0;
+  }
+}
+
+h-box() {
+  flex-box();
+  flex-direction: row;
+}
+
+v-box() {
+  flex-box();
+  flex-direction: column;
+}
+
+flex-control() {
+  width: 0 !important;
+}
+
+box-center() {
+  align-items: center;
+  justify-content: center;
+}
+
+space-between-x($margin) {
+  margin-right: $margin;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+space-between-y($margin) {
+  margin-bottom: $margin;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Buttons
+
+button-colors($foreground, $background)
+  color $foreground
+  background $background
+  &:not(.ghost)
+    &:hover,
+    .vue-dropdown.open > .trigger &
+      background lighten(@background, 25%)
+    &:active
+      background darken(@background, 8%)
+  > .content
+    > .button-icon
+      svg
+        fill $foreground
+  > .vue-loading-indicator,
+  > .content > .loading-secondary
+    .animation
+      border-right-color $foreground
+      border-bottom-color $foreground
+  &::before
+    background @background
+
+button-transitions()
+  transition background .1s, color .1s
+  > .content
+    > .button-icon
+      svg
+        transition fill .1s

@@ -1,0 +1,294 @@
+@import "./imports"
+
+  @import "./imports"
+
+.tooltip
+  $arrow-size = 5px
+  $tooltip-animation-duration = .12s
+  $popover-animation-duration = .08s
+  $background = $color-dark
+  $color = $color-light
+
+  display block !important
+  z-index 999999
+
+  .tooltip-inner
+    background $background
+    color $color
+    border-radius .25rem
+    padding 4px 8px
+    font-size .95em
+    max-width 200px
+
+  .tooltip-arrow
+    width $arrow-size
+    height $arrow-size
+    position absolute
+    margin $arrow-size
+    z-index 1
+
+    &::before,
+    &::after
+      content ''
+      width 0
+      height 0
+      border-style solid
+      position absolute
+      border-width inherit
+      top 0
+      left 0
+
+    &::before
+      border-color $grey-alto
+      display none
+
+    &::after
+      border-color $background
+
+  &[x-placement^='top']
+    margin-bottom $arrow-size
+
+    .tooltip-arrow
+      bottom -($arrow-size)
+      left 'calc(50% - %s)' % $arrow-size
+      margin-top 0
+      margin-bottom 0
+
+      &::before,
+      &::after
+        left (-($arrow-size) / 2)
+
+      &::before
+        top 1px
+
+      &::after,
+      &::before
+        border-width $arrow-size $arrow-size 0 $arrow-size
+        border-left-color transparent !important
+        border-right-color transparent !important
+        border-bottom-color transparent !important
+
+  &[x-placement^='bottom']
+    margin-top $arrow-size
+
+    .tooltip-arrow
+      top -($arrow-size)
+      left 'calc(50% - %s)' % $arrow-size
+      margin-top 0
+      margin-bottom 0
+
+      &::before,
+      &::after
+        left (-($arrow-size) / 2)
+
+      &::before
+        top -1px
+
+      &::after,
+      &::before
+        border-width 0 $arrow-size $arrow-size $arrow-size
+        border-left-color transparent !important
+        border-right-color transparent !important
+        border-top-color transparent !important
+
+  &[x-placement^='right']
+    margin-left $arrow-size
+
+    .tooltip-arrow
+      left -($arrow-size)
+      top 'calc(50% - %s)' % $arrow-size
+      margin-left 0
+      margin-right 0
+
+      &::before,
+      &::after
+        top (-($arrow-size) / 2)
+
+      &::before
+        left -1px
+
+      &::after,
+      &::before
+        border-width $arrow-size $arrow-size $arrow-size 0
+        border-left-color transparent !important
+        border-top-color transparent !important
+        border-bottom-color transparent !important
+
+  &[x-placement^='left']
+    margin-right $arrow-size
+
+    .tooltip-arrow
+      right -($arrow-size)
+      top 'calc(50% - %s)' % $arrow-size
+      margin-left 0
+      margin-right 0
+
+      &::before,
+      &::after
+        top (-($arrow-size) / 2)
+
+      &::before
+        left 1px
+
+      &::after,
+      &::before
+        border-width $arrow-size 0 $arrow-size $arrow-size
+        border-top-color transparent !important
+        border-right-color transparent !important
+        border-bottom-color transparent !important
+
+
+  &.popover
+    $background = $color-light-neutral
+    $color = $color-dark
+    $border = $color-light
+
+    .popover-inner
+      background $background
+      border 1px solid $border
+      color $color
+      position relative
+      padding 4px 0
+      border-radius 5px
+      max-width none
+
+    .popover-arrow
+      &::after
+        border-color $background
+
+      &::before
+        display block
+        border-color $border
+
+    &[x-placement^='top']
+      .popover-inner
+        bottom -1px
+
+    &[x-placement^='bottom']
+      .popover-inner
+        top -1px
+
+    &[x-placement^='left']
+      .popover-inner
+        right -1px
+
+    &[x-placement^='right']
+      .popover-inner
+        left -1px
+
+  &.select-popover
+    .popover-inner
+      padding 4px
+      max-height 220px
+      overflow-y auto
+
+  &[aria-hidden='true']
+    visibility hidden
+    opacity 0
+    transition opacity $tooltip-animation-duration, visibility $tooltip-animation-duration
+
+  &[aria-hidden='false']
+    visibility visible
+    opacity 1
+    transition opacity $tooltip-animation-duration
+
+/*
+.tooltip
+  display block !important
+  z-index 10000
+
+  $background = $color-dark
+  .tooltip-inner
+    background $background
+    color white
+    border-radius 3px
+    padding 5px 10px 4px
+
+  .tooltip-arrow
+    width 0
+    height 0
+    border-style solid
+    position absolute
+    margin 5px
+    border-color $background
+    z-index 1
+
+  &[x-placement^="top"]
+    margin-bottom 5px
+
+    .tooltip-arrow
+      border-width 5px 5px 0 5px
+      border-left-color transparent !important
+      border-right-color transparent !important
+      border-bottom-color transparent !important
+      bottom -5px
+      left calc(50% - 5px)
+      margin-top 0
+      margin-bottom 0
+
+  &[x-placement^="bottom"]
+    margin-top 5px
+
+    .tooltip-arrow
+      border-width 0 5px 5px 5px
+      border-left-color transparent !important
+      border-right-color transparent !important
+      border-top-color transparent !important
+      top -5px
+      left calc(50% - 5px)
+      margin-top 0
+      margin-bottom 0
+
+  &[x-placement^="right"]
+    margin-left 5px
+
+    .tooltip-arrow
+      border-width 5px 5px 5px 0
+      border-left-color transparent !important
+      border-top-color transparent !important
+      border-bottom-color transparent !important
+      left -5px
+      top calc(50% - 5px)
+      margin-left 0
+      margin-right 0
+
+  &[x-placement^="left"]
+    margin-right 5px
+
+    .tooltip-arrow
+      border-width 5px 0 5px 5px
+      border-top-color transparent !important
+      border-right-color transparent !important
+      border-bottom-color transparent !important
+      right -5px
+      top calc(50% - 5px)
+      margin-left 0
+      margin-right 0
+
+  &.popover
+    $color = $color-light-neutral
+
+    .popover-inner
+      background $color
+      color $color-dark
+      padding 4px 0
+      border-radius 5px
+      // box-shadow 1px 0 0 white, -1px 0 0 white, 0 1px 0 white, 0 -1px 0 white
+      border solid 1px white
+
+    .popover-arrow
+      border-color $color
+
+
+
+  &[aria-hidden='true']
+    visibility hidden
+    opacity 0
+    transition opacity .15s, visibility .15s
+
+  &[aria-hidden='false']
+    visibility visible
+    opacity 1
+    transition opacity .15s
+
+*/

@@ -1,0 +1,48 @@
+{
+  "name": "@vue/ui-framework",
+  "description": "UI components used in the vuejs organization apps",
+  "version": "0.0.1",
+  "author": {
+    "name": "Guillaume Chau",
+    "email": "guillaume.b.chau@gmail.com"
+  },
+  "keywords": [
+    "vue",
+    "vuejs"
+  ],
+  "license": "MIT",
+  "main": "dist/vue-ui-framework.umd.js",
+  "module": "dist/vue-ui-framework.esm.js",
+  "unpkg": "dist/vue-ui-framework.min.js",
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akryum/vue-ui-framework.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Akryum/vue-ui-framework/issues"
+  },
+  "homepage": "https://github.com/Akryum/vue-ui-framework#readme",
+  "dependencies": {
+    "material-design-icons": "^3.0.1",
+    "v-tooltip": "^2.0.0-rc.31",
+    "vue": "^2.5.13",
+    "vue-router": "^3.0.1",
+    "vue-virtual-scroller": "^0.11.5",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.0-beta.1",
+    "@vue/cli-plugin-eslint": "^3.0.0-beta.1",
+    "@vue/cli-service": "^3.0.0-beta.1",
+    "@vue/eslint-config-standard": "^3.0.0-beta.1",
+    "raw-loader": "^0.5.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "vue-template-compiler": "^2.5.13"
+  }
+}

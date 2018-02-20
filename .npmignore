@@ -1,0 +1,5 @@
+docs/
+docs-src/
+public/
+src/
+.babelrc
