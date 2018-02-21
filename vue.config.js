@@ -3,17 +3,17 @@ const path = require('path')
 module.exports = {
   lintOnSave: false,
 
-  outputDir: path.resolve('./docs'),
+  outputDir: './docs',
   baseUrl: './',
 
   configureWebpack: {
     entry: {
-      app: path.resolve('./docs-src/main.js'),
+      app: path.resolve(__dirname, './docs-src/main.js'),
     },
     resolve: {
       alias: {
-        '@style': path.resolve('./src/style/imports.styl'),
-        '@': path.resolve('./docs-src'),
+        '@style': path.resolve(__dirname, './src/style/imports.styl'),
+        '@': path.resolve(__dirname, './docs-src'),
       },
     },
   },
@@ -22,6 +22,6 @@ module.exports = {
     config.module
       .rule('js')
       .include
-      .add(path.resolve('./docs-src'))
+      .add(path.resolve(__dirname, './docs-src'))
   },
 }
