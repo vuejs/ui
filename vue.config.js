@@ -3,10 +3,12 @@ const path = require('path')
 module.exports = {
   lintOnSave: false,
 
+  outputDir: path.resolve('./docs'),
+  baseUrl: './',
+
   configureWebpack: {
-    entry: path.resolve('./docs-src/main.js'),
-    output: {
-      path: path.resolve('./docs'),
+    entry: {
+      app: path.resolve('./docs-src/main.js'),
     },
     resolve: {
       alias: {
