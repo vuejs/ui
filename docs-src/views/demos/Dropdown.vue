@@ -56,6 +56,7 @@ export default {
   data () {
     return {
       boolean: false,
+      string: '',
     }
   },
 }
