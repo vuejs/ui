@@ -2,7 +2,7 @@
   <div
     class="vue-group"
     :class="{
-      'has-indicator': indicator
+      'has-indicator': indicator,
     }"
   >
     <div class="content">
@@ -16,7 +16,7 @@
         top: `${indicatorStyle.top}px`,
         left: `${indicatorStyle.left}px`,
         width: `${indicatorStyle.width}px`,
-        height: `${indicatorStyle.height}px`
+        height: `${indicatorStyle.height}px`,
       }"
     >
       <div class="content">

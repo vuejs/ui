@@ -2,7 +2,7 @@
   <div
     class="vue-loading-bar"
     :class="{
-      unknown
+      unknown,
     }"
   >
     <div

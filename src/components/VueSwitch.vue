@@ -3,7 +3,7 @@
     class="vue-switch"
     :class="{
       selected: value,
-      disabled
+      disabled: finalDisabled,
     }"
   >
     <div class="content">
@@ -19,7 +19,7 @@
       </div>
     </div>
     <input
-      v-if="!disabled"
+      v-if="!finalDisabled"
       type="checkbox"
       v-model="valueModel"
     >
@@ -27,15 +27,16 @@
 </template>
 
 <script>
+import DisabledChild from '../mixins/DisabledChild'
+
 export default {
   name: 'VueSwitch',
 
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
+  mixins: [
+    DisabledChild,
+  ],
 
+  props: {
     icon: {
       type: String,
       default: null,

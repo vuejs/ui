@@ -2,7 +2,7 @@
   <VueButton
     class="vue-group-button"
     :class="{
-      selected
+      selected,
     }"
     v-bind="$attrs"
     @click="handleClick"

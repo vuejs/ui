@@ -2,6 +2,7 @@
   <VueDropdown
     class="vue-select"
     v-bind="$attrs"
+    :disabled="finalDisabled"
     :icon-left="displayedIcon"
     :icon-right="iconRight"
     :label="displayedLabel"
@@ -21,10 +22,16 @@
 </template>
 
 <script>
+import DisabledChild from '../mixins/DisabledChild'
+
 export default {
   name: 'VueSelect',
 
   inheritAttrs: false,
+
+  mixins: [
+    DisabledChild,
+  ],
 
   props: {
     iconLeft: {

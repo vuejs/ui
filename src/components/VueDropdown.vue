@@ -6,6 +6,7 @@
     :popover-class="popoverClass"
     :auto-hide="autoHide"
     :offset="offset"
+    :disabled="finalDisabled"
   >
     <div class="trigger">
       <slot name="trigger">
@@ -13,6 +14,7 @@
           :class="buttonClass"
           :icon-left="iconLeft"
           :icon-right="iconRight"
+          :disabled="finalDisabled"
         >{{ label }}</VueButton>
       </slot>
     </div>
@@ -24,10 +26,16 @@
 </template>
 
 <script>
+import DisabledChild from '../mixins/DisabledChild'
+
 export default {
   name: 'VueDropdown',
 
   inheritAttrs: false,
+
+  mixins: [
+    DisabledChild,
+  ],
 
   props: {
     autoHide: {

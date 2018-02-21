@@ -2,7 +2,7 @@
   <div
     class="vue-input"
     :class="{
-      disabled,
+      disabled: finalDisabled,
       focused
     }"
     @click="focus()"
@@ -27,7 +27,7 @@
         :type="type"
         v-model="valueModel"
         :placeholder="placeholder"
-        :disabled="disabled"
+        :disabled="finalDisabled"
         @focus="focused = true"
         @blur="focused = false"
       >
@@ -46,15 +46,16 @@
 </template>
 
 <script>
+import DisabledChild from '../mixins/DisabledChild'
+
 export default {
   name: 'VueInput',
 
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
+  mixins: [
+    DisabledChild,
+  ],
 
+  props: {
     iconLeft: {
       type: String,
       default: null,
@@ -135,6 +136,7 @@ colors($color)
   display inline-block
   vertical-align middle
   box-sizing border-box
+  width 200px
 
   > .content
     h-box()

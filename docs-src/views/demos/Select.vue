@@ -10,6 +10,23 @@
           <VueSelectButton value="orange" label="Orange"/>
           <VueSelectButton value="pear" label="Pear"/>
         </VueSelect>
+        <VueSelect v-model="choice" button-class="flat">
+          <VueSelectButton value="apple" label="Apple"/>
+          <VueSelectButton value="orange" label="Orange"/>
+          <VueSelectButton value="pear" label="Pear"/>
+        </VueSelect>
+        <VueSelect disabled v-model="choice">
+          <VueSelectButton value="apple" label="Apple"/>
+          <VueSelectButton value="orange" label="Orange"/>
+          <VueSelectButton value="pear" label="Pear"/>
+        </VueSelect>
+        <VueSelect disabled v-model="choice" button-class="flat">
+          <VueSelectButton value="apple" label="Apple"/>
+          <VueSelectButton value="orange" label="Orange"/>
+          <VueSelectButton value="pear" label="Pear"/>
+        </VueSelect>
+      </div>
+      <div class="row">
         <VueSelect v-model="choice" icon-left="star" placeholder="Custom placeholder">
           <VueSelectButton value="apple" label="Apple"/>
           <VueSelectButton value="orange" label="Orange"/>

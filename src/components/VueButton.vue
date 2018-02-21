@@ -5,13 +5,14 @@
     :class="[
       component,
       {
-        disabled,
+        disabled: finalDisabled,
         loading,
-        ghost
+        ghost,
       }
     ]"
     v-bind="$attrs"
-    @click="handleClick"
+    @click.capture="handleClick"
+    @click.capture.native="handleClick"
   >
     <VueLoadingIndicator
       v-if="loading"
@@ -44,17 +45,18 @@
 </template>
 
 <script>
+import DisabledChild from '../mixins/DisabledChild'
+
 export default {
   name: 'VueButton',
 
   inheritAttrs: false,
 
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
+  mixins: [
+    DisabledChild,
+  ],
 
+  props: {
     iconLeft: {
       type: String,
       default: null,
@@ -93,17 +95,18 @@ export default {
     },
 
     ghost () {
-      return this.disabled || this.loading || this.loadingSecondary
+      return this.finalDisabled || this.loading || this.loadingSecondary
     },
   },
 
   methods: {
     handleClick (event) {
-      if (!this.ghost) {
-        this.$emit('click', event)
-      } else {
+      if (this.ghost) {
         event.preventDefault()
         event.stopPropagation()
+        event.stopImmediatePropagation()
+      } else {
+        this.$emit('click', event)
       }
     },
   },
