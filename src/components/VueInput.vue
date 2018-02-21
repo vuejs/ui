@@ -136,7 +136,8 @@ colors($color)
   display inline-block
   vertical-align middle
   box-sizing border-box
-  width 200px
+  width auto
+  min-width 200px
 
   > .content
     h-box()
@@ -156,7 +157,7 @@ colors($color)
       border none
       background transparent
       width 0
-      flex 100% 1 1
+      flex auto 1 1
       &::placeholder
         color $lightened
       // Disable noisy browser styles
