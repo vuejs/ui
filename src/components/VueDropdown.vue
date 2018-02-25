@@ -180,4 +180,7 @@ export default {
     display block
     width 100%
     min-width 150px
+
+  .vue-button
+    text-align left
 </style>
