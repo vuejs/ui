@@ -145,7 +145,7 @@ export default {
         this.currentTabId = tab.id
       }
 
-      this.direction = index < oldIndex ? 'to-left' : 'to-right'
+      this.direction = index === oldIndex ? '' : index < oldIndex ? 'to-left' : 'to-right'
 
       if (!external) {
         await this.$nextTick()
