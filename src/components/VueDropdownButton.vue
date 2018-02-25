@@ -26,20 +26,12 @@ export default {
 
 <style lang="stylus">
 @import "../style/imports"
-.vue-dropdown-content .vue-dropdown-button
+.vue-dropdown-content .vue-dropdown-button.vue-button
   border-radius 0
-  background transparent
   button-transitions()
   text-align left
 
   > .content
     min-width 100%
     justify-content flex-start
-
-  &:not(:hover)
-    color $color-dark
-    > .content
-      > .button-icon
-        svg
-          fill @color
 </style>

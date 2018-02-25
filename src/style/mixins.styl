@@ -72,6 +72,14 @@ disable-focus-styles()
 button-colors($foreground, $background)
   color $foreground
   background $background
+  &.vue-dropdown-button
+    background transparent
+    &:not(:hover)
+      color $color-dark
+      > .content
+        > .button-icon
+          svg
+            fill @color
   &:not(.ghost)
     &:hover,
     .vue-dropdown.open .dropdown-trigger &
