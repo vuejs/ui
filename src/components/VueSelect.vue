@@ -119,6 +119,12 @@ export default {
 </script>
 
 <style lang="stylus">
+.vue-select
+  .dropdown-trigger
+    .vue-button
+      > .content > .default-slot
+        flex auto 1 1
+
 .vue-select-popover-content
   padding 0 4px
   max-height 220px

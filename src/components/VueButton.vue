@@ -173,8 +173,6 @@ colors($dark, $light, $invert = false)
   > .content
     h-box()
     box-center()
-    > .default-slot
-      flex auto 1 1
   &:not(.icon-button)
     > .content
       > .button-icon
