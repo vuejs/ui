@@ -1,5 +1,6 @@
 {
   "plugins": {
-    "autoprefixer": {}
+    "autoprefixer": {},
+    "postcss-focus-visible": {},
   }
 }

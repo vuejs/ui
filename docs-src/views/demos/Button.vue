@@ -183,6 +183,150 @@
         <VueButton loading-secondary class="round flat info" icon-left="info">Info</VueButton>
         <VueButton loading-secondary class="round flat success" icon-left="done">Success</VueButton>
       </div>
+      <div class="row">
+        <VueButton class="big" icon-left="mic">Default</VueButton>
+        <VueButton class="big primary" icon-left="flag">Primary</VueButton>
+        <VueButton class="big accent" icon-left="star">Accent</VueButton>
+        <VueButton class="big danger" icon-left="error">Danger</VueButton>
+        <VueButton class="big warning" icon-left="warning">Warning</VueButton>
+        <VueButton class="big info" icon-left="info">Info</VueButton>
+        <VueButton class="big success" icon-left="done">Success</VueButton>
+      </div>
+      <div class="row">
+        <VueButton disabled class="big" icon-left="mic">Default</VueButton>
+        <VueButton disabled class="big primary" icon-left="flag">Primary</VueButton>
+        <VueButton disabled class="big accent" icon-left="star">Accent</VueButton>
+        <VueButton disabled class="big danger" icon-left="error">Danger</VueButton>
+        <VueButton disabled class="big warning" icon-left="warning">Warning</VueButton>
+        <VueButton disabled class="big info" icon-left="info">Info</VueButton>
+        <VueButton disabled class="big success" icon-left="done">Success</VueButton>
+      </div>
+      <div class="row">
+        <VueButton loading class="big" icon-left="mic">Default</VueButton>
+        <VueButton loading class="big primary" icon-left="flag">Primary</VueButton>
+        <VueButton loading class="big accent" icon-left="star">Accent</VueButton>
+        <VueButton loading class="big danger" icon-left="error">Danger</VueButton>
+        <VueButton loading class="big warning" icon-left="warning">Warning</VueButton>
+        <VueButton loading class="big info" icon-left="info">Info</VueButton>
+        <VueButton loading class="big success" icon-left="done">Success</VueButton>
+      </div>
+      <div class="row">
+        <VueButton loading-secondary class="big" icon-left="mic">Default</VueButton>
+        <VueButton loading-secondary class="big primary" icon-left="flag">Primary</VueButton>
+        <VueButton loading-secondary class="big accent" icon-left="star">Accent</VueButton>
+        <VueButton loading-secondary class="big danger" icon-left="error">Danger</VueButton>
+        <VueButton loading-secondary class="big warning" icon-left="warning">Warning</VueButton>
+        <VueButton loading-secondary class="big info" icon-left="info">Info</VueButton>
+        <VueButton loading-secondary class="big success" icon-left="done">Success</VueButton>
+      </div>
+      <div class="row">
+        <VueButton class="big flat" icon-left="mic">Default</VueButton>
+        <VueButton class="big flat primary" icon-left="flag">Primary</VueButton>
+        <VueButton class="big flat accent" icon-left="star">Accent</VueButton>
+        <VueButton class="big flat danger" icon-left="error">Danger</VueButton>
+        <VueButton class="big flat warning" icon-left="warning">Warning</VueButton>
+        <VueButton class="big flat info" icon-left="info">Info</VueButton>
+        <VueButton class="big flat success" icon-left="done">Success</VueButton>
+      </div>
+      <div class="row">
+        <VueButton disabled class="big flat" icon-left="mic">Default</VueButton>
+        <VueButton disabled class="big flat primary" icon-left="flag">Primary</VueButton>
+        <VueButton disabled class="big flat accent" icon-left="star">Accent</VueButton>
+        <VueButton disabled class="big flat danger" icon-left="error">Danger</VueButton>
+        <VueButton disabled class="big flat warning" icon-left="warning">Warning</VueButton>
+        <VueButton disabled class="big flat info" icon-left="info">Info</VueButton>
+        <VueButton disabled class="big flat success" icon-left="done">Success</VueButton>
+      </div>
+      <div class="row">
+        <VueButton loading class="big flat" icon-left="mic">Default</VueButton>
+        <VueButton loading class="big flat primary" icon-left="flag">Primary</VueButton>
+        <VueButton loading class="big flat accent" icon-left="star">Accent</VueButton>
+        <VueButton loading class="big flat danger" icon-left="error">Danger</VueButton>
+        <VueButton loading class="big flat warning" icon-left="warning">Warning</VueButton>
+        <VueButton loading class="big flat info" icon-left="info">Info</VueButton>
+        <VueButton loading class="big flat success" icon-left="done">Success</VueButton>
+      </div>
+      <div class="row">
+        <VueButton loading-secondary class="big flat" icon-left="mic">Default</VueButton>
+        <VueButton loading-secondary class="big flat primary" icon-left="flag">Primary</VueButton>
+        <VueButton loading-secondary class="big flat accent" icon-left="star">Accent</VueButton>
+        <VueButton loading-secondary class="big flat danger" icon-left="error">Danger</VueButton>
+        <VueButton loading-secondary class="big flat warning" icon-left="warning">Warning</VueButton>
+        <VueButton loading-secondary class="big flat info" icon-left="info">Info</VueButton>
+        <VueButton loading-secondary class="big flat success" icon-left="done">Success</VueButton>
+      </div>
+      <div class="row">
+        <VueButton class="big round" icon-left="mic">Default</VueButton>
+        <VueButton class="big round primary" icon-left="flag">Primary</VueButton>
+        <VueButton class="big round accent" icon-left="star">Accent</VueButton>
+        <VueButton class="big round danger" icon-left="error">Danger</VueButton>
+        <VueButton class="big round warning" icon-left="warning">Warning</VueButton>
+        <VueButton class="big round info" icon-left="info">Info</VueButton>
+        <VueButton class="big round success" icon-left="done">Success</VueButton>
+      </div>
+      <div class="row">
+        <VueButton disabled class="big round" icon-left="mic">Default</VueButton>
+        <VueButton disabled class="big round primary" icon-left="flag">Primary</VueButton>
+        <VueButton disabled class="big round accent" icon-left="star">Accent</VueButton>
+        <VueButton disabled class="big round danger" icon-left="error">Danger</VueButton>
+        <VueButton disabled class="big round warning" icon-left="warning">Warning</VueButton>
+        <VueButton disabled class="big round info" icon-left="info">Info</VueButton>
+        <VueButton disabled class="big round success" icon-left="done">Success</VueButton>
+      </div>
+      <div class="row">
+        <VueButton loading class="big round" icon-left="mic">Default</VueButton>
+        <VueButton loading class="big round primary" icon-left="flag">Primary</VueButton>
+        <VueButton loading class="big round accent" icon-left="star">Accent</VueButton>
+        <VueButton loading class="big round danger" icon-left="error">Danger</VueButton>
+        <VueButton loading class="big round warning" icon-left="warning">Warning</VueButton>
+        <VueButton loading class="big round info" icon-left="info">Info</VueButton>
+        <VueButton loading class="big round success" icon-left="done">Success</VueButton>
+      </div>
+      <div class="row">
+        <VueButton loading-secondary class="big round" icon-left="mic">Default</VueButton>
+        <VueButton loading-secondary class="big round primary" icon-left="flag">Primary</VueButton>
+        <VueButton loading-secondary class="big round accent" icon-left="star">Accent</VueButton>
+        <VueButton loading-secondary class="big round danger" icon-left="error">Danger</VueButton>
+        <VueButton loading-secondary class="big round warning" icon-left="warning">Warning</VueButton>
+        <VueButton loading-secondary class="big round info" icon-left="info">Info</VueButton>
+        <VueButton loading-secondary class="big round success" icon-left="done">Success</VueButton>
+      </div>
+      <div class="row">
+        <VueButton class="big round flat" icon-left="mic">Default</VueButton>
+        <VueButton class="big round flat primary" icon-left="flag">Primary</VueButton>
+        <VueButton class="big round flat accent" icon-left="star">Accent</VueButton>
+        <VueButton class="big round flat danger" icon-left="error">Danger</VueButton>
+        <VueButton class="big round flat warning" icon-left="warning">Warning</VueButton>
+        <VueButton class="big round flat info" icon-left="info">Info</VueButton>
+        <VueButton class="big round flat success" icon-left="done">Success</VueButton>
+      </div>
+      <div class="row">
+        <VueButton disabled class="big round flat" icon-left="mic">Default</VueButton>
+        <VueButton disabled class="big round flat primary" icon-left="flag">Primary</VueButton>
+        <VueButton disabled class="big round flat accent" icon-left="star">Accent</VueButton>
+        <VueButton disabled class="big round flat danger" icon-left="error">Danger</VueButton>
+        <VueButton disabled class="big round flat warning" icon-left="warning">Warning</VueButton>
+        <VueButton disabled class="big round flat info" icon-left="info">Info</VueButton>
+        <VueButton disabled class="big round flat success" icon-left="done">Success</VueButton>
+      </div>
+      <div class="row">
+        <VueButton loading class="big round flat" icon-left="mic">Default</VueButton>
+        <VueButton loading class="big round flat primary" icon-left="flag">Primary</VueButton>
+        <VueButton loading class="big round flat accent" icon-left="star">Accent</VueButton>
+        <VueButton loading class="big round flat danger" icon-left="error">Danger</VueButton>
+        <VueButton loading class="big round flat warning" icon-left="warning">Warning</VueButton>
+        <VueButton loading class="big round flat info" icon-left="info">Info</VueButton>
+        <VueButton loading class="big round flat success" icon-left="done">Success</VueButton>
+      </div>
+      <div class="row">
+        <VueButton loading-secondary class="big round flat" icon-left="mic">Default</VueButton>
+        <VueButton loading-secondary class="big round flat primary" icon-left="flag">Primary</VueButton>
+        <VueButton loading-secondary class="big round flat accent" icon-left="star">Accent</VueButton>
+        <VueButton loading-secondary class="big round flat danger" icon-left="error">Danger</VueButton>
+        <VueButton loading-secondary class="big round flat warning" icon-left="warning">Warning</VueButton>
+        <VueButton loading-secondary class="big round flat info" icon-left="info">Info</VueButton>
+        <VueButton loading-secondary class="big round flat success" icon-left="done">Success</VueButton>
+      </div>
 
       <h3>Icon button</h3>
       <div class="row">
@@ -328,6 +472,150 @@
         <VueButton loading-secondary class="icon-button round flat warning" icon-left="warning"/>
         <VueButton loading-secondary class="icon-button round flat info" icon-left="info"/>
         <VueButton loading-secondary class="icon-button round flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <VueButton class="big icon-button" icon-left="mic"/>
+        <VueButton class="big icon-button primary" icon-left="flag"/>
+        <VueButton class="big icon-button accent" icon-left="star"/>
+        <VueButton class="big icon-button danger" icon-left="error"/>
+        <VueButton class="big icon-button warning" icon-left="warning"/>
+        <VueButton class="big icon-button info" icon-left="info"/>
+        <VueButton class="big icon-button success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <VueButton disabled class="big icon-button" icon-left="mic"/>
+        <VueButton disabled class="big icon-button primary" icon-left="flag"/>
+        <VueButton disabled class="big icon-button accent" icon-left="star"/>
+        <VueButton disabled class="big icon-button danger" icon-left="error"/>
+        <VueButton disabled class="big icon-button warning" icon-left="warning"/>
+        <VueButton disabled class="big icon-button info" icon-left="info"/>
+        <VueButton disabled class="big icon-button success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <VueButton loading class="big icon-button" icon-left="mic"/>
+        <VueButton loading class="big icon-button primary" icon-left="flag"/>
+        <VueButton loading class="big icon-button accent" icon-left="star"/>
+        <VueButton loading class="big icon-button danger" icon-left="error"/>
+        <VueButton loading class="big icon-button warning" icon-left="warning"/>
+        <VueButton loading class="big icon-button info" icon-left="info"/>
+        <VueButton loading class="big icon-button success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <VueButton loading-secondary class="big icon-button" icon-left="mic"/>
+        <VueButton loading-secondary class="big icon-button primary" icon-left="flag"/>
+        <VueButton loading-secondary class="big icon-button accent" icon-left="star"/>
+        <VueButton loading-secondary class="big icon-button danger" icon-left="error"/>
+        <VueButton loading-secondary class="big icon-button warning" icon-left="warning"/>
+        <VueButton loading-secondary class="big icon-button info" icon-left="info"/>
+        <VueButton loading-secondary class="big icon-button success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <VueButton class="big icon-button flat" icon-left="mic"/>
+        <VueButton class="big icon-button flat primary" icon-left="flag"/>
+        <VueButton class="big icon-button flat accent" icon-left="star"/>
+        <VueButton class="big icon-button flat danger" icon-left="error"/>
+        <VueButton class="big icon-button flat warning" icon-left="warning"/>
+        <VueButton class="big icon-button flat info" icon-left="info"/>
+        <VueButton class="big icon-button flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <VueButton disabled class="big icon-button flat" icon-left="mic"/>
+        <VueButton disabled class="big icon-button flat primary" icon-left="flag"/>
+        <VueButton disabled class="big icon-button flat accent" icon-left="star"/>
+        <VueButton disabled class="big icon-button flat danger" icon-left="error"/>
+        <VueButton disabled class="big icon-button flat warning" icon-left="warning"/>
+        <VueButton disabled class="big icon-button flat info" icon-left="info"/>
+        <VueButton disabled class="big icon-button flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <VueButton loading class="big icon-button flat" icon-left="mic"/>
+        <VueButton loading class="big icon-button flat primary" icon-left="flag"/>
+        <VueButton loading class="big icon-button flat accent" icon-left="star"/>
+        <VueButton loading class="big icon-button flat danger" icon-left="error"/>
+        <VueButton loading class="big icon-button flat warning" icon-left="warning"/>
+        <VueButton loading class="big icon-button flat info" icon-left="info"/>
+        <VueButton loading class="big icon-button flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <VueButton loading-secondary class="big icon-button flat" icon-left="mic"/>
+        <VueButton loading-secondary class="big icon-button flat primary" icon-left="flag"/>
+        <VueButton loading-secondary class="big icon-button flat accent" icon-left="star"/>
+        <VueButton loading-secondary class="big icon-button flat danger" icon-left="error"/>
+        <VueButton loading-secondary class="big icon-button flat warning" icon-left="warning"/>
+        <VueButton loading-secondary class="big icon-button flat info" icon-left="info"/>
+        <VueButton loading-secondary class="big icon-button flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <VueButton class="big icon-button round" icon-left="mic"/>
+        <VueButton class="big icon-button round primary" icon-left="flag"/>
+        <VueButton class="big icon-button round accent" icon-left="star"/>
+        <VueButton class="big icon-button round danger" icon-left="error"/>
+        <VueButton class="big icon-button round warning" icon-left="warning"/>
+        <VueButton class="big icon-button round info" icon-left="info"/>
+        <VueButton class="big icon-button round success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <VueButton disabled class="big icon-button round" icon-left="mic"/>
+        <VueButton disabled class="big icon-button round primary" icon-left="flag"/>
+        <VueButton disabled class="big icon-button round accent" icon-left="star"/>
+        <VueButton disabled class="big icon-button round danger" icon-left="error"/>
+        <VueButton disabled class="big icon-button round warning" icon-left="warning"/>
+        <VueButton disabled class="big icon-button round info" icon-left="info"/>
+        <VueButton disabled class="big icon-button round success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <VueButton loading class="big icon-button round" icon-left="mic"/>
+        <VueButton loading class="big icon-button round primary" icon-left="flag"/>
+        <VueButton loading class="big icon-button round accent" icon-left="star"/>
+        <VueButton loading class="big icon-button round danger" icon-left="error"/>
+        <VueButton loading class="big icon-button round warning" icon-left="warning"/>
+        <VueButton loading class="big icon-button round info" icon-left="info"/>
+        <VueButton loading class="big icon-button round success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <VueButton loading-secondary class="big icon-button round" icon-left="mic"/>
+        <VueButton loading-secondary class="big icon-button round primary" icon-left="flag"/>
+        <VueButton loading-secondary class="big icon-button round accent" icon-left="star"/>
+        <VueButton loading-secondary class="big icon-button round danger" icon-left="error"/>
+        <VueButton loading-secondary class="big icon-button round warning" icon-left="warning"/>
+        <VueButton loading-secondary class="big icon-button round info" icon-left="info"/>
+        <VueButton loading-secondary class="big icon-button round success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <VueButton class="big icon-button round flat" icon-left="mic"/>
+        <VueButton class="big icon-button round flat primary" icon-left="flag"/>
+        <VueButton class="big icon-button round flat accent" icon-left="star"/>
+        <VueButton class="big icon-button round flat danger" icon-left="error"/>
+        <VueButton class="big icon-button round flat warning" icon-left="warning"/>
+        <VueButton class="big icon-button round flat info" icon-left="info"/>
+        <VueButton class="big icon-button round flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <VueButton disabled class="big icon-button round flat" icon-left="mic"/>
+        <VueButton disabled class="big icon-button round flat primary" icon-left="flag"/>
+        <VueButton disabled class="big icon-button round flat accent" icon-left="star"/>
+        <VueButton disabled class="big icon-button round flat danger" icon-left="error"/>
+        <VueButton disabled class="big icon-button round flat warning" icon-left="warning"/>
+        <VueButton disabled class="big icon-button round flat info" icon-left="info"/>
+        <VueButton disabled class="big icon-button round flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <VueButton loading class="big icon-button round flat" icon-left="mic"/>
+        <VueButton loading class="big icon-button round flat primary" icon-left="flag"/>
+        <VueButton loading class="big icon-button round flat accent" icon-left="star"/>
+        <VueButton loading class="big icon-button round flat danger" icon-left="error"/>
+        <VueButton loading class="big icon-button round flat warning" icon-left="warning"/>
+        <VueButton loading class="big icon-button round flat info" icon-left="info"/>
+        <VueButton loading class="big icon-button round flat success" icon-left="done"/>
+      </div>
+      <div class="row">
+        <VueButton loading-secondary class="big icon-button round flat" icon-left="mic"/>
+        <VueButton loading-secondary class="big icon-button round flat primary" icon-left="flag"/>
+        <VueButton loading-secondary class="big icon-button round flat accent" icon-left="star"/>
+        <VueButton loading-secondary class="big icon-button round flat danger" icon-left="error"/>
+        <VueButton loading-secondary class="big icon-button round flat warning" icon-left="warning"/>
+        <VueButton loading-secondary class="big icon-button round flat info" icon-left="info"/>
+        <VueButton loading-secondary class="big icon-button round flat success" icon-left="done"/>
       </div>
     </div>
   </div>

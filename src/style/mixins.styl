@@ -60,6 +60,13 @@ space-between-y($margin) {
   }
 }
 
+// Disable noisy browser styles
+disable-focus-styles()
+  outline none
+  -webkit-tap-highlight-color rgba(255, 255, 255, 0)
+  &::-moz-focus-inner
+    border 0
+
 // Buttons
 
 button-colors($foreground, $background)
@@ -67,7 +74,7 @@ button-colors($foreground, $background)
   background $background
   &:not(.ghost)
     &:hover,
-    .vue-dropdown.open > .trigger &
+    .vue-dropdown.open .dropdown-trigger &
       background lighten(@background, 25%)
     &:active
       background darken(@background, 8%)

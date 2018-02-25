@@ -1,12 +1,16 @@
 <template>
   <VueDropdown
+    ref="dropdown"
     class="vue-select"
     v-bind="$attrs"
+    v-on="$listeners"
     :disabled="finalDisabled"
     :icon-left="displayedIcon"
     :icon-right="iconRight"
     :label="displayedLabel"
     :popover-class="['popover', 'select-popover', popoverClass]"
+    content-class="vue-select-popover-content"
+    force-min-size
   >
     <template slot="trigger">
       <slot name="trigger" :label="displayedLabel"/>
@@ -33,6 +37,14 @@ export default {
     DisabledChild,
   ],
 
+  provide () {
+    return {
+      VueSelect: {
+        setCurrentChild: this.setCurrentChild,
+      },
+    }
+  },
+
   props: {
     iconLeft: {
       type: String,
@@ -45,7 +57,7 @@ export default {
     },
 
     label: {
-      type: String,
+      type: [String, Number],
       default: null,
     },
 
@@ -74,8 +86,7 @@ export default {
         return this.label
       } else if (this.currentChild) {
         return this.currentChild.selectLabel ||
-          this.currentChild['select-label'] ||
-          this.currentChild.label ||
+          this.currentChild.$attrs.label ||
           this.value
       } else if (this.placeholder) {
         return this.placeholder
@@ -88,10 +99,8 @@ export default {
       if (this.iconLeft) {
         return this.iconLeft
       } else if (this.currentChild) {
-        return this.currentChild.icon ||
-          this.currentChild.icon ||
-          this.currentChild.iconLeft ||
-          this.currentChild['icon-left']
+        return this.currentChild.$attrs.icon ||
+          this.currentChild.$attrs['icon-left']
       }
     },
 
@@ -101,35 +110,17 @@ export default {
     },
   },
 
-  watch: {
-    value (value, oldValue) {
-      if (value !== oldValue) {
-        this.updateChild()
-      }
-    },
-  },
-
-  mounted () {
-    this.updateChild()
-  },
-
   methods: {
-    updateChild () {
-      this.$nextTick(() => {
-        this.currentChild = null
-        for (const vnode of this.$slots.default) {
-          if (vnode.data && (vnode.data.props || vnode.data.attrs)) {
-            const value = vnode.data.props && typeof vnode.data.props.value !== 'undefined' ? vnode.data.props.value : vnode.data.attrs.value
-            if (value === this.value) {
-              this.currentChild = {
-                ...vnode.data.attrs,
-                ...vnode.data.props,
-              }
-            }
-          }
-        }
-      })
+    setCurrentChild (vm) {
+      this.currentChild = vm
     },
   },
 }
 </script>
+
+<style lang="stylus">
+.vue-select-popover-content
+  padding 0 4px
+  max-height 220px
+  overflow-y auto
+</style>

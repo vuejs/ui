@@ -3,14 +3,15 @@
     class="vue-input"
     :class="{
       disabled: finalDisabled,
-      focused
+      focused,
+      'show-suggestion': showSuggestion,
     }"
     @click="focus()"
   >
     <div class="content">
       <VueLoadingIndicator
-        v-if="loading"
-        class="small"
+        v-if="loadingLeft"
+        class="small left"
       />
 
       <VueIcon
@@ -21,16 +22,26 @@
 
       <slot name="left"/>
 
-      <input
-        ref="input"
-        class="input"
-        :type="type"
-        v-model="valueModel"
-        :placeholder="placeholder"
-        :disabled="finalDisabled"
-        @focus="focused = true"
-        @blur="focused = false"
-      >
+      <div class="input-wrapper">
+        <input
+          ref="input"
+          class="input"
+          :type="type"
+          v-model="valueModel"
+          :placeholder="placeholder"
+          :disabled="finalDisabled"
+          @focus="onFocus"
+          @blur="onBlur"
+          @keydown.tab="onKeyTab"
+        >
+
+        <input
+          v-if="showSuggestion"
+          class="input suggestion"
+          :value="suggestion"
+          disabled
+        >
+      </div>
 
       <slot name="right"/>
 
@@ -40,6 +51,12 @@
         class="input-icon right"
       />
 
+      <VueLoadingIndicator
+        v-if="loadingRight"
+        class="small right"
+      />
+
+      <!-- Focus animation -->
       <div class="border"/>
     </div>
   </div>
@@ -66,7 +83,12 @@ export default {
       default: null,
     },
 
-    loading: {
+    loadingLeft: {
+      type: Boolean,
+      default: false,
+    },
+
+    loadingRight: {
       type: Boolean,
       default: false,
     },
@@ -79,6 +101,11 @@ export default {
     selectAll: {
       type: Boolean,
       default: false,
+    },
+
+    suggestion: {
+      type: [String, Number],
+      default: null,
     },
 
     type: {
@@ -96,6 +123,10 @@ export default {
   },
 
   computed: {
+    showSuggestion () {
+      return this.suggestion !== null && this.suggestion !== this.value && this.focused && this.value
+    },
+
     valueModel: {
       get () { return this.value },
       set (value) { this.$emit('input', value) },
@@ -108,6 +139,24 @@ export default {
       input.focus()
       if (this.selectAll) {
         input.setSelectionRange(0, input.value.length)
+      }
+    },
+
+    onBlur (event) {
+      this.focused = false
+      this.$emit('blur', event)
+    },
+
+    onFocus (event) {
+      this.focused = true
+      this.$emit('focus', event)
+    },
+
+    onKeyTab (event) {
+      if (this.showSuggestion) {
+        this.valueModel = this.suggestion
+        event.preventDefault()
+        event.stopPropagation()
       }
     },
   },
@@ -142,47 +191,70 @@ colors($color)
   > .content
     h-box()
     box-center()
-    padding 8px 14px
-    border none
+    padding 0 10px
+    border solid 1px $color-light-neutral
     color $color-dark
-    border-radius 3px
+    border-radius $br
     transition background .3s
     position relative
 
-    > .input
-      font-family inherit
-      font-size inherit
-      color @color
-      padding 0
-      border none
-      background transparent
+    > .input-wrapper
+      position relative
       width 0
       flex auto 1 1
-      &::placeholder
+
+      > .input
+        position relative
+        z-index 1
+        font-family inherit
+        font-size 14px
+        line-height 14px
+        color @color
+        padding 0
+        width 100%
+        height 30px
+        display block
+        border none
+        background transparent
+        &::placeholder
+          color $lightened
+        // Disable noisy browser styles
+        outline none
+        &::-moz-focus-inner
+          border 0
+
+      > .suggestion
+        position absolute
+        z-index 0
+        top 0
+        left 0
+        overflow hidden
+        white-space nowrap
+        text-overflow ellipsis
         color $lightened
-      // Disable noisy browser styles
-      outline none
-      &::-moz-focus-inner
-        border 0
+        pointer-events none
 
     > .input-icon
       &.left
-        margin-right 8px
+        margin-right 6px
       &.right
-        margin-left 8px
+        margin-left 6px
       svg
         fill $lightened
         transition fill .3s
 
     > .vue-loading-indicator
-      margin-right 8px
+      &.left
+        margin-right 8px
+      &.right
+        margin-left 8px
       .animation
         border-right-color $lightened
         border-bottom-color $lightened
 
     > .border
       position absolute
-      bottom 0
+      bottom -1px
       left 30%
       right @left
       opacity 0
@@ -194,6 +266,11 @@ colors($color)
     > .content
       background lighten($color-light-neutral, 70%)
 
+  &.show-suggestion
+    > .content > .input-wrapper > .input
+      &::placeholder
+        color transparent
+
   colors($color-primary)
 
   &.accent
@@ -203,10 +280,8 @@ colors($color)
     &:not(.flat)
       > .content
         background $color-light
-        border-bottom-left-radius 0
-        border-bottom-right-radius 0
         > .border
-          left 14px
+          left 0
           right @left
           opacity 1
 

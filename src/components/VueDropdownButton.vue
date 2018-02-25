@@ -26,7 +26,7 @@ export default {
 
 <style lang="stylus">
 @import "../style/imports"
-.vue-dropdown-button.vue-button
+.vue-dropdown-content .vue-dropdown-button.vue-button
   border-radius 0
   background transparent
   button-transitions()

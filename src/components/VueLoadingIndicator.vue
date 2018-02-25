@@ -40,7 +40,7 @@ colors($color)
       colors($color-accent)
   &.small
     > .animation
-      width 12px
+      width 10px
       height @width
   &.big
     > .animation

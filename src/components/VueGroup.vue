@@ -76,20 +76,19 @@ export default {
       this.$emit('input', value)
     },
 
-    updateIndicator () {
-      this.$nextTick(() => {
-        const el = this.$el.querySelector('.selected')
-        if (el) {
-          this.indicatorStyle = {
-            top: el.offsetTop,
-            left: el.offsetLeft,
-            width: el.offsetWidth,
-            height: el.offsetHeight,
-          }
-        } else {
-          this.indicatorStyle = null
+    async updateIndicator () {
+      await this.$nextTick()
+      const el = this.$el.querySelector('.selected')
+      if (el) {
+        this.indicatorStyle = {
+          top: el.offsetTop,
+          left: el.offsetLeft,
+          width: el.offsetWidth,
+          height: el.offsetHeight,
         }
-      })
+      } else {
+        this.indicatorStyle = null
+      }
     },
   },
 }
@@ -102,15 +101,15 @@ indicator(direction)
   > .indicator
     padding-{direction} 1px
     > .content
-      border-{direction} solid 2px $color-dark
+      border-{direction} solid 2px rgba($color-dark, .7)
   &.primary
     > .indicator
       > .content
-        border-{direction}-color $color-primary
+        border-{direction}-color rgba($color-primary, .7)
   &.accent
     > .indicator
       > .content
-        border-{direction}-color $color-accent
+        border-{direction}-color rgba($color-accent, .7)
 
 .vue-group
   position relative
@@ -119,6 +118,14 @@ indicator(direction)
     h-box()
     align-items stretch
     justify-content center
+
+  &.start
+    > .content
+      justify-content flex-start
+
+  &.end
+    > .content
+      justify-content flex-end
 
   &.vertical
     > .content

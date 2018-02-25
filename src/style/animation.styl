@@ -1,0 +1,34 @@
+@keyframes vue-focus
+  $color = $color-accent
+  0%
+    border-color $color
+    box-shadow 0 0 10px rgba($color, 1)
+  100%
+    border-color rgba($color, .6)
+    box-shadow 0 0 4px rgba($color, .5)
+
+vue-slide($direction, $offset)
+  if $direction == bottom
+    $transform = "translateY(%s)" % $offset
+  else if $direction == top
+    $transform = "translateY(-%s)" % $offset
+  else if $direction == left
+    $transform = "translateX(-%s)" % $offset
+  else if $direction == right
+    $transform = "translateX(%s)" % $offset
+  @keyframes vue-slide-from-{$direction}
+    0%
+      transform $transform
+    100%
+      transform none
+  @keyframes vue-slide-to-{$direction}
+    0%
+      transform none
+    100%
+      transform $transform
+
+$offset = 10px
+vue-slide(bottom, $offset)
+vue-slide(top, $offset)
+vue-slide(left, $offset)
+vue-slide(right, $offset)

@@ -28,9 +28,12 @@
   },
   "homepage": "https://github.com/Akryum/vue-ui-framework#readme",
   "dependencies": {
+    "focus-visible": "^4.1.0",
+    "lodash.throttle": "^4.1.1",
     "material-design-icons": "^3.0.1",
     "v-tooltip": "^2.0.0-rc.31",
     "vue": "^2.5.13",
+    "vue-resize": "^0.4.3",
     "vue-router": "^3.0.1",
     "vue-virtual-scroller": "^0.11.5",
     "vuex": "^3.0.1"
@@ -40,6 +43,7 @@
     "@vue/cli-plugin-eslint": "^3.0.0-beta.1",
     "@vue/cli-service": "^3.0.0-beta.1",
     "@vue/eslint-config-standard": "^3.0.0-beta.1",
+    "postcss-focus-visible": "^2.0.0",
     "raw-loader": "^0.5.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1",

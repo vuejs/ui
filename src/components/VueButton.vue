@@ -11,6 +11,9 @@
       }
     ]"
     v-bind="$attrs"
+    :tabindex="ghost ? -1 : 0"
+    role="button"
+    :aria-disabled="ghost"
     @click.capture="handleClick"
     @click.capture.native="handleClick"
   >
@@ -31,9 +34,11 @@
         class="button-icon left"
       />
 
-      <slot>
-        {{ label }}
-      </slot>
+      <span class="default-slot">
+        <slot>
+          {{ label }}
+        </slot>
+      </span>
 
       <VueIcon
         v-if="iconRight"
@@ -116,6 +121,8 @@ export default {
 <style lang="stylus">
 @import "../style/imports"
 
+$focus-color = $color-dark
+
 colors($dark, $light, $invert = false)
   if $invert
     $foreground = $light
@@ -128,29 +135,46 @@ colors($dark, $light, $invert = false)
     button-colors($dark, transparent)
     &:not(.ghost)
       &:hover,
-      .vue-dropdown.open > .trigger &
+      &:active,
+      .vue-dropdown.open .dropdown-trigger &
         button-colors($foreground, $background)
 
 .vue-button
   display inline-block
   vertical-align middle
-  padding 8px 16px
   border none
   font-family inherit
-  font-size 1em
   text-decoration none
   cursor pointer
   user-select none
   position relative
   box-sizing border-box
-  border-radius 4px
+  border-radius $br
+  padding 8px 16px
+  font-size 14px
+  line-height 16px
+  &.big
+    padding 14px 20px
+    font-size 16px
+  // Round style
   &.round
     border-radius 17px
+    // Focus
+    &:focus:focus-visible::after
+      border-radius (@border-radius + 1px)
+    // Big button
+    &.big
+      border-radius 22px
+      // Focus
+      &:focus:focus-visible::after
+        border-radius (@border-radius + 1px)
   &.flat
     button-transitions()
   > .content
     h-box()
     box-center()
+    > .default-slot
+      flex auto 1 1
   &:not(.icon-button)
     > .content
       > .button-icon
@@ -161,7 +185,16 @@ colors($dark, $light, $invert = false)
       > .loading-secondary
         margin-right 6px
   &.icon-button
-    padding 9px
+    padding 8px
+    width 32px
+    height @width
+    &.big
+      padding 12px
+      width 44px
+      height @width
+      .vue-icon
+        width 20px
+        height @width
   &.ghost
     cursor default
   &.disabled
@@ -190,10 +223,19 @@ colors($dark, $light, $invert = false)
     colors($color-info, $color-light-neutral)
   &.success
     colors($color-success, $color-light-neutral)
-  // Disable noisy browser styles
-  outline none
-  -webkit-tap-highlight-color rgba(255, 255, 255, 0)
-  &::-moz-focus-inner
-    border 0
-
+  disable-focus-styles()
+  // Keyboard focus style
+  &:focus:focus-visible
+    z-index 1
+    &::after
+      content ''
+      display block
+      position absolute
+      top -1px
+      bottom @top
+      left @top
+      right @top
+      border 1px solid
+      border-radius ($br + 1px)
+      animation vue-focus .3s forwards
 </style>

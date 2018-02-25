@@ -4,6 +4,7 @@
     :class="{
       selected,
     }"
+    :aria-selected="selected"
     v-bind="$attrs"
     @click="handleClick"
   >
@@ -31,6 +32,14 @@ export default {
     },
   },
 
+  watch: {
+    selected (value, oldValue) {
+      if (value !== oldValue) {
+        this.$emit('selected', value)
+      }
+    },
+  },
+
   methods: {
     handleClick (...args) {
       this.$emit('click', ...args)
@@ -49,7 +58,6 @@ export default {
     button-colors($color-dark, $color-light-neutral)
 
   &.selected
-    pointer-events none
     .vue-group.has-indicator.primary &
       button-colors($color-primary, $color-light-neutral)
     .vue-group.has-indicator.accent &
@@ -110,12 +118,4 @@ export default {
         > .content
           position relative
           z-index 1
-
-  &.flat
-    &:hover
-      .vue-group.has-indicator &
-        button-colors(black, transparent)
-    &.selected
-      .vue-group.has-indicator:not(.primary):not(.accent) &
-        button-colors(black, transparent)
 </style>

@@ -1,5 +1,7 @@
 import VueIcons from './icons'
 import VTooltip from 'v-tooltip'
+import VueResize from 'vue-resize'
+import 'focus-visible'
 
 import './style/base.styl'
 
@@ -9,6 +11,8 @@ export function install (Vue, options = {}) {
   Vue.use(VTooltip, Object.assign({
     defaultDelay: { show: 300, hide: 0 },
   }, options.vtooltip))
+
+  Vue.use(VueResize)
 
   // To extract the component name
   const nameReg = /([a-z0-9]+)\./i

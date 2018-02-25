@@ -1,7 +1,11 @@
+/**
+ * (Use with the DisabledParent mixin)
+ * This mixin should be implemented on all components that can be disabled.
+ */
 // @vue/component
 export default {
   inject: {
-    injectedDisableState: {
+    VueDisableMixin: {
       default: null,
     },
   },
@@ -15,7 +19,7 @@ export default {
 
   computed: {
     finalDisabled () {
-      return this.disabled || (this.injectedDisableState && this.injectedDisableState.value)
+      return this.disabled || (this.VueDisableMixin && this.VueDisableMixin.data.value)
     },
   },
 }

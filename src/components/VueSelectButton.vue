@@ -4,6 +4,7 @@
     v-bind="$attrs"
     v-on="$listeners"
     v-close-popover="!keepOpen"
+    @selected="onSelect"
   >
     <slot/>
   </VueGroupButton>
@@ -17,10 +18,22 @@ export default {
 
   extends: VueDropdownButton,
 
+  inject: [
+    'VueSelect',
+  ],
+
   props: {
     selectLabel: {
       type: String,
       default: null,
+    },
+  },
+
+  methods: {
+    onSelect (selected) {
+      if (selected) {
+        this.VueSelect.setCurrentChild(this)
+      }
     },
   },
 }
@@ -30,5 +43,5 @@ export default {
 @import "../style/imports"
 
 .vue-select-button
-  border-radius 3px !important
+  border-radius $br !important
 </style>

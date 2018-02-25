@@ -1,8 +1,14 @@
+/**
+ * (Use with the DisabledChild mixin)
+ * Allow disabling an entire tree of components implementing the DisabledChild mixin.
+ */
 // @vue/component
 export default {
   provide () {
     return {
-      injectedDisableState: this.injectedDisableState,
+      VueDisableMixin: {
+        data: this.injectedDisableData,
+      },
     }
   },
 
@@ -15,7 +21,7 @@ export default {
 
   data () {
     return {
-      injectedDisableState: {
+      injectedDisableData: {
         value: this.disabled,
       },
     }
@@ -23,7 +29,7 @@ export default {
 
   watch: {
     disabled (value, oldValue) {
-      if (value !== oldValue) this.injectedDisableState.value = value
+      if (value !== oldValue) this.injectedDisableData.value = value
     },
   },
 }

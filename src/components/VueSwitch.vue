@@ -1,10 +1,19 @@
 <template>
-  <label
+  <div
     class="vue-switch"
     :class="{
       selected: value,
       disabled: finalDisabled,
+      focus: focused,
     }"
+    :tabindex="disabled ? -1 : 0"
+    role="checkbox"
+    :aria-disabled="disabled"
+    :aria-selected="!!value"
+    @click="toggleValue"
+    @keydown.enter="focused = true; toggleValue($event)"
+    @keydown.space="focused = true; toggleValue($event)"
+    @blur="focused = false"
   >
     <div class="content">
       <VueIcon
@@ -18,12 +27,7 @@
         <div class="bullet"/>
       </div>
     </div>
-    <input
-      v-if="!finalDisabled"
-      type="checkbox"
-      v-model="valueModel"
-    >
-  </label>
+  </div>
 </template>
 
 <script>
@@ -45,10 +49,22 @@ export default {
     value: {},
   },
 
+  data () {
+    return {
+      focused: false,
+    }
+  },
+
   computed: {
     valueModel: {
       get () { return this.value },
       set (value) { this.$emit('input', value) },
+    },
+  },
+
+  methods: {
+    toggleValue () {
+      this.valueModel = !this.valueModel
     },
   },
 }
@@ -65,6 +81,7 @@ $height = 18px
   vertical-align middle
   user-select none
   position relative
+  disable-focus-styles()
   > .content
     h-box()
     align-items center
@@ -77,23 +94,13 @@ $height = 18px
       border-radius (@height / 2)
       background $color-light-neutral
       transition background .2s
+      position relative
       .bullet
         width @height
         height @height
         border-radius 50%
         background $color-dark
         transition margin-left .2s ease-in-out, transform .2s ease-in-out
-  > input
-    display block
-    margin 0
-    padding 0
-    position absolute
-    cursor pointer
-    top 0
-    left 0
-    width 100%
-    height 100%
-    opacity 0
 
   &.no-margin
     > .content
@@ -123,6 +130,7 @@ $height = 18px
       justify-content flex-end
 
   &:not(.disabled)
+    cursor pointer
     &:hover
       > .content
         > .wrapper
@@ -167,4 +175,18 @@ $height = 18px
       > .content
         background lighten($color-light-neutral, 25%)
 
+  // Focus
+  &.focus,
+  &:focus:focus-visible
+    > .content > .wrapper::after
+      content ''
+      display block
+      position absolute
+      top -1px
+      bottom @top
+      left @top
+      right @top
+      border 1px solid
+      border-radius ($height / 2 + 1px)
+      animation vue-focus .3s forwards
 </style>
