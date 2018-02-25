@@ -23,17 +23,19 @@
       <slot name="left"/>
 
       <div class="input-wrapper">
-        <input
+        <component
+          :is="type === 'textarea' ? type : 'input'"
           ref="input"
           class="input"
           :type="type"
           v-model="valueModel"
           :placeholder="placeholder"
           :disabled="finalDisabled"
+          v-bind="$attrs"
           @focus="onFocus"
           @blur="onBlur"
           @keydown.tab="onKeyTab"
-        >
+        />
 
         <input
           v-if="showSuggestion"
@@ -67,6 +69,8 @@ import DisabledChild from '../mixins/DisabledChild'
 
 export default {
   name: 'VueInput',
+
+  inheritAttrs: false,
 
   mixins: [
     DisabledChild,
@@ -212,16 +216,23 @@ colors($color)
         color @color
         padding 0
         width 100%
-        height 30px
         display block
         border none
         background transparent
+        &:not(textarea)
+          height 30px
         &::placeholder
           color $lightened
         // Disable noisy browser styles
         outline none
         &::-moz-focus-inner
           border 0
+
+      > textarea.input
+        padding 8px 0
+        resize vertical
+        min-height 30px
+        box-sizing border-box
 
       > .suggestion
         position absolute

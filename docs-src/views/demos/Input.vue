@@ -9,7 +9,7 @@
         <VueInput v-model="string" placeholder="Type a message"/>
         <VueInput class="accent" v-model="string" placeholder="Accent input"/>
         <VueInput icon-left="search" v-model="string" placeholder="Type a message"/>
-        <VueInput icon-right="arrow_forward" class="accent" v-model="string" placeholder="Type a message"/>
+        <VueInput icon-right="lock" type="password" class="accent" v-model="string" placeholder="Password"/>
         <VueInput loading-left v-model="string" placeholder="Type a message"/>
         <VueInput loading-right v-model="string" placeholder="Type a message"/>
         <VueButton icon-left="replay" @click="string = ''">Reset</VueButton>
@@ -37,6 +37,12 @@
 
       <div class="row">
         With suggestion: <VueInput icon-left="search" v-model="string" placeholder="Search a fruit" :suggestion="suggestion"/>
+      </div>
+
+      <div class="row">Textarea:</div>
+
+      <div class="grid col-6">
+        <VueInput type="textarea" rows="4" v-model="string" placeholder="Type a message"/>
       </div>
     </div>
   </div>
