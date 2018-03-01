@@ -2,7 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import VueUiFramework from '../src'
+import VueUiFramework from '../'
+import '../dist/vue-ui.css'
 import './components'
 
 Vue.use(VueUiFramework)
