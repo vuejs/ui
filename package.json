@@ -27,12 +27,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Akryum/vue-ui-framework.git"
+    "url": "git+https://github.com/vuejs/ui.git"
   },
   "bugs": {
-    "url": "https://github.com/Akryum/vue-ui-framework/issues"
+    "url": "https://github.com/vuejs/ui/issues"
   },
-  "homepage": "https://github.com/Akryum/vue-ui-framework#readme",
+  "homepage": "https://github.com/vuejs/ui#readme",
   "dependencies": {
     "focus-visible": "^4.1.0",
     "material-design-icons": "^3.0.1",
