@@ -119,6 +119,8 @@ export default {
 </script>
 
 <style lang="stylus">
+@import "../style/base"
+
 @import "../style/imports"
 
 $focus-color = $color-dark

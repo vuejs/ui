@@ -1,5 +1,6 @@
 {
   "presets": [
-    "@vue/app"
+    ["env", { "modules": false }],
+    "stage-2"
   ]
 }
