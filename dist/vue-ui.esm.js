@@ -7478,13 +7478,13 @@ var $0_6 = {
 var $0_7 = { render: function render() {
     var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "vue-input", class: { disabled: _vm.finalDisabled, focused: _vm.focused, 'show-suggestion': _vm.showSuggestion }, on: { "click": function click($event) {
           _vm.focus();
-        } } }, [_c('div', { staticClass: "content" }, [_vm.loadingLeft ? _c('VueLoadingIndicator', { staticClass: "small left" }) : _vm.iconLeft ? _c('VueIcon', { staticClass: "input-icon left", attrs: { "icon": _vm.iconLeft } }) : _vm._e(), _vm._v(" "), _vm._t("left"), _vm._v(" "), _c('div', { staticClass: "input-wrapper" }, [_c(_vm.type === 'textarea' ? _vm.type : 'input', _vm._b({ ref: "input", tag: "component", staticClass: "input", attrs: { "type": _vm.type, "placeholder": _vm.placeholder, "disabled": _vm.finalDisabled }, on: { "focus": _vm.onFocus, "blur": _vm.onBlur, "keydown": function keydown($event) {
+        } } }, [_c('div', { staticClass: "content" }, [_vm.loadingLeft ? _c('VueLoadingIndicator', { staticClass: "small left" }) : _vm.iconLeft ? _c('VueIcon', { staticClass: "input-icon left", attrs: { "icon": _vm.iconLeft } }) : _vm._e(), _vm._v(" "), _vm._t("left"), _vm._v(" "), _c('div', { staticClass: "input-wrapper" }, [_c(_vm.type === 'textarea' ? _vm.type : 'input', _vm._b({ ref: "input", tag: "component", staticClass: "input", attrs: { "type": _vm.type, "value": _vm.valueModel, "placeholder": _vm.placeholder, "disabled": _vm.finalDisabled }, on: { "input": function input($event) {
+          _vm.valueModel = $event.currentTarget.value;
+        }, "focus": _vm.onFocus, "blur": _vm.onBlur, "keydown": function keydown($event) {
           if (!('button' in $event) && _vm._k($event.keyCode, "tab", 9, $event.key)) {
             return null;
           }_vm.onKeyTab($event);
-        } }, model: { value: _vm.valueModel, callback: function callback($$v) {
-          _vm.valueModel = $$v;
-        }, expression: "valueModel" } }, 'component', _vm.$attrs, false)), _vm._v(" "), _vm.showSuggestion ? _c('input', { staticClass: "input suggestion", attrs: { "disabled": "disabled" }, domProps: { "value": _vm.suggestion } }) : _vm._e()], 1), _vm._v(" "), _vm._t("right"), _vm._v(" "), _vm.iconRight ? _c('VueIcon', { staticClass: "input-icon right", attrs: { "icon": _vm.iconRight } }) : _vm._e(), _vm._v(" "), _vm.loadingRight ? _c('VueLoadingIndicator', { staticClass: "small right" }) : _vm._e(), _vm._v(" "), _c('div', { staticClass: "border" })], 2)]);
+        } } }, 'component', _vm.$attrs, false)), _vm._v(" "), _vm.showSuggestion ? _c('input', { staticClass: "input suggestion", attrs: { "disabled": "disabled" }, domProps: { "value": _vm.suggestion } }) : _vm._e()], 1), _vm._v(" "), _vm._t("right"), _vm._v(" "), _vm.iconRight ? _c('VueIcon', { staticClass: "input-icon right", attrs: { "icon": _vm.iconRight } }) : _vm._e(), _vm._v(" "), _vm.loadingRight ? _c('VueLoadingIndicator', { staticClass: "small right" }) : _vm._e(), _vm._v(" "), _c('div', { staticClass: "border" })], 2)]);
   }, staticRenderFns: [],
   name: 'VueInput',
 
@@ -8547,7 +8547,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.1.0",
+  version: "0.1.1",
   install: install$3
 };
 
