@@ -8504,7 +8504,6 @@ var $0_17 = { render: function render() {
       set: function set$$1(value) {
         this.directSelect = true;
         this.tempValue = value;
-        console.log(value);
         this.$emit('input', value);
       }
     }
@@ -8694,7 +8693,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.1.3",
+  version: "0.1.4",
   install: install$3
 };
 
