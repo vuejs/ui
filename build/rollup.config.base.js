@@ -8,6 +8,8 @@ import requireContext from 'rollup-plugin-require-context'
 import string from 'rollup-plugin-string'
 import fs from 'fs'
 import CleanCSS from 'clean-css'
+import autoprefixer from 'autoprefixer'
+import focusVisible from 'postcss-focus-visible'
 
 const config = require('../package.json')
 
@@ -29,6 +31,7 @@ export default {
       css (style) {
         fs.writeFileSync('dist/vue-ui.css', new CleanCSS().minify(style).styles)
       },
+      postcss: [autoprefixer, focusVisible],
     }),
     babel({
       exclude: 'node_modules/**',
