@@ -167,6 +167,8 @@ colors($dark, $light, $invert = false)
     .vue-icon
       width 20px
       height @width
+      margin-top -2px
+      margin-bottom @margin-top
   // Round style
   &.round
     border-radius 17px
