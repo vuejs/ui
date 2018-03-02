@@ -137,7 +137,6 @@ export default {
       set (value) {
         this.directSelect = true
         this.tempValue = value
-        console.log(value)
         this.$emit('input', value)
       },
     },
