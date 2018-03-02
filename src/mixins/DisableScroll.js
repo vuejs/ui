@@ -1,0 +1,25 @@
+let count = 0
+
+function getScrollingElements () {
+  return document.querySelectorAll('.vue-disable-scroll, body')
+}
+
+function updateScroll () {
+  if (count === 0) {
+    getScrollingElements().forEach(el => el.classList.remove('vue-no-scroll'))
+  } else if (count === 1) {
+    getScrollingElements().forEach(el => el.classList.add('vue-no-scroll'))
+  }
+}
+
+export default {
+  mounted () {
+    count++
+    updateScroll()
+  },
+
+  beforeDestroy () {
+    count--
+    updateScroll()
+  },
+}

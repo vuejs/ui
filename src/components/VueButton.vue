@@ -11,6 +11,7 @@
       }
     ]"
     v-bind="$attrs"
+    :type="type"
     :tabindex="ghost ? -1 : 0"
     role="button"
     :aria-disabled="ghost"
@@ -86,8 +87,12 @@ export default {
       type: Boolean,
       default: false,
     },
-  },
 
+    type: {
+      type: String,
+      default: 'button',
+    },
+  },
   computed: {
     component () {
       if (this.$attrs.to) {
@@ -119,6 +124,7 @@ export default {
 </script>
 
 <style lang="stylus">
+// Base
 @import "../style/base"
 
 @import "../style/imports"

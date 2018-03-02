@@ -7002,7 +7002,7 @@ var DisabledChild = {
 };
 
 var $0_0 = { render: function render() {
-    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c(_vm.component, _vm._b({ tag: "component", staticClass: "vue-button", class: [_vm.component, { disabled: _vm.finalDisabled, loading: _vm.loading, ghost: _vm.ghost }], attrs: { "tabindex": _vm.ghost ? -1 : 0, "role": "button", "aria-disabled": _vm.ghost }, on: { "!click": function click($event) {
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c(_vm.component, _vm._b({ tag: "component", staticClass: "vue-button", class: [_vm.component, { disabled: _vm.finalDisabled, loading: _vm.loading, ghost: _vm.ghost }], attrs: { "type": _vm.type, "tabindex": _vm.ghost ? -1 : 0, "role": "button", "aria-disabled": _vm.ghost }, on: { "!click": function click($event) {
           _vm.handleClick($event);
         } }, nativeOn: { "!click": function click($event) {
           _vm.handleClick($event);
@@ -7038,9 +7038,13 @@ var $0_0 = { render: function render() {
     loadingSecondary: {
       type: Boolean,
       default: false
+    },
+
+    type: {
+      type: String,
+      default: 'button'
     }
   },
-
   computed: {
     component: function component() {
       if (this.$attrs.to) {
@@ -7323,7 +7327,76 @@ var toConsumableArray = function (arr) {
   }
 };
 
+var statusIcons = {
+  danger: 'error',
+  warning: 'warning',
+  info: 'info',
+  success: 'check_circle'
+};
+
 var $0_4 = { render: function render() {
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "vue-form-field", class: defineProperty$1({ focused: _vm.injectedData.focused }, 'status-' + _vm.injectedData.status, _vm.injectedData.status) }, [_c('div', { staticClass: "wrapper" }, [_c('div', { staticClass: "title" }, [_vm._t("title", [_c('span', { domProps: { "innerHTML": _vm._s(_vm.title) } })])], 2), _vm._v(" "), _c('div', { staticClass: "content" }, [_vm._t("default")], 2), _vm._v(" "), _c('div', { staticClass: "subtitle", class: defineProperty$1({}, 'vue-text ' + _vm.injectedData.status, _vm.injectedData.status) }, [_vm.subtitleIconId ? _c('VueIcon', { attrs: { "icon": _vm.subtitleIconId } }) : _vm._e(), _vm._v(" "), _vm._t("subtitle", [_c('span', { domProps: { "innerHTML": _vm._s(_vm.subtitle) } })])], 2)])]);
+  }, staticRenderFns: [],
+  name: 'VueFormField',
+
+  provide: function provide() {
+    return {
+      VueFormField: {
+        data: this.injectedData
+      }
+    };
+  },
+
+
+  props: {
+    subtitle: {
+      type: String,
+      default: undefined
+    },
+
+    subtitleIcon: {
+      type: String,
+      default: undefined
+    },
+
+    statusIcon: {
+      type: Boolean,
+      default: false
+    },
+
+    title: {
+      type: String,
+      required: true
+    }
+  },
+
+  data: function data() {
+    return {
+      injectedData: {
+        focused: false,
+        status: null
+      }
+    };
+  },
+
+
+  computed: {
+    subtitleIconId: function subtitleIconId() {
+      if (this.subtitleIcon) {
+        return this.subtitleIcon;
+      }
+
+      if (this.statusIcon) {
+        var status = this.injectedData.status;
+        if (status) {
+          return statusIcons[status];
+        }
+      }
+    }
+  }
+};
+
+var $0_5 = { render: function render() {
     var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "vue-group", class: { 'has-indicator': _vm.indicator } }, [_c('div', { staticClass: "content" }, [_vm._t("default")], 2), _vm._v(" "), _vm.indicator && _vm.indicatorStyle ? _c('div', { staticClass: "indicator", style: {
         top: _vm.indicatorStyle.top + 'px',
         left: _vm.indicatorStyle.left + 'px',
@@ -7418,7 +7491,7 @@ var $0_4 = { render: function render() {
   }
 };
 
-var $0_5 = { render: function render() {
+var $0_6 = { render: function render() {
     var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('VueButton', _vm._b({ staticClass: "vue-group-button", class: { selected: _vm.selected }, attrs: { "aria-selected": _vm.selected }, on: { "click": _vm.handleClick } }, 'VueButton', _vm.$attrs, false), [_vm._t("default")], 2);
   }, staticRenderFns: [],
   name: 'VueGroupButton',
@@ -7457,7 +7530,7 @@ var $0_5 = { render: function render() {
   }
 };
 
-var $0_6 = {
+var $0_7 = {
   name: 'VueIcon',
 
   props: {
@@ -7481,10 +7554,10 @@ var $0_6 = {
   }
 };
 
-var $0_7 = { render: function render() {
-    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "vue-input", class: { disabled: _vm.finalDisabled, focused: _vm.focused, 'show-suggestion': _vm.showSuggestion }, on: { "click": function click($event) {
+var $0_8 = { render: function render() {
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "vue-input", class: ['type-' + _vm.type, defineProperty$1({ disabled: _vm.finalDisabled, focused: _vm.focused, 'show-suggestion': _vm.showSuggestion }, 'status-' + _vm.status, _vm.status)], on: { "click": function click($event) {
           _vm.focus();
-        } } }, [_c('div', { staticClass: "content" }, [_vm.loadingLeft ? _c('VueLoadingIndicator', { staticClass: "small left" }) : _vm.iconLeft ? _c('VueIcon', { staticClass: "input-icon left", attrs: { "icon": _vm.iconLeft } }) : _vm._e(), _vm._v(" "), _vm._t("left"), _vm._v(" "), _c('div', { staticClass: "input-wrapper" }, [_c(_vm.type === 'textarea' ? _vm.type : 'input', _vm._b({ ref: "input", tag: "component", staticClass: "input", attrs: { "type": _vm.type, "value": _vm.valueModel, "placeholder": _vm.placeholder, "disabled": _vm.finalDisabled }, on: { "input": function input($event) {
+        } } }, [_c('div', { staticClass: "content" }, [_vm.loadingLeft ? _c('VueLoadingIndicator', { staticClass: "small left" }) : _vm.iconLeft ? _c('VueIcon', { staticClass: "input-icon left", attrs: { "icon": _vm.iconLeft } }) : _vm._e(), _vm._v(" "), _vm._t("left"), _vm._v(" "), _c('div', { staticClass: "input-wrapper" }, [_c(_vm.type === 'textarea' ? _vm.type : 'input', _vm._b({ ref: "input", tag: "component", staticClass: "input", attrs: { "type": _vm.type, "placeholder": _vm.placeholder, "disabled": _vm.finalDisabled }, domProps: { "value": _vm.valueModel }, on: { "input": function input($event) {
           _vm.valueModel = $event.currentTarget.value;
         }, "focus": _vm.onFocus, "blur": _vm.onBlur, "keydown": function keydown($event) {
           if (!('button' in $event) && _vm._k($event.keyCode, "tab", 9, $event.key)) {
@@ -7497,6 +7570,10 @@ var $0_7 = { render: function render() {
   inheritAttrs: false,
 
   mixins: [DisabledChild],
+
+  inject: {
+    VueFormField: { default: null }
+  },
 
   props: {
     iconLeft: {
@@ -7529,6 +7606,11 @@ var $0_7 = { render: function render() {
       default: false
     },
 
+    status: {
+      type: String,
+      default: undefined
+    },
+
     suggestion: {
       type: [String, Number],
       default: null
@@ -7556,12 +7638,34 @@ var $0_7 = { render: function render() {
 
 
     valueModel: {
-      get: function get() {
+      get: function get$$1() {
         return this.value;
       },
-      set: function set(value) {
+      set: function set$$1(value) {
         this.$emit('input', value);
       }
+    }
+  },
+
+  watch: {
+    focused: {
+      handler: function handler(value) {
+        if (this.VueFormField) {
+          this.VueFormField.data.focused = value;
+        }
+      },
+
+      immediate: true
+    },
+
+    status: {
+      handler: function handler(value) {
+        if (this.VueFormField) {
+          this.VueFormField.data.status = value;
+        }
+      },
+
+      immediate: true
     }
   },
 
@@ -7591,7 +7695,7 @@ var $0_7 = { render: function render() {
   }
 };
 
-var $0_8 = { render: function render() {
+var $0_9 = { render: function render() {
     var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "vue-loading-bar", class: { unknown: _vm.unknown } }, [_c('div', { staticClass: "bar", style: !_vm.unknown && { width: _vm.value * 100 + '%' } })]);
   }, staticRenderFns: [],
   name: 'VueLoadingBar',
@@ -7609,13 +7713,42 @@ var $0_8 = { render: function render() {
   }
 };
 
-var $0_9 = { render: function render() {
+var $0_10 = { render: function render() {
     var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "vue-loading-indicator" }, [_c('div', { staticClass: "animation" }), _vm._v(" "), _vm._t("default")], 2);
   }, staticRenderFns: [],
   name: 'VueLoadingIndicator'
 };
 
-var $0_10 = { render: function render() {
+var count = 0;
+
+function getScrollingElements() {
+  return document.querySelectorAll('.vue-disable-scroll, body');
+}
+
+function updateScroll() {
+  if (count === 0) {
+    getScrollingElements().forEach(function (el) {
+      return el.classList.remove('vue-no-scroll');
+    });
+  } else if (count === 1) {
+    getScrollingElements().forEach(function (el) {
+      return el.classList.add('vue-no-scroll');
+    });
+  }
+}
+
+var DisableScroll = {
+  mounted: function mounted() {
+    count++;
+    updateScroll();
+  },
+  beforeDestroy: function beforeDestroy() {
+    count--;
+    updateScroll();
+  }
+};
+
+var $0_11 = { render: function render() {
     var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('transition', { attrs: { "name": "vue-modal", "duration": {
           enter: 1000,
           leave: 300
@@ -7634,6 +7767,8 @@ var $0_10 = { render: function render() {
         } } }) : _vm._e()], 1)])]);
   }, staticRenderFns: [],
   name: 'VueModal',
+
+  mixins: [DisableScroll],
 
   props: {
     locked: {
@@ -7662,7 +7797,7 @@ var $0_10 = { render: function render() {
               _this.$el.focus();
 
             case 3:
-            case "end":
+            case 'end':
               return _context.stop();
           }
         }
@@ -7680,7 +7815,7 @@ var $0_10 = { render: function render() {
   }
 };
 
-var $0_11 = { render: function render() {
+var $0_12 = { render: function render() {
     var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('VueDropdown', _vm._g(_vm._b({ ref: "dropdown", staticClass: "vue-select", attrs: { "disabled": _vm.finalDisabled, "icon-left": _vm.displayedIcon, "icon-right": _vm.iconRight, "label": _vm.displayedLabel, "popover-class": ['popover', 'select-popover', _vm.popoverClass], "content-class": "vue-select-popover-content", "force-min-size": "" } }, 'VueDropdown', _vm.$attrs, false), _vm.$listeners), [_c('template', { slot: "trigger" }, [_vm._t("trigger", null, { label: _vm.displayedLabel })], 2), _vm._v(" "), _c('VueGroup', { staticClass: "vertical", model: { value: _vm.valueModel, callback: function callback($$v) {
           _vm.valueModel = $$v;
         }, expression: "valueModel" } }, [_vm._t("default")], 2)], 2);
@@ -7774,7 +7909,7 @@ var $0_11 = { render: function render() {
   }
 };
 
-var $0_12 = { render: function render() {
+var $0_13 = { render: function render() {
     var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('VueGroupButton', _vm._g(_vm._b({ directives: [{ name: "close-popover", rawName: "v-close-popover", value: !_vm.keepOpen, expression: "!keepOpen" }], ref: "groupButton", staticClass: "vue-select-button", on: { "selected": _vm.onSelect } }, 'VueGroupButton', _vm.$attrs, false), _vm.$listeners), [_vm._t("default")], 2);
   }, staticRenderFns: [],
   name: 'VueSelectButton',
@@ -7804,7 +7939,7 @@ var $0_12 = { render: function render() {
   }
 };
 
-var $0_13 = { render: function render() {
+var $0_14 = { render: function render() {
     var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "vue-switch", class: { selected: _vm.value, disabled: _vm.finalDisabled, focus: _vm.focused }, attrs: { "tabindex": _vm.disabled ? -1 : 0, "role": "checkbox", "aria-disabled": _vm.disabled, "aria-selected": !!_vm.value }, on: { "click": _vm.toggleValue, "keydown": [function ($event) {
           if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13, $event.key)) {
             return null;
@@ -7882,7 +8017,7 @@ function CoupledChild (name) {
   };
 }
 
-var $0_14 = { render: function render() {
+var $0_15 = { render: function render() {
     var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c(_vm.VueTabs.data.animate ? 'transition' : 'NoTransition', { tag: "component", attrs: { "name": "vue-tab" } }, [_c('div', { directives: [{ name: "show", rawName: "v-show", value: _vm.active, expression: "active" }], staticClass: "vue-tab", class: { selected: _vm.active }, attrs: { "role": "tabpanel", "tabindex": _vm.active ? '0' : null, "aria-hidden": !_vm.active ? 'true' : null } }, [_vm.contentShown ? _c('div', { staticClass: "vue-tab-content" }, [_vm._t("default")], 2) : _vm._e()])]);
   }, staticRenderFns: [],
   name: 'VueTab',
@@ -8098,7 +8233,7 @@ function CoupledParent (name) {
   };
 }
 
-var $0_15 = { render: function render() {
+var $0_16 = { render: function render() {
     var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "vue-tabs", class: ['direction-' + _vm.direction, { animate: _vm.animate }] }, [_c('VueGroup', { staticClass: "tabs", class: _vm.groupClass, attrs: { "indicator": !_vm.groupNoIndicator }, model: { value: _vm.currentTabId, callback: function callback($$v) {
           _vm.currentTabId = $$v;
         }, expression: "currentTabId" } }, _vm._l(_vm.children, function (tab, index) {
@@ -8261,7 +8396,7 @@ var $0_15 = { render: function render() {
   }
 };
 
-var $0_16 = { render: function render() {
+var $0_17 = { render: function render() {
     var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "vue-type-ahead" }, [_c('VueSelect', { attrs: { "open": _vm.finalOpen, "trigger": "manual", "auto-hide": !_vm.focused, "no-popover-focus": "" }, on: { "update:open": function updateOpen(val) {
           return _vm.open = val;
         }, "popover-mousedown": _vm.onPopoverContentMousedown, "popover-mouseup": _vm.onPopoverContentMouseup }, model: { value: _vm.valueModel, callback: function callback($$v) {
@@ -8510,19 +8645,20 @@ var components = function () {
     './VueDisable.vue': $0_1,
     './VueDropdown.vue': $0_2,
     './VueDropdownButton.vue': VueDropdownButton,
-    './VueGroup.vue': $0_4,
-    './VueGroupButton.vue': $0_5,
-    './VueIcon.vue': $0_6,
-    './VueInput.vue': $0_7,
-    './VueLoadingBar.vue': $0_8,
-    './VueLoadingIndicator.vue': $0_9,
-    './VueModal.vue': $0_10,
-    './VueSelect.vue': $0_11,
-    './VueSelectButton.vue': $0_12,
-    './VueSwitch.vue': $0_13,
-    './VueTab.vue': $0_14,
-    './VueTabs.vue': $0_15,
-    './VueTypeAhead.vue': $0_16
+    './VueFormField.vue': $0_4,
+    './VueGroup.vue': $0_5,
+    './VueGroupButton.vue': $0_6,
+    './VueIcon.vue': $0_7,
+    './VueInput.vue': $0_8,
+    './VueLoadingBar.vue': $0_9,
+    './VueLoadingIndicator.vue': $0_10,
+    './VueModal.vue': $0_11,
+    './VueSelect.vue': $0_12,
+    './VueSelectButton.vue': $0_13,
+    './VueSwitch.vue': $0_14,
+    './VueTab.vue': $0_15,
+    './VueTabs.vue': $0_16,
+    './VueTypeAhead.vue': $0_17
 
   };
   var req = function req(key) {
@@ -8558,7 +8694,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.1.2",
+  version: "0.1.3",
   install: install$3
 };
 

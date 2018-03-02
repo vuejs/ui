@@ -53,8 +53,14 @@
 </template>
 
 <script>
+import DisableScroll from '../mixins/DisableScroll'
+
 export default {
   name: 'VueModal',
+
+  mixins: [
+    DisableScroll,
+  ],
 
   props: {
     locked: {
@@ -109,12 +115,15 @@ export default {
     background $vue-color-light
     border-radius $br
     position relative
-    max-width calc(100vw - 200px)
+    max-width calc(100vw - 100px)
+    max-height calc(100vh - 100px)
     box-shadow 0 10px 60px rgba($md-black, .16)
+    v-box()
+    align-items stretch
 
     > .close-button
       position absolute
-      top 16px
+      top 20px
       right @top
 
     > .header,
@@ -123,10 +132,15 @@ export default {
       padding 24px
 
     > .header
-      border-bottom solid 1px $md-grey-100
+      border-bottom solid 1px $vue-color-light-neutral
 
       > .title
         font-size 18px
+
+    > .body
+      overflow-x hidden
+      overflow-y auto
+      flex auto 1 1
 
     > .footer > .actions
       h-box()
@@ -137,6 +151,12 @@ export default {
   &.small
     > .shell
       max-width 500px
+      min-width 400px
+
+  &.medium
+    > .shell
+      max-width 800px
+      min-width 700px
 
 .vue-modal-enter-active,
 .vue-modal-leave-active

@@ -235,4 +235,7 @@ export default {
 .vue-type-ahead
   display inline-block
   vertical-align middle
+
+  > .vue-dropdown
+    width 100%
 </style>

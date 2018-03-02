@@ -29,16 +29,23 @@ export default {
   display inline-block
   width 16px
   height @width
+  vertical-align bottom
   svg
     width 100%
     height 100%
     fill black
     pointer-events none
+
+  &.top
+    position relative
+    top -.06rem
+
+  // Size
   &.small
     width 12px
     height @width
   &.medium
-    width 14px
+    width 18px
     height @width
   &.big
     width 24px

@@ -1,11 +1,15 @@
 <template>
   <div
     class="vue-input"
-    :class="{
-      disabled: finalDisabled,
-      focused,
-      'show-suggestion': showSuggestion,
-    }"
+    :class="[
+      `type-${type}`,
+      {
+        disabled: finalDisabled,
+        focused,
+        'show-suggestion': showSuggestion,
+        [`status-${status}`]: status,
+      },
+    ]"
     @click="focus()"
   >
     <div class="content">
@@ -28,7 +32,7 @@
           ref="input"
           class="input"
           :type="type"
-          :value="valueModel"
+          :value.prop="valueModel"
           @input="valueModel = $event.currentTarget.value"
           :placeholder="placeholder"
           :disabled="finalDisabled"
@@ -77,6 +81,10 @@ export default {
     DisabledChild,
   ],
 
+  inject: {
+    VueFormField: { default: null },
+  },
+
   props: {
     iconLeft: {
       type: String,
@@ -108,6 +116,11 @@ export default {
       default: false,
     },
 
+    status: {
+      type: String,
+      default: undefined,
+    },
+
     suggestion: {
       type: [String, Number],
       default: null,
@@ -135,6 +148,26 @@ export default {
     valueModel: {
       get () { return this.value },
       set (value) { this.$emit('input', value) },
+    },
+  },
+
+  watch: {
+    focused: {
+      handler (value) {
+        if (this.VueFormField) {
+          this.VueFormField.data.focused = value
+        }
+      },
+      immediate: true,
+    },
+
+    status: {
+      handler (value) {
+        if (this.VueFormField) {
+          this.VueFormField.data.status = value
+        }
+      },
+      immediate: true,
     },
   },
 
@@ -230,10 +263,11 @@ colors($color)
           border 0
 
       > textarea.input
-        padding 8px 0
+        padding 8px 10px
         resize vertical
         min-height 30px
         box-sizing border-box
+        line-height 18px
 
       > .suggestion
         position absolute
@@ -274,6 +308,10 @@ colors($color)
       pointer-events none
       transition left .15s, right .15s, opacity .15s
 
+  &.type-textarea
+    > .content
+      padding 0
+
   &:not(.flat)
     > .content
       background lighten($vue-color-light-neutral, 70%)
@@ -283,10 +321,22 @@ colors($color)
       &::placeholder
         color transparent
 
+  // Colors
   colors($vue-color-primary)
-
   &.accent
     colors($vue-color-accent)
+  &.danger,
+  &.status-danger
+    colors($vue-color-danger)
+  &.warning,
+  &.status-warning
+    colors($vue-color-warning)
+  &.info,
+  &.status-info
+    colors($vue-color-info)
+  &.success,
+  &.status-success
+    colors($vue-color-success)
 
   &.focused
     &:not(.flat)

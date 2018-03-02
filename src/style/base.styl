@@ -1,12 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700,700i')
+
 @import "./imports"
 @import "./animation"
 @import "./tooltip"
 
+html,
+body
+  background $vue-color-light
+
+body
+  font-size 16px
+  font-family 'Roboto', 'Avenir', Helvetica, Arial, sans-serif
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+  color $vue-color-dark
+  margin 0
+
 hr
   border none
   height 1px
-  background rgba($vue-color-primary, .5)
+  background $vue-color-light-neutral
+
+a
+  color $vue-color-primary
+  text-decoration none
+  .vue-icon
+    svg
+      fill @color
+
+h1, h2, h3, h4, h5, h6
+  font-weight lighter
+  margin 24px 0 8px
+  &:first-child
+    margin-top 0
+
+h1
+  font-size 42px
+
+h2
+  font-size 32px
+
+h3
+  font-size 26px
+
+h4
+  font-size 22px
+
+h5
+  font-size 18px
+
+h6
+  font-size 16px
+
+p
+  margin 0 0 8px
+
+ul
+  margin 4px 0
+
+.vue-no-scroll
+  overflow hidden
 
 .vue-empty
   color $md-grey
   padding 24px
+  .vue-icon
+    svg
+      fill @color
+
+.vue-text
+  &.primary
+    color $vue-color-primary
+    .vue-icon
+      svg
+        fill @color !important
+  &.accent
+    color $vue-color-acccent
+    .vue-icon
+      svg
+        fill @color !important
+  &.danger
+    color $vue-color-danger
+    .vue-icon
+      svg
+        fill @color !important
+  &.warning
+    color $vue-color-warning
+    .vue-icon
+      svg
+        fill @color !important
+  &.info
+    color $vue-color-info
+    .vue-icon
+      svg
+        fill @color !important
+  &.success
+    color $vue-color-success
+    .vue-icon
+      svg
+        fill @color !important
+
+.vue-grid
+  display grid
+  &.default-gap
+    grid-gap 12px
+  for n in (1..10)
+    &.col-{n}
+      grid-template-columns repeat(n, 1fr)
+
+    .span-{n}
+      grid-column span n
