@@ -164,11 +164,6 @@ colors($dark, $light, $invert = false)
   &.big
     padding 14px 20px
     font-size 16px
-    .vue-icon
-      width 20px
-      height @width
-      margin-top -2px
-      margin-bottom @margin-top
   // Round style
   &.round
     border-radius 17px
@@ -203,6 +198,9 @@ colors($dark, $light, $invert = false)
       padding 12px
       width 44px
       height @width
+      .vue-icon
+        width 22px
+        height @width
   &.ghost
     cursor default
   &.disabled
