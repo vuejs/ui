@@ -7769,7 +7769,7 @@ var $0_11 = { render: function render() {
 };
 
 var $0_12 = { render: function render() {
-    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('VueGroupButton', _vm._g(_vm._b({ directives: [{ name: "close-popover", rawName: "v-close-popover", value: !_vm.keepOpen, expression: "!keepOpen" }], staticClass: "vue-select-button", on: { "selected": _vm.onSelect } }, 'VueGroupButton', _vm.$attrs, false), _vm.$listeners), [_vm._t("default")], 2);
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('VueGroupButton', _vm._g(_vm._b({ directives: [{ name: "close-popover", rawName: "v-close-popover", value: !_vm.keepOpen, expression: "!keepOpen" }], ref: "groupButton", staticClass: "vue-select-button", on: { "selected": _vm.onSelect } }, 'VueGroupButton', _vm.$attrs, false), _vm.$listeners), [_vm._t("default")], 2);
   }, staticRenderFns: [],
   name: 'VueSelectButton',
 
@@ -7783,6 +7783,11 @@ var $0_12 = { render: function render() {
       default: null
     }
   },
+
+  mounted: function mounted() {
+    this.onSelect(this.$refs.groupButton.selected);
+  },
+
 
   methods: {
     onSelect: function onSelect(selected) {
@@ -8547,7 +8552,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.1.1",
+  version: "0.1.2",
   install: install$3
 };
 

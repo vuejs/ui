@@ -1,7 +1,6 @@
 docs/
 docs-src/
 public/
-src/
 .babelrc
 .eslintrc
 .postcssrc

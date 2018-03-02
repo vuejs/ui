@@ -45,11 +45,11 @@ colors($foreground, $background)
   .bar
     height 100%
 
-  colors($color-dark, $color-light-neutral)
+  colors($vue-color-dark, $vue-color-light-neutral)
   &.primary
-    colors($color-primary, $color-light-neutral)
+    colors($vue-color-primary, $vue-color-light-neutral)
   &.accent
-    colors($color-accent, $color-light-neutral)
+    colors($vue-color-accent, $vue-color-light-neutral)
 
   &.unknown
     .bar

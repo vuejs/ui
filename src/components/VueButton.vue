@@ -123,7 +123,7 @@ export default {
 
 @import "../style/imports"
 
-$focus-color = $color-dark
+$focus-color = $vue-color-dark
 
 colors($dark, $light, $invert = false)
   if $invert
@@ -158,6 +158,9 @@ colors($dark, $light, $invert = false)
   &.big
     padding 14px 20px
     font-size 16px
+    .vue-icon
+      width 20px
+      height @width
   // Round style
   &.round
     border-radius 17px
@@ -192,9 +195,6 @@ colors($dark, $light, $invert = false)
       padding 12px
       width 44px
       height @width
-      .vue-icon
-        width 20px
-        height @width
   &.ghost
     cursor default
   &.disabled
@@ -210,19 +210,19 @@ colors($dark, $light, $invert = false)
     left 0
     right 0
   // Colors
-  colors($color-dark, $color-light-neutral)
+  colors($vue-color-dark, $vue-color-light-neutral)
   &.primary
-    colors($color-primary, $color-light, true)
+    colors($vue-color-primary, $vue-color-light, true)
   &.accent
-    colors($color-accent, $color-light, true)
+    colors($vue-color-accent, $vue-color-light, true)
   &.danger
-    colors($color-danger, $color-light, true)
+    colors($vue-color-danger, $vue-color-light, true)
   &.warning
-    colors($color-warning, $color-light, true)
+    colors($vue-color-warning, $vue-color-light, true)
   &.info
-    colors($color-info, $color-light-neutral)
+    colors($vue-color-info, $vue-color-light-neutral)
   &.success
-    colors($color-success, $color-light-neutral)
+    colors($vue-color-success, $vue-color-light-neutral)
   disable-focus-styles()
   // Keyboard focus style
   &:focus:focus-visible

@@ -31,13 +31,13 @@ colors($color)
     height @width
     border-radius 50%
     border transparent 2px solid
-    colors($color-dark)
+    colors($vue-color-dark)
   &.primary
     > .animation
-      colors($color-primary)
+      colors($vue-color-primary)
   &.accent
     > .animation
-      colors($color-accent)
+      colors($vue-color-accent)
   &.small
     > .animation
       width 10px
@@ -54,10 +54,11 @@ colors($color)
     bottom 0
     left 0
     right 0
-    background rgba($color-light, .95)
     z-index 1
     > .animation
       margin-bottom 32px
+    &:not(.transparent)
+      background rgba($vue-color-light, .95)
     &.fixed
       position fixed
 

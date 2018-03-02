@@ -92,14 +92,14 @@ $height = 18px
       height $height
       margin-left 8px
       border-radius (@height / 2)
-      background $color-light-neutral
+      background $vue-color-light-neutral
       transition background .2s
       position relative
       .bullet
         width @height
         height @height
         border-radius 50%
-        background $color-dark
+        background $vue-color-dark
         transition margin-left .2s ease-in-out, transform .2s ease-in-out
 
   &.no-margin
@@ -110,7 +110,7 @@ $height = 18px
   &.selected
     > .content
       > .wrapper
-        background $color-primary
+        background $vue-color-primary
         .bullet
           margin-left ($width - $height)
 
@@ -135,7 +135,7 @@ $height = 18px
       > .content
         > .wrapper
           .bullet
-            background lighten($color-dark, 20%)
+            background lighten($vue-color-dark, 20%)
     &:active
       > .content
         > .wrapper
@@ -169,11 +169,11 @@ $height = 18px
     &:not(.selected)
       > .content
         > .wrapper
-          background $color-light
+          background $vue-color-light
 
     &:hover
       > .content
-        background lighten($color-light-neutral, 25%)
+        background lighten($vue-color-light-neutral, 25%)
 
   // Focus
   &.focus,

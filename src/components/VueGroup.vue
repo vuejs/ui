@@ -101,15 +101,15 @@ indicator(direction)
   > .indicator
     padding-{direction} 1px
     > .content
-      border-{direction} solid 2px rgba($color-dark, .7)
+      border-{direction} solid 2px rgba($vue-color-dark, .7)
   &.primary
     > .indicator
       > .content
-        border-{direction}-color rgba($color-primary, .7)
+        border-{direction}-color rgba($vue-color-primary, .7)
   &.accent
     > .indicator
       > .content
-        border-{direction}-color rgba($color-accent, .7)
+        border-{direction}-color rgba($vue-color-accent, .7)
 
 .vue-group
   position relative

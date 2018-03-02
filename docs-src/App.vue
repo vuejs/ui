@@ -34,7 +34,7 @@ body,
 
 #nav
   padding 12px 24px
-  border-bottom solid 1px $color-light-neutral
+  border-bottom solid 1px $vue-color-light-neutral
 
   a
     font-weight bold

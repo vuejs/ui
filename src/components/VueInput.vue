@@ -186,7 +186,7 @@ colors($color)
           fill darken($color, 20%)
 
 .vue-input
-  $lightened = lighten($color-dark, 50%)
+  $lightened = lighten($vue-color-dark, 50%)
   display inline-block
   vertical-align middle
   box-sizing border-box
@@ -197,8 +197,8 @@ colors($color)
     h-box()
     box-center()
     padding 0 10px
-    border solid 1px $color-light-neutral
-    color $color-dark
+    border solid 1px $vue-color-light-neutral
+    color $vue-color-dark
     border-radius $br
     transition background .3s
     position relative
@@ -276,22 +276,22 @@ colors($color)
 
   &:not(.flat)
     > .content
-      background lighten($color-light-neutral, 70%)
+      background lighten($vue-color-light-neutral, 70%)
 
   &.show-suggestion
     > .content > .input-wrapper > .input
       &::placeholder
         color transparent
 
-  colors($color-primary)
+  colors($vue-color-primary)
 
   &.accent
-    colors($color-accent)
+    colors($vue-color-accent)
 
   &.focused
     &:not(.flat)
       > .content
-        background $color-light
+        background $vue-color-light
         > .border
           left 0
           right @left
@@ -299,9 +299,28 @@ colors($color)
 
   &.flat
     > .content
-      border-color $color-light
+      border-color $vue-color-light
       > .border
         display none
+
+  &.big
+    > .content
+      padding 0 14px
+      > .input-wrapper
+        > .input
+          font-size 16px
+          &:not(textarea)
+            height 42px
+        > textarea.input
+          padding 14px 0
+
+      > .input-icon
+        width 20px
+        height @width
+        &.left
+          margin-right 10px
+        &.right
+          margin-left 10px
 
   &:not(.disabled)
     cursor text

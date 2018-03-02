@@ -55,13 +55,13 @@ export default {
 .vue-group-button.vue-button
   button-transitions()
   &:not(.selected):not(.flat)
-    button-colors($color-dark, $color-light-neutral)
+    button-colors($vue-color-dark, $vue-color-light-neutral)
 
   &.selected
     .vue-group.has-indicator.primary &
-      button-colors($color-primary, $color-light-neutral)
+      button-colors($vue-color-primary, $vue-color-light-neutral)
     .vue-group.has-indicator.accent &
-      button-colors($color-accent, $color-light-neutral)
+      button-colors($vue-color-accent, $vue-color-light-neutral)
 
   &,
   &.selected
@@ -72,7 +72,7 @@ export default {
   .vue-group:not(.has-indicator) &
     &.selected
       &:not(.primary):not(.accent):not(.danger):not(.warning):not(.info):not(.success):not(.flat)
-        button-colors($color-light, $color-dark)
+        button-colors($vue-color-light, $vue-color-dark)
 
   .vue-group:not(.vertical) &
     &:not(.flat)
@@ -104,7 +104,7 @@ export default {
         border-bottom-left-radius 0
         border-bottom-right-radius 0
       &.round.selected
-        background $color-light-neutral !important
+        background $vue-color-light-neutral !important
         &::before
           content ''
           display block

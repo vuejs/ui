@@ -1,5 +1,6 @@
 <template>
   <VueGroupButton
+    ref="groupButton"
     class="vue-select-button"
     v-bind="$attrs"
     v-on="$listeners"
@@ -27,6 +28,10 @@ export default {
       type: String,
       default: null,
     },
+  },
+
+  mounted () {
+    this.onSelect(this.$refs.groupButton.selected)
   },
 
   methods: {

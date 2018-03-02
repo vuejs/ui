@@ -103,10 +103,10 @@ export default {
     left 0
     width 100%
     height 100%
-    background rgba($color-light, .9)
+    background rgba($vue-color-light, .9)
 
   > .shell
-    background $color-light
+    background $vue-color-light
     border-radius $br
     position relative
     max-width calc(100vw - 200px)

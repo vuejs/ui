@@ -120,5 +120,5 @@ export default {
 
 .vue-disable
   padding 12px
-  border-left solid 10px rgba($color-primary, .2)
+  border-left solid 10px rgba($vue-color-primary, .2)
 </style>
