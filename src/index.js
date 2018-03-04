@@ -10,7 +10,7 @@ export function install (Vue, options = {}) {
   Vue.use(VueIcons)
 
   Vue.use(VTooltip, Object.assign({
-    defaultDelay: { show: 300, hide: 0 },
+    defaultDelay: { show: 1000, hide: 0 },
   }, options.vtooltip))
 
   Vue.use(VueResize)
