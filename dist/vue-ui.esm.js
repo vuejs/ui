@@ -7551,13 +7551,13 @@ var $0_7 = {
 var $0_8 = { render: function render() {
     var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "vue-input", class: ['type-' + _vm.type, defineProperty$1({ disabled: _vm.finalDisabled, focused: _vm.focused, 'show-suggestion': _vm.showSuggestion }, 'status-' + _vm.status, _vm.status)], on: { "click": function click($event) {
           _vm.focus();
-        } } }, [_c('div', { staticClass: "content" }, [_vm.loadingLeft ? _c('VueLoadingIndicator', { staticClass: "small left" }) : _vm.iconLeft ? _c('VueIcon', { staticClass: "input-icon left", attrs: { "icon": _vm.iconLeft } }) : _vm._e(), _vm._v(" "), _vm._t("left"), _vm._v(" "), _c('div', { staticClass: "input-wrapper" }, [_c(_vm.type === 'textarea' ? _vm.type : 'input', _vm._b({ ref: "input", tag: "component", staticClass: "input", attrs: { "type": _vm.type, "placeholder": _vm.placeholder, "disabled": _vm.finalDisabled }, domProps: { "value": _vm.valueModel }, on: { "input": function input($event) {
+        } } }, [_c('div', { staticClass: "content" }, [_vm.loadingLeft ? _c('VueLoadingIndicator', { staticClass: "small left" }) : _vm.iconLeft ? _c('VueIcon', { staticClass: "input-icon left", attrs: { "icon": _vm.iconLeft } }) : _vm._e(), _vm._v(" "), _vm._t("left"), _vm._v(" "), _c('div', { staticClass: "input-wrapper" }, [_c(_vm.type === 'textarea' ? _vm.type : 'input', _vm._g(_vm._b({ ref: "input", tag: "component", staticClass: "input", attrs: { "type": _vm.type, "placeholder": _vm.placeholder, "disabled": _vm.finalDisabled }, domProps: { "value": _vm.valueModel }, on: { "input": function input($event) {
           _vm.valueModel = $event.currentTarget.value;
         }, "focus": _vm.onFocus, "blur": _vm.onBlur, "keydown": function keydown($event) {
           if (!('button' in $event) && _vm._k($event.keyCode, "tab", 9, $event.key)) {
             return null;
           }_vm.onKeyTab($event);
-        } } }, 'component', _vm.$attrs, false)), _vm._v(" "), _vm.showSuggestion ? _c('input', { staticClass: "input suggestion", attrs: { "disabled": "disabled" }, domProps: { "value": _vm.suggestion } }) : _vm._e()], 1), _vm._v(" "), _vm._t("right"), _vm._v(" "), _vm.iconRight ? _c('VueIcon', { staticClass: "input-icon right", attrs: { "icon": _vm.iconRight } }) : _vm._e(), _vm._v(" "), _vm.loadingRight ? _c('VueLoadingIndicator', { staticClass: "small right" }) : _vm._e(), _vm._v(" "), _c('div', { staticClass: "border" })], 2)]);
+        } } }, 'component', _vm.$attrs, false), _vm.listeners)), _vm._v(" "), _vm.showSuggestion ? _c('input', { staticClass: "input suggestion", attrs: { "disabled": "disabled" }, domProps: { "value": _vm.suggestion } }) : _vm._e()], 1), _vm._v(" "), _vm._t("right"), _vm._v(" "), _vm.iconRight ? _c('VueIcon', { staticClass: "input-icon right", attrs: { "icon": _vm.iconRight } }) : _vm._e(), _vm._v(" "), _vm.loadingRight ? _c('VueLoadingIndicator', { staticClass: "small right" }) : _vm._e(), _vm._v(" "), _c('div', { staticClass: "border" })], 2)]);
   }, staticRenderFns: [],
   name: 'VueInput',
 
@@ -7626,6 +7626,16 @@ var $0_8 = { render: function render() {
 
 
   computed: {
+    listeners: function listeners() {
+      var _this = this;
+
+      return Object.keys(this.$listeners).filter(function (key) {
+        return key !== 'input' && key !== 'focus' && key !== 'blur';
+      }).reduce(function (obj, key) {
+        obj[key] = _this.$listeners[key];
+        return obj;
+      }, {});
+    },
     showSuggestion: function showSuggestion() {
       return this.suggestion !== null && this.suggestion !== this.value && this.focused && this.value;
     },
@@ -8671,7 +8681,7 @@ function install$3(Vue) {
   Vue.use(VueIcons);
 
   Vue.use(plugin, Object.assign({
-    defaultDelay: { show: 300, hide: 0 }
+    defaultDelay: { show: 1000, hide: 0 }
   }, options.vtooltip));
 
   Vue.use(plugin$1);
@@ -8687,7 +8697,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.1.6",
+  version: "0.1.7",
   install: install$3
 };
 

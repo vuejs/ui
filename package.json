@@ -1,7 +1,7 @@
 {
   "name": "@vue/ui",
   "description": "UI components used in the vuejs organization apps",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "author": {
     "name": "Guillaume Chau",
     "email": "guillaume.b.chau@gmail.com"
@@ -33,6 +33,9 @@
     "url": "https://github.com/vuejs/ui/issues"
   },
   "homepage": "https://github.com/vuejs/ui#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "focus-visible": "^4.1.0",
     "material-design-icons": "^3.0.1",
