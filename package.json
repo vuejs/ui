@@ -1,7 +1,7 @@
 {
   "name": "@vue/ui",
   "description": "UI components used in the vuejs organization apps",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "author": {
     "name": "Guillaume Chau",
     "email": "guillaume.b.chau@gmail.com"
@@ -50,6 +50,7 @@
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
     "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-2": "^6.24.1",
     "clean-css": "^4.1.8",

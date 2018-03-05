@@ -38,6 +38,7 @@ export default {
       'plugins': [
         'external-helpers',
       ],
+      runtimeHelpers: true,
     }),
     replace({
       VERSION: JSON.stringify(config.version),
