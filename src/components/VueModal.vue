@@ -148,6 +148,15 @@ export default {
       > *
         space-between-x(12px)
 
+      &.space-between
+        justify-content space-between
+      &.center
+        justify-content center
+      &.start
+        justify-content flex-start
+      &.end
+        justify-content flex-end
+
   &.small
     > .shell
       max-width 500px

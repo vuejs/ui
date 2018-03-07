@@ -113,6 +113,9 @@ export default {
     > .content
       margin 6px 0
 
+      > *
+        space-between-y(8px)
+
     > .title,
     > .subtitle
       transition opacity .3s

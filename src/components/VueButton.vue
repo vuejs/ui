@@ -158,12 +158,17 @@ colors($dark, $light, $invert = false)
   position relative
   box-sizing border-box
   border-radius $br
-  padding 8px 16px
+  padding 0 16px
   font-size 14px
   line-height 16px
+  height 32px
   &.big
-    padding 14px 20px
+    padding 0 20px
     font-size 16px
+    height 50px
+    .vue-icon
+      width 24px
+      height @width
   // Round style
   &.round
     border-radius 17px
@@ -179,6 +184,7 @@ colors($dark, $light, $invert = false)
   &.flat
     button-transitions()
   > .content
+    height 100%
     h-box()
     box-center()
   &:not(.icon-button)
@@ -196,11 +202,8 @@ colors($dark, $light, $invert = false)
     height @width
     &.big
       padding 12px
-      width 44px
+      width 50px
       height @width
-      .vue-icon
-        width 22px
-        height @width
   &.ghost
     cursor default
   &.disabled
