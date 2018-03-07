@@ -7376,6 +7376,224 @@ onDOMReady(init);
 });
 
 /**
+ * (Use with the CoupleParent mixin)
+ * This mixin should be used on children components of a component implementing the CoupledParent mixin.
+ * @param {string} name Name of the injection
+ */
+function CoupledChild (name) {
+  // @vue/component
+  return {
+    inject: [name],
+
+    computed: {
+      active: function active() {
+        return this[name].activeChild === this;
+      }
+    },
+
+    created: function created() {
+      this[name].$_addCoupledChild(this);
+    },
+    beforeDestroy: function beforeDestroy() {
+      this[name].$_removeCoupledChild(this);
+    }
+  };
+}
+
+// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
+_export(_export.S + _export.F * !_descriptors, 'Object', { defineProperty: _objectDp.f });
+
+var $Object = _core.Object;
+var defineProperty$1 = function defineProperty(it, key, desc) {
+  return $Object.defineProperty(it, key, desc);
+};
+
+var defineProperty$2 = createCommonjsModule(function (module) {
+module.exports = { "default": defineProperty$1, __esModule: true };
+});
+
+unwrapExports(defineProperty$2);
+
+var defineProperty$4 = createCommonjsModule(function (module, exports) {
+
+exports.__esModule = true;
+
+
+
+var _defineProperty2 = _interopRequireDefault(defineProperty$2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (obj, key, value) {
+  if (key in obj) {
+    (0, _defineProperty2.default)(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+};
+});
+
+var _defineProperty = unwrapExports(defineProperty$4);
+
+/**
+ * (Use with the CoupledChild mixin)
+ * Mixin allowing the automatic collection of children while preserving the virtual dom children order at all times.
+ * Useful for creating tabs-style component, when we need to replicate the order of the children to display
+ * a group of button (tab strip).
+ * @param {string} name Name of the injection
+ */
+function CoupledParent (name) {
+  // @vue/component
+  return {
+    provide: function provide() {
+      return _defineProperty({}, name, this);
+    },
+
+
+    props: {
+      childIndex: {
+        default: 0
+      }
+    },
+
+    data: function data() {
+      return {
+        children: [],
+        activeChildIndex: parseInt(this.childIndex) || 0
+      };
+    },
+
+
+    computed: {
+      activeChild: function activeChild() {
+        if (this.activeChildIndex < this.children.length) {
+          return this.children[this.activeChildIndex];
+        }
+      }
+    },
+
+    watch: {
+      childIndex: function childIndex(val) {
+        this.activateChild(parseInt(val) || 0, true);
+      }
+    },
+
+    methods: {
+      /**
+       * Activates a child.
+       * @param {number} index Index of child to activate
+       * @param {boolean} external Indicates if the activation comes from an external source (like props)
+       */
+      activateChild: function activateChild(index) {
+        var external = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+        var oldIndex = this.activeChildIndex;
+        if (index < 0) {
+          index = 0;
+        } else if (index >= this.children.length) {
+          index = this.children.length - 1;
+        }
+        this.activeChildIndex = index;
+        this.$emit('update:childIndex', index);
+        this.childActivated(index, oldIndex, external);
+      },
+
+
+      /**
+       * Hook called when a child is activated.
+       * @param {number} index Index of the activated child
+       * @param {number} oldIndex Index of the previously activated child
+       * @param {boolean} external Indicates if the activation comes from an external source (like props)
+       */
+      childActivated: function childActivated(index, oldIndex, external) {
+        // Override this in component
+      },
+
+
+      /**
+       * Add a child component while preserving its order in the children list.
+       * @param {object} vm Vue instance
+       */
+      $_addCoupledChild: function $_addCoupledChild(vm) {
+        var _this = this;
+
+        // Guard
+        if (this.$slots && this.$slots.default) {
+          // We need to wait for the instances creation
+          this.$nextTick(function () {
+            // We need to get the components in the slot
+            var childComponents = _this.$slots.default.reduce(function (list, vnode) {
+              if (vnode.child) {
+                list.push(vnode.child);
+              }
+              return list;
+            }, []);
+            // List has the child component in the right order
+            // We can now register the child component in the right place
+            var index = childComponents.indexOf(vm);
+            // Add child
+            if (index !== -1) {
+              _this.children.splice(index, 0, vm);
+            }
+            // Hook
+            _this.$_updateChildren('add', index, vm);
+          });
+        }
+      },
+
+
+      /**
+       * Removes a child component. Automatically activates the next remaining component.
+       * @param {object} vm Vue instance
+       */
+      $_removeCoupledChild: function $_removeCoupledChild(vm) {
+        var index = this.children.indexOf(vm);
+        // Remove child
+        if (index !== -1) {
+          this.children.splice(index, 1);
+        }
+        // Hook
+        this.$_updateChildren('remove', index, vm);
+      },
+
+
+      /**
+       * Hook called when an operation is processed. It will intelligently activate a child if needed.
+       * @param {string} operation Name of the operation. Can be 'add' or 'remove'
+       * @param {number} index Index of the related child.
+       * @param {object} vm Related child Vue instance
+       */
+      $_updateChildren: function $_updateChildren(operation, index, vm) {
+        if (operation === 'add') {
+          // If the child was added before the currently active one,
+          // we need to move the selection to the right
+          if (index <= this.activeChildIndex) {
+            this.activateChild(this.activeChildIndex + 1);
+          }
+          // Default when there is only one child
+          if (this.children.length === 1) {
+            this.activateChild(0);
+          }
+        } else if (operation === 'remove') {
+          // If we remove a child before the currently active one,
+          // we need to move the selection to the left
+          if (index <= this.activeChildIndex) {
+            this.activateChild(this.activeChildIndex - 1);
+          }
+        }
+      }
+    }
+  };
+}
+
+/**
  * (Use with the DisabledParent mixin)
  * This mixin should be implemented on all components that can be disabled.
  */
@@ -7398,6 +7616,35 @@ var DisabledChild = {
     finalDisabled: function finalDisabled() {
       return this.disabled || this.VueDisableMixin && this.VueDisableMixin.data.value;
     }
+  }
+};
+
+var count = 0;
+
+function getScrollingElements() {
+  return document.querySelectorAll('.vue-disable-scroll, body');
+}
+
+function updateScroll() {
+  if (count === 0) {
+    getScrollingElements().forEach(function (el) {
+      return el.classList.remove('vue-no-scroll');
+    });
+  } else if (count === 1) {
+    getScrollingElements().forEach(function (el) {
+      return el.classList.add('vue-no-scroll');
+    });
+  }
+}
+
+var DisableScroll = {
+  mounted: function mounted() {
+    count++;
+    updateScroll();
+  },
+  beforeDestroy: function beforeDestroy() {
+    count--;
+    updateScroll();
   }
 };
 
@@ -7672,48 +7919,6 @@ var VueDropdownButton = { render: function render() {
     }
   }
 };
-
-// 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
-_export(_export.S + _export.F * !_descriptors, 'Object', { defineProperty: _objectDp.f });
-
-var $Object = _core.Object;
-var defineProperty$1 = function defineProperty(it, key, desc) {
-  return $Object.defineProperty(it, key, desc);
-};
-
-var defineProperty$2 = createCommonjsModule(function (module) {
-module.exports = { "default": defineProperty$1, __esModule: true };
-});
-
-unwrapExports(defineProperty$2);
-
-var defineProperty$4 = createCommonjsModule(function (module, exports) {
-
-exports.__esModule = true;
-
-
-
-var _defineProperty2 = _interopRequireDefault(defineProperty$2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function (obj, key, value) {
-  if (key in obj) {
-    (0, _defineProperty2.default)(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-};
-});
-
-var _defineProperty = unwrapExports(defineProperty$4);
 
 var statusIcons = {
   danger: 'error',
@@ -9868,35 +10073,6 @@ var $0_10 = { render: function render() {
   name: 'VueLoadingIndicator'
 };
 
-var count = 0;
-
-function getScrollingElements() {
-  return document.querySelectorAll('.vue-disable-scroll, body');
-}
-
-function updateScroll() {
-  if (count === 0) {
-    getScrollingElements().forEach(function (el) {
-      return el.classList.remove('vue-no-scroll');
-    });
-  } else if (count === 1) {
-    getScrollingElements().forEach(function (el) {
-      return el.classList.add('vue-no-scroll');
-    });
-  }
-}
-
-var DisableScroll = {
-  mounted: function mounted() {
-    count++;
-    updateScroll();
-  },
-  beforeDestroy: function beforeDestroy() {
-    count--;
-    updateScroll();
-  }
-};
-
 var $0_11 = { render: function render() {
     var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('transition', { attrs: { "name": "vue-modal", "duration": {
           enter: 1000,
@@ -10141,31 +10317,6 @@ var $0_14 = { render: function render() {
   }
 };
 
-/**
- * (Use with the CoupleParent mixin)
- * This mixin should be used on children components of a component implementing the CoupledParent mixin.
- * @param {string} name Name of the injection
- */
-function CoupledChild (name) {
-  // @vue/component
-  return {
-    inject: [name],
-
-    computed: {
-      active: function active() {
-        return this[name].activeChild === this;
-      }
-    },
-
-    created: function created() {
-      this[name].$_addCoupledChild(this);
-    },
-    beforeDestroy: function beforeDestroy() {
-      this[name].$_removeCoupledChild(this);
-    }
-  };
-}
-
 var $0_15 = { render: function render() {
     var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c(_vm.VueTabs.data.animate ? 'transition' : 'NoTransition', { tag: "component", attrs: { "name": "vue-tab" } }, [_c('div', { directives: [{ name: "show", rawName: "v-show", value: _vm.active, expression: "active" }], staticClass: "vue-tab", class: { selected: _vm.active }, attrs: { "role": "tabpanel", "tabindex": _vm.active ? '0' : null, "aria-hidden": !_vm.active ? 'true' : null } }, [_vm.contentShown ? _c('div', { staticClass: "vue-tab-content" }, [_vm._t("default")], 2) : _vm._e()])]);
   }, staticRenderFns: [],
@@ -10205,6 +10356,11 @@ var $0_15 = { render: function render() {
     lazy: {
       type: Boolean,
       default: false
+    },
+
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -10231,162 +10387,11 @@ var $0_15 = { render: function render() {
   }
 };
 
-/**
- * (Use with the CoupledChild mixin)
- * Mixin allowing the automatic collection of children while preserving the virtual dom children order at all times.
- * Useful for creating tabs-style component, when we need to replicate the order of the children to display
- * a group of button (tab strip).
- * @param {string} name Name of the injection
- */
-function CoupledParent (name) {
-  // @vue/component
-  return {
-    provide: function provide() {
-      return _defineProperty({}, name, this);
-    },
-
-
-    props: {
-      childIndex: {
-        default: 0
-      }
-    },
-
-    data: function data() {
-      return {
-        children: [],
-        activeChildIndex: parseInt(this.childIndex) || 0
-      };
-    },
-
-
-    computed: {
-      activeChild: function activeChild() {
-        if (this.activeChildIndex < this.children.length) {
-          return this.children[this.activeChildIndex];
-        }
-      }
-    },
-
-    watch: {
-      childIndex: function childIndex(val) {
-        this.activateChild(parseInt(val) || 0, true);
-      }
-    },
-
-    methods: {
-      /**
-       * Activates a child.
-       * @param {number} index Index of child to activate
-       * @param {boolean} external Indicates if the activation comes from an external source (like props)
-       */
-      activateChild: function activateChild(index) {
-        var external = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-
-        var oldIndex = this.activeChildIndex;
-        if (index < 0) {
-          index = 0;
-        } else if (index >= this.children.length) {
-          index = this.children.length - 1;
-        }
-        this.activeChildIndex = index;
-        this.$emit('update:childIndex', index);
-        this.childActivated(index, oldIndex, external);
-      },
-
-
-      /**
-       * Hook called when a child is activated.
-       * @param {number} index Index of the activated child
-       * @param {number} oldIndex Index of the previously activated child
-       * @param {boolean} external Indicates if the activation comes from an external source (like props)
-       */
-      childActivated: function childActivated(index, oldIndex, external) {
-        // Override this in component
-      },
-
-
-      /**
-       * Add a child component while preserving its order in the children list.
-       * @param {object} vm Vue instance
-       */
-      $_addCoupledChild: function $_addCoupledChild(vm) {
-        var _this = this;
-
-        // Guard
-        if (this.$slots && this.$slots.default) {
-          // We need to wait for the instances creation
-          this.$nextTick(function () {
-            // We need to get the components in the slot
-            var childComponents = _this.$slots.default.reduce(function (list, vnode) {
-              if (vnode.child) {
-                list.push(vnode.child);
-              }
-              return list;
-            }, []);
-            // List has the child component in the right order
-            // We can now register the child component in the right place
-            var index = childComponents.indexOf(vm);
-            // Add child
-            if (index !== -1) {
-              _this.children.splice(index, 0, vm);
-            }
-            // Hook
-            _this.$_updateChildren('add', index, vm);
-          });
-        }
-      },
-
-
-      /**
-       * Removes a child component. Automatically activates the next remaining component.
-       * @param {object} vm Vue instance
-       */
-      $_removeCoupledChild: function $_removeCoupledChild(vm) {
-        var index = this.children.indexOf(vm);
-        // Remove child
-        if (index !== -1) {
-          this.children.splice(index, 1);
-        }
-        // Hook
-        this.$_updateChildren('remove', index, vm);
-      },
-
-
-      /**
-       * Hook called when an operation is processed. It will intelligently activate a child if needed.
-       * @param {string} operation Name of the operation. Can be 'add' or 'remove'
-       * @param {number} index Index of the related child.
-       * @param {object} vm Related child Vue instance
-       */
-      $_updateChildren: function $_updateChildren(operation, index, vm) {
-        if (operation === 'add') {
-          // If the child was added before the currently active one,
-          // we need to move the selection to the right
-          if (index <= this.activeChildIndex) {
-            this.activateChild(this.activeChildIndex + 1);
-          }
-          // Default when there is only one child
-          if (this.children.length === 1) {
-            this.activateChild(0);
-          }
-        } else if (operation === 'remove') {
-          // If we remove a child before the currently active one,
-          // we need to move the selection to the left
-          if (index <= this.activeChildIndex) {
-            this.activateChild(this.activeChildIndex - 1);
-          }
-        }
-      }
-    }
-  };
-}
-
 var $0_16 = { render: function render() {
     var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "vue-tabs", class: ['direction-' + _vm.direction, { animate: _vm.animate }] }, [_c('VueGroup', { staticClass: "tabs", class: _vm.groupClass, attrs: { "indicator": !_vm.groupNoIndicator }, model: { value: _vm.currentTabId, callback: function callback($$v) {
           _vm.currentTabId = $$v;
         }, expression: "currentTabId" } }, _vm._l(_vm.children, function (tab, index) {
-      return _c('VueGroupButton', { key: tab.id, ref: "tabButtons", refInFor: true, staticClass: "tab-button", class: _vm.tabClass, attrs: { "value": tab.id, "label": tab.label, "icon-left": tab.icon, "role": "tab", "tabindex": "0", "aria-controls": 'tab-' + index }, nativeOn: { "keyup": [function ($event) {
+      return _c('VueGroupButton', { key: tab.id, ref: "tabButtons", refInFor: true, staticClass: "tab-button", class: _vm.tabClass, attrs: { "value": tab.id, "label": tab.label, "icon-left": tab.icon, "disabled": tab.disabled, "role": "tab", "tabindex": "0", "aria-controls": 'tab-' + index }, nativeOn: { "keyup": [function ($event) {
             if (!('button' in $event) && _vm._k($event.keyCode, "left", 37, $event.key)) {
               return null;
             }if ('button' in $event && $event.button !== 0) {
@@ -10826,7 +10831,8 @@ function install$3(Vue) {
   Vue.use(VueIcons);
 
   Vue.use(plugin, _Object$assign({
-    defaultDelay: { show: 1000, hide: 0 }
+    defaultDelay: { show: 1000, hide: 0 },
+    defaultBoundariesElement: document.body
   }, options.vtooltip));
 
   Vue.use(plugin$1);
@@ -10842,7 +10848,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.1.8",
+  version: "0.1.9",
   install: install$3
 };
 
@@ -10859,6 +10865,10 @@ if (GlobalVue$3) {
 
 exports.install = install$3;
 exports.default = plugin$3;
+exports.CoupledChild = CoupledChild;
+exports.CoupledParent = CoupledParent;
+exports.DisabledChild = DisabledChild;
+exports.DisableScroll = DisableScroll;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 

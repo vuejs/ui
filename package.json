@@ -1,7 +1,7 @@
 {
   "name": "@vue/ui",
   "description": "UI components used in the vuejs organization apps",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "author": {
     "name": "Guillaume Chau",
     "email": "guillaume.b.chau@gmail.com"
