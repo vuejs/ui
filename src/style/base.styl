@@ -64,46 +64,39 @@ ul
 .vue-empty
   color $md-grey
   padding 24px
+  text-align center
+  box-sizing border-box
   .vue-icon
     svg
       fill @color
 
 .vue-text
+  &.banner
+    padding 12px
+    display flex
+    align-items center
+    > .vue-icon
+      &:first-child
+        margin-right 10px
   &.primary
-    color $vue-color-primary
-    .vue-icon
-      svg
-        fill @color !important
+    vue-text-colors($vue-color-primary)
   &.accent
-    color $vue-color-acccent
-    .vue-icon
-      svg
-        fill @color !important
+    vue-text-colors($vue-color-accent)
   &.danger
-    color $vue-color-danger
-    .vue-icon
-      svg
-        fill @color !important
+    vue-text-colors($vue-color-danger)
   &.warning
-    color $vue-color-warning
-    .vue-icon
-      svg
-        fill @color !important
+    vue-text-colors($vue-color-warning)
   &.info
-    color $vue-color-info
-    .vue-icon
-      svg
-        fill @color !important
+    vue-text-colors($vue-color-info)
   &.success
-    color $vue-color-success
-    .vue-icon
-      svg
-        fill @color !important
+    vue-text-colors($vue-color-success)
 
 .vue-grid
   display grid
   &.default-gap
     grid-gap 12px
+  &.big-gap
+    grid-gap 24px
   for n in (1..10)
     &.col-{n}
       grid-template-columns repeat(n, 1fr)

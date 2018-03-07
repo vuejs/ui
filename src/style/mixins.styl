@@ -104,3 +104,13 @@ button-transitions()
     > .button-icon
       svg
         transition fill .1s
+
+// Vue text
+
+vue-text-colors($c)
+  color $c
+  .vue-icon
+    svg
+      fill $c !important
+  &.banner
+    background rgba($c, .1)

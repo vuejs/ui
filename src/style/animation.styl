@@ -1,3 +1,5 @@
+// Focus
+
 @keyframes vue-focus
   $color = $vue-color-accent
   0%
@@ -6,6 +8,8 @@
   100%
     border-color rgba($color, .6)
     box-shadow 0 0 4px rgba($color, .5)
+
+// Slide
 
 vue-slide($direction, $offset)
   if $direction == bottom
@@ -32,3 +36,13 @@ vue-slide(bottom, $offset)
 vue-slide(top, $offset)
 vue-slide(left, $offset)
 vue-slide(right, $offset)
+
+// Fade
+
+.vue-fade-enter-active,
+.vue-fade-leave-active
+  transition opacity .15s linear
+
+.vue-fade-enter,
+.vue-fade-leave-to
+  opacity 0
