@@ -63,6 +63,11 @@ export default {
       type: Boolean,
       default: false,
     },
+
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   computed: {
@@ -87,3 +92,10 @@ export default {
   },
 }
 </script>
+
+<style lang="stylus">
+@import "../style/imports"
+
+.vue-tab
+  outline none
+</style>

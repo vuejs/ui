@@ -23,6 +23,7 @@
         :value="tab.id"
         :label="tab.label"
         :icon-left="tab.icon"
+        :disabled="tab.disabled"
         role="tab"
         tabindex="0"
         :aria-controls="`tab-${index}`"
@@ -166,8 +167,14 @@ export default {
 </script>
 
 <style lang="stylus">
+@import "../style/imports"
 
 .vue-tabs
+  v-box()
+
+  > .tabs-content
+    flex 100% 1 1
+
   &.animate
     $offset = 50px
 
