@@ -9680,7 +9680,9 @@ var $0_5 = { render: function render() {
         left: _vm.indicatorStyle.left + 'px',
         width: _vm.indicatorStyle.width + 'px',
         height: _vm.indicatorStyle.height + 'px'
-      } }, [_c('div', { staticClass: "content" }, [_vm._t("indicator")], 2)]) : _vm._e()]);
+      } }, [_c('div', { staticClass: "content" }, [_vm._t("indicator")], 2)]) : _vm._e(), _vm._v(" "), _vm.indicator ? _c('resize-observer', { on: { "notify": function notify($event) {
+          _vm.updateIndicator();
+        } } }) : _vm._e()], 1);
   }, staticRenderFns: [],
   name: 'VueGroup',
 
@@ -10848,7 +10850,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.1.9",
+  version: "0.1.10",
   install: install$3
 };
 
