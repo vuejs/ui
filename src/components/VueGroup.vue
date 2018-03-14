@@ -23,6 +23,8 @@
         <slot name="indicator"/>
       </div>
     </div>
+
+    <resize-observer v-if="indicator" @notify="updateIndicator()"/>
   </div>
 </template>
 
