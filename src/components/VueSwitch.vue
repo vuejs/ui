@@ -1,6 +1,6 @@
 <template>
   <div
-    class="vue-switch"
+    class="vue-ui-switch"
     :class="{
       selected: value,
       disabled: finalDisabled,
@@ -76,7 +76,7 @@ export default {
 $width = 28px
 $height = 18px
 
-.vue-switch
+.vue-ui-switch
   display inline-block
   vertical-align middle
   user-select none
@@ -85,21 +85,21 @@ $height = 18px
   > .content
     h-box()
     align-items center
-    > .vue-icon
+    > .vue-ui-icon
       margin-right 6px
     > .wrapper
       width $width
       height $height
       margin-left 8px
       border-radius (@height / 2)
-      background $vue-color-light-neutral
+      background $vue-ui-color-light-neutral
       transition background .2s
       position relative
       .bullet
         width @height
         height @height
         border-radius 50%
-        background $vue-color-dark
+        background $vue-ui-color-dark
         transition margin-left .2s ease-in-out, transform .2s ease-in-out
 
   &.no-margin
@@ -110,7 +110,7 @@ $height = 18px
   &.selected
     > .content
       > .wrapper
-        background $vue-color-primary
+        background $vue-ui-color-primary
         .bullet
           margin-left ($width - $height)
 
@@ -121,7 +121,7 @@ $height = 18px
       > .wrapper
         margin-left 0
         margin-right 8px
-      > .vue-icon
+      > .vue-ui-icon
         margin-right 0
         margin-left 6px
 
@@ -135,7 +135,7 @@ $height = 18px
       > .content
         > .wrapper
           .bullet
-            background lighten($vue-color-dark, 20%)
+            background lighten($vue-ui-color-dark, 20%)
     &:active
       > .content
         > .wrapper
@@ -160,7 +160,7 @@ $height = 18px
       > .wrapper
         margin-left 0
 
-  .vue-dropdown-content &
+  .vue-ui-dropdown-content &
     > .content
       min-width 100%
       padding 8px 16px
@@ -169,11 +169,11 @@ $height = 18px
     &:not(.selected)
       > .content
         > .wrapper
-          background $vue-color-light
+          background $vue-ui-color-light
 
     &:hover
       > .content
-        background lighten($vue-color-light-neutral, 25%)
+        background lighten($vue-ui-color-light-neutral, 25%)
 
   // Focus
   &.focus,
@@ -188,5 +188,5 @@ $height = 18px
       right @top
       border 1px solid
       border-radius ($height / 2 + 1px)
-      animation vue-focus .3s forwards
+      animation vue-ui-focus .3s forwards
 </style>

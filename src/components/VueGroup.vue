@@ -1,6 +1,6 @@
 <template>
   <div
-    class="vue-group"
+    class="vue-ui-group"
     :class="{
       'has-indicator': indicator,
     }"
@@ -103,17 +103,17 @@ indicator(direction)
   > .indicator
     padding-{direction} 1px
     > .content
-      border-{direction} solid 2px rgba($vue-color-dark, .7)
+      border-{direction} solid 2px rgba($vue-ui-color-dark, .7)
   &.primary
     > .indicator
       > .content
-        border-{direction}-color rgba($vue-color-primary, .7)
+        border-{direction}-color rgba($vue-ui-color-primary, .7)
   &.accent
     > .indicator
       > .content
-        border-{direction}-color rgba($vue-color-accent, .7)
+        border-{direction}-color rgba($vue-ui-color-accent, .7)
 
-.vue-group
+.vue-ui-group
   position relative
 
   > .content

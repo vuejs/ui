@@ -1,6 +1,6 @@
 <template>
   <div
-    class="vue-loading-bar"
+    class="vue-ui-loading-bar"
     :class="{
       unknown,
     }"
@@ -38,18 +38,18 @@ colors($foreground, $background)
   .bar
     background $foreground
 
-.vue-loading-bar
+.vue-ui-loading-bar
   height 3px
   position relative
 
   .bar
     height 100%
 
-  colors($vue-color-dark, $vue-color-light-neutral)
+  colors($vue-ui-color-dark, $vue-ui-color-light-neutral)
   &.primary
-    colors($vue-color-primary, $vue-color-light-neutral)
+    colors($vue-ui-color-primary, $vue-ui-color-light-neutral)
   &.accent
-    colors($vue-color-accent, $vue-color-light-neutral)
+    colors($vue-ui-color-accent, $vue-ui-color-light-neutral)
 
   &.unknown
     .bar

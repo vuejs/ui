@@ -1,8 +1,8 @@
 .tooltip
   $arrow-size = 5px
   $tooltip-animation-duration = .12s
-  $background = $vue-color-dark
-  $color = $vue-color-light
+  $background = $vue-ui-color-dark
+  $color = $vue-ui-color-light
 
   display block !important
   z-index 999999
@@ -134,9 +134,9 @@
 
 
   &.popover
-    $background = $vue-color-light-neutral
-    $color = $vue-color-dark
-    $border = $vue-color-light
+    $background = $vue-ui-color-light-neutral
+    $color = $vue-ui-color-dark
+    $border = $vue-ui-color-light
 
     .popover-inner
       background $background
@@ -180,16 +180,16 @@
     &.popover
       &[x-placement^='top']
         > .wrapper
-          animation vue-slide-to-bottom $tooltip-animation-duration
+          animation vue-ui-slide-to-bottom $tooltip-animation-duration
       &[x-placement^='bottom']
         > .wrapper
-          animation vue-slide-to-top $tooltip-animation-duration
+          animation vue-ui-slide-to-top $tooltip-animation-duration
       &[x-placement^='left']
         > .wrapper
-          animation vue-slide-to-right $tooltip-animation-duration
+          animation vue-ui-slide-to-right $tooltip-animation-duration
       &[x-placement^='right']
         > .wrapper
-          animation vue-slide-to-left $tooltip-animation-duration
+          animation vue-ui-slide-to-left $tooltip-animation-duration
 
   // Visible
   &[aria-hidden='false']
@@ -200,13 +200,13 @@
     &.popover
       &[x-placement^='top']
         > .wrapper
-          animation vue-slide-from-bottom $tooltip-animation-duration
+          animation vue-ui-slide-from-bottom $tooltip-animation-duration
       &[x-placement^='bottom']
         > .wrapper
-          animation vue-slide-from-top $tooltip-animation-duration
+          animation vue-ui-slide-from-top $tooltip-animation-duration
       &[x-placement^='left']
         > .wrapper
-          animation vue-slide-from-right $tooltip-animation-duration
+          animation vue-ui-slide-from-right $tooltip-animation-duration
       &[x-placement^='right']
         > .wrapper
-          animation vue-slide-from-left $tooltip-animation-duration
+          animation vue-ui-slide-from-left $tooltip-animation-duration

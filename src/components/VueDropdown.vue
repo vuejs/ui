@@ -1,7 +1,7 @@
 <template>
   <v-popover
     ref="popover"
-    class="vue-dropdown"
+    class="vue-ui-dropdown"
     v-bind="$attrs"
     v-on="$listeners"
     :popover-class="popoverClass"
@@ -25,7 +25,7 @@
     <VueDisable
       slot="popover"
       ref="popoverContent"
-      class="vue-dropdown-content"
+      class="vue-ui-dropdown-content"
       :class="contentClass"
       :style="{
         minWidth: forceMinSize ? `${width}px` : '0',
@@ -164,7 +164,7 @@ export default {
 <style lang="stylus">
 @import "../style/imports"
 
-.vue-dropdown
+.vue-ui-dropdown
   display inline-block
   vertical-align middle
   position relative
@@ -174,7 +174,7 @@ export default {
   .dropdown-trigger > *
     width 100%
 
-.vue-dropdown-content.vue-disable
+.vue-ui-dropdown-content.vue-ui-disable
   box-sizing border-box
   > *
     display block

@@ -11,7 +11,7 @@ export default {
 
   render (h) {
     return h('div', {
-      staticClass: 'vue-icon',
+      staticClass: 'vue-ui-icon',
       on: { click: event => this.$emit('click', event) },
     }, [
       h('svg', [
@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="stylus">
-.vue-icon
+.vue-ui-icon
   display inline-block
   width 16px
   height @width

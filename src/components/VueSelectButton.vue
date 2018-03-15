@@ -1,7 +1,7 @@
 <template>
   <VueGroupButton
     ref="groupButton"
-    class="vue-select-button"
+    class="vue-ui-select-button"
     v-bind="$attrs"
     v-on="$listeners"
     v-close-popover="!keepOpen"
@@ -47,6 +47,6 @@ export default {
 <style lang="stylus">
 @import "../style/imports"
 
-.vue-select-button
+.vue-ui-select-button
   border-radius $br !important
 </style>

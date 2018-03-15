@@ -1,11 +1,11 @@
 <template>
   <component
     :is="VueTabs.data.animate ? 'transition' : 'NoTransition'"
-    name="vue-tab"
+    name="vue-ui-tab"
   >
     <div
       v-show="active"
-      class="vue-tab"
+      class="vue-ui-tab"
       :class="{
         selected: active,
       }"
@@ -13,7 +13,7 @@
       :tabindex="active ? '0' : null"
       :aria-hidden="!active ? 'true' : null"
     >
-      <div v-if="contentShown" class="vue-tab-content">
+      <div v-if="contentShown" class="vue-ui-tab-content">
         <slot/>
       </div>
     </div>
@@ -96,6 +96,6 @@ export default {
 <style lang="stylus">
 @import "../style/imports"
 
-.vue-tab
+.vue-ui-tab
   outline none
 </style>

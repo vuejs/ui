@@ -1,5 +1,5 @@
 <template>
-  <div class="vue-loading-indicator">
+  <div class="vue-ui-loading-indicator">
     <div class="animation"/>
     <slot/>
   </div>
@@ -18,7 +18,7 @@ colors($color)
   border-right-color $color
   border-bottom-color $color
 
-.vue-loading-indicator
+.vue-ui-loading-indicator
   display flex
   &.inline
     display inline-flex
@@ -31,13 +31,13 @@ colors($color)
     height @width
     border-radius 50%
     border transparent 2px solid
-    colors($vue-color-dark)
+    colors($vue-ui-color-dark)
   &.primary
     > .animation
-      colors($vue-color-primary)
+      colors($vue-ui-color-primary)
   &.accent
     > .animation
-      colors($vue-color-accent)
+      colors($vue-ui-color-accent)
   &.small
     > .animation
       width 10px
@@ -58,7 +58,7 @@ colors($color)
     > .animation
       margin-bottom 32px
     &:not(.transparent)
-      background rgba($vue-color-light, .95)
+      background rgba($vue-ui-color-light, .95)
     &.fixed
       position fixed
 

@@ -22,7 +22,7 @@ export default {
       ],
 
       render (h) {
-        return h('div', { staticClass: 'vue-disable' }, this.$slots.default)
+        return h('div', { staticClass: 'vue-ui-disable' }, this.$slots.default)
       },
     },
   },

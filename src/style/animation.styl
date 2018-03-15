@@ -1,7 +1,7 @@
 // Focus
 
-@keyframes vue-focus
-  $color = $vue-color-accent
+@keyframes vue-ui-focus
+  $color = $vue-ui-color-accent
   0%
     border-color $color
     box-shadow 0 0 10px rgba($color, 1)
@@ -11,7 +11,7 @@
 
 // Slide
 
-vue-slide($direction, $offset)
+vue-ui-slide($direction, $offset)
   if $direction == bottom
     $transform = "translateY(%s)" % $offset
   else if $direction == top
@@ -20,29 +20,29 @@ vue-slide($direction, $offset)
     $transform = "translateX(-%s)" % $offset
   else if $direction == right
     $transform = "translateX(%s)" % $offset
-  @keyframes vue-slide-from-{$direction}
+  @keyframes vue-ui-slide-from-{$direction}
     0%
       transform $transform
     100%
       transform none
-  @keyframes vue-slide-to-{$direction}
+  @keyframes vue-ui-slide-to-{$direction}
     0%
       transform none
     100%
       transform $transform
 
 $offset = 10px
-vue-slide(bottom, $offset)
-vue-slide(top, $offset)
-vue-slide(left, $offset)
-vue-slide(right, $offset)
+vue-ui-slide(bottom, $offset)
+vue-ui-slide(top, $offset)
+vue-ui-slide(left, $offset)
+vue-ui-slide(right, $offset)
 
 // Fade
 
-.vue-fade-enter-active,
-.vue-fade-leave-active
+.vue-ui-fade-enter-active,
+.vue-ui-fade-leave-active
   transition opacity .15s linear
 
-.vue-fade-enter,
-.vue-fade-leave-to
+.vue-ui-fade-enter,
+.vue-ui-fade-leave-to
   opacity 0

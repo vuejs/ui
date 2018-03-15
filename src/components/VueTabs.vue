@@ -1,6 +1,6 @@
 <template>
   <div
-    class="vue-tabs"
+    class="vue-ui-tabs"
     :class="[
       `direction-${direction}`,
       {
@@ -169,7 +169,7 @@ export default {
 <style lang="stylus">
 @import "../style/imports"
 
-.vue-tabs
+.vue-ui-tabs
   v-box()
 
   > .tabs-content
@@ -181,32 +181,32 @@ export default {
     > .tabs-content
       position relative
 
-    .vue-tab-enter-active,
-    .vue-tab-leave-active
+    .vue-ui-tab-enter-active,
+    .vue-ui-tab-leave-active
       transition all .15s cubic-bezier(0.0, 0.0, 0.2, 1)
 
-    .vue-tab-leave-active
+    .vue-ui-tab-leave-active
       position absolute
       top 0
       left 0
       right 0
       height 0
 
-    .vue-tab-enter,
-    .vue-tab-leave-to
+    .vue-ui-tab-enter,
+    .vue-ui-tab-leave-to
       opacity 0
 
     &.direction-to-right
-      .vue-tab-enter
+      .vue-ui-tab-enter
         transform "translateX(%s)" % $offset
 
-      .vue-tab-leave-to
+      .vue-ui-tab-leave-to
         transform "translateX(-%s)" % $offset
 
     &.direction-to-left
-      .vue-tab-enter
+      .vue-ui-tab-enter
         transform "translateX(-%s)" % $offset
 
-      .vue-tab-leave-to
+      .vue-ui-tab-leave-to
         transform "translateX(%s)" % $offset
 </style>

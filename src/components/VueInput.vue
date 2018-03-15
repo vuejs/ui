@@ -1,6 +1,6 @@
 <template>
   <div
-    class="vue-input"
+    class="vue-ui-input"
     :class="[
       `type-${type}`,
       {
@@ -220,7 +220,7 @@ colors($color)
       background $color
   &.focused
     > .content
-      > .vue-loading-indicator
+      > .vue-ui-loading-indicator
         .animation
           border-right-color $color
           border-bottom-color $color
@@ -228,8 +228,8 @@ colors($color)
         svg
           fill darken($color, 20%)
 
-.vue-input
-  $lightened = lighten($vue-color-dark, 50%)
+.vue-ui-input
+  $lightened = lighten($vue-ui-color-dark, 50%)
   display inline-block
   vertical-align middle
   box-sizing border-box
@@ -240,8 +240,8 @@ colors($color)
     h-box()
     box-center()
     padding 0 10px
-    border solid 1px $vue-color-light-neutral
-    color $vue-color-dark
+    border solid 1px $vue-ui-color-light-neutral
+    color $vue-ui-color-dark
     border-radius $br
     transition background .3s
     position relative
@@ -299,7 +299,7 @@ colors($color)
         fill $lightened
         transition fill .3s
 
-    > .vue-loading-indicator
+    > .vue-ui-loading-indicator
       &.left
         margin-right 8px
       &.right
@@ -324,7 +324,7 @@ colors($color)
 
   &:not(.flat)
     > .content
-      background lighten($vue-color-light-neutral, 70%)
+      background lighten($vue-ui-color-light-neutral, 70%)
 
   &.show-suggestion
     > .content > .input-wrapper > .input
@@ -332,26 +332,26 @@ colors($color)
         color transparent
 
   // Colors
-  colors($vue-color-primary)
+  colors($vue-ui-color-primary)
   &.accent
-    colors($vue-color-accent)
+    colors($vue-ui-color-accent)
   &.danger,
   &.status-danger
-    colors($vue-color-danger)
+    colors($vue-ui-color-danger)
   &.warning,
   &.status-warning
-    colors($vue-color-warning)
+    colors($vue-ui-color-warning)
   &.info,
   &.status-info
-    colors($vue-color-info)
+    colors($vue-ui-color-info)
   &.success,
   &.status-success
-    colors($vue-color-success)
+    colors($vue-ui-color-success)
 
   &.focused
     &:not(.flat)
       > .content
-        background $vue-color-light
+        background $vue-ui-color-light
         > .border
           left 0
           right @left
@@ -359,7 +359,7 @@ colors($color)
 
   &.flat
     > .content
-      border-color $vue-color-light
+      border-color $vue-ui-color-light
       > .border
         display none
 
@@ -388,7 +388,7 @@ colors($color)
   &.disabled
     opacity .5
 
-  .vue-dropdown-content &
+  .vue-ui-dropdown-content &
     min-width 200px
     padding 0 4px 4px
 </style>

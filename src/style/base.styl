@@ -6,25 +6,25 @@
 
 html,
 body
-  background $vue-color-light
+  background $vue-ui-color-light
 
 body
   font-size 16px
   font-family 'Roboto', 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
-  color $vue-color-dark
+  color $vue-ui-color-dark
   margin 0
 
 hr
   border none
   height 1px
-  background $vue-color-light-neutral
+  background $vue-ui-color-light-neutral
 
 a
-  color $vue-color-primary
+  color $vue-ui-color-primary
   text-decoration none
-  .vue-icon
+  .vue-ui-icon
     svg
       fill @color
 
@@ -58,40 +58,40 @@ p
 ul
   margin 4px 0
 
-.vue-no-scroll
+.vue-ui-no-scroll
   overflow hidden
 
-.vue-empty
+.vue-ui-empty
   color $md-grey
   padding 24px
   text-align center
   box-sizing border-box
-  .vue-icon
+  .vue-ui-icon
     svg
       fill @color
 
-.vue-text
+.vue-ui-text
   &.banner
     padding 12px
     display flex
     align-items center
-    > .vue-icon
+    > .vue-ui-icon
       &:first-child
         margin-right 10px
   &.primary
-    vue-text-colors($vue-color-primary)
+    vue-ui-text-colors($vue-ui-color-primary)
   &.accent
-    vue-text-colors($vue-color-accent)
+    vue-ui-text-colors($vue-ui-color-accent)
   &.danger
-    vue-text-colors($vue-color-danger)
+    vue-ui-text-colors($vue-ui-color-danger)
   &.warning
-    vue-text-colors($vue-color-warning)
+    vue-ui-text-colors($vue-ui-color-warning)
   &.info
-    vue-text-colors($vue-color-info)
+    vue-ui-text-colors($vue-ui-color-info)
   &.success
-    vue-text-colors($vue-color-success)
+    vue-ui-text-colors($vue-ui-color-success)
 
-.vue-grid
+.vue-ui-grid
   display grid
   &.default-gap
     grid-gap 12px

@@ -1,5 +1,5 @@
 <template>
-  <div class="vue-type-ahead">
+  <div class="vue-ui-type-ahead">
     <VueSelect
       :open="finalOpen"
       @update:open="val => open = val"
@@ -231,10 +231,10 @@ export default {
 <style lang="stylus">
 @import "../style/imports"
 
-.vue-type-ahead
+.vue-ui-type-ahead
   display inline-block
   vertical-align middle
 
-  > .vue-dropdown
+  > .vue-ui-dropdown
     width 100%
 </style>

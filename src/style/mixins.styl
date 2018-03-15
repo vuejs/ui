@@ -72,17 +72,17 @@ disable-focus-styles()
 button-colors($foreground, $background)
   color $foreground
   background $background
-  &.vue-dropdown-button
+  &.vue-ui-dropdown-button
     background transparent
     &:not(:hover)
-      color $vue-color-dark
+      color $vue-ui-color-dark
       > .content
         > .button-icon
           svg
             fill @color
   &:not(.ghost)
     &:hover,
-    .vue-dropdown.open .dropdown-trigger &
+    .vue-ui-dropdown.open .dropdown-trigger &
       background lighten(@background, 25%)
     &:active
       background darken(@background, 8%)
@@ -90,7 +90,7 @@ button-colors($foreground, $background)
     > .button-icon
       svg
         fill $foreground
-  > .vue-loading-indicator,
+  > .vue-ui-loading-indicator,
   > .content > .loading-secondary
     .animation
       border-right-color $foreground
@@ -107,9 +107,9 @@ button-transitions()
 
 // Vue text
 
-vue-text-colors($c)
+vue-ui-text-colors($c)
   color $c
-  .vue-icon
+  .vue-ui-icon
     svg
       fill $c !important
   &.banner

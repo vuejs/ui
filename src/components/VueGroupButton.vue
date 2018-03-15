@@ -1,6 +1,6 @@
 <template>
   <VueButton
-    class="vue-group-button"
+    class="vue-ui-group-button"
     :class="{
       selected,
     }"
@@ -52,29 +52,29 @@ export default {
 <style lang="stylus">
 @import "../style/imports"
 
-.vue-group-button.vue-button
+.vue-ui-group-button.vue-ui-button
   button-transitions()
   &:not(.selected):not(.flat)
-    button-colors($vue-color-dark, $vue-color-light-neutral)
+    button-colors($vue-ui-color-dark, $vue-ui-color-light-neutral)
 
   &.selected
-    .vue-group.has-indicator.primary &
-      button-colors($vue-color-primary, $vue-color-light-neutral)
-    .vue-group.has-indicator.accent &
-      button-colors($vue-color-accent, $vue-color-light-neutral)
+    .vue-ui-group.has-indicator.primary &
+      button-colors($vue-ui-color-primary, $vue-ui-color-light-neutral)
+    .vue-ui-group.has-indicator.accent &
+      button-colors($vue-ui-color-accent, $vue-ui-color-light-neutral)
 
   &,
   &.selected
-    .vue-group.has-indicator &
+    .vue-ui-group.has-indicator &
       &.flat
         background transparent
 
-  .vue-group:not(.has-indicator) &
+  .vue-ui-group:not(.has-indicator) &
     &.selected
       &:not(.primary):not(.accent):not(.danger):not(.warning):not(.info):not(.success):not(.flat)
-        button-colors($vue-color-light, $vue-color-dark)
+        button-colors($vue-ui-color-light, $vue-ui-color-dark)
 
-  .vue-group:not(.vertical) &
+  .vue-ui-group:not(.vertical) &
     &:not(.flat)
       &:not(:first-child)
         border-top-left-radius 0
@@ -93,7 +93,7 @@ export default {
           &:last-child
             padding-right 12px
 
-  .vue-group.vertical &
+  .vue-ui-group.vertical &
     display flex
     width 100%
     &:not(.flat)
@@ -104,7 +104,7 @@ export default {
         border-bottom-left-radius 0
         border-bottom-right-radius 0
       &.round.selected
-        background $vue-color-light-neutral !important
+        background $vue-ui-color-light-neutral !important
         &::before
           content ''
           display block

@@ -1,6 +1,6 @@
 <template>
   <VueButton
-    class="vue-dropdown-button"
+    class="vue-ui-dropdown-button"
     v-bind="$attrs"
     v-on="$listeners"
     v-close-popover="!keepOpen"
@@ -26,7 +26,7 @@ export default {
 
 <style lang="stylus">
 @import "../style/imports"
-.vue-dropdown-content .vue-dropdown-button.vue-button
+.vue-ui-dropdown-content .vue-ui-dropdown-button.vue-ui-button
   border-radius 0
   button-transitions()
   text-align left

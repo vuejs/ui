@@ -1,13 +1,13 @@
 <template>
   <transition
-    name="vue-modal"
+    name="vue-ui-modal"
     :duration="{
       enter: 1000,
       leave: 300,
     }"
   >
     <div
-      class="vue-modal"
+      class="vue-ui-modal"
       :class="{
         locked,
       }"
@@ -92,7 +92,7 @@ export default {
 <style lang="stylus">
 @import "../style/imports"
 
-.vue-modal
+.vue-ui-modal
   position fixed
   top 0
   left 0
@@ -109,10 +109,10 @@ export default {
     left 0
     width 100%
     height 100%
-    background rgba($vue-color-light, .9)
+    background rgba($vue-ui-color-light, .9)
 
   > .shell
-    background $vue-color-light
+    background $vue-ui-color-light
     border-radius $br
     position relative
     max-width calc(100vw - 100px)
@@ -132,7 +132,7 @@ export default {
       padding 24px
 
     > .header
-      border-bottom solid 1px $vue-color-light-neutral
+      border-bottom solid 1px $vue-ui-color-light-neutral
 
       > .title
         font-size 18px
@@ -167,8 +167,8 @@ export default {
       max-width 800px
       min-width 700px
 
-.vue-modal-enter-active,
-.vue-modal-leave-active
+.vue-ui-modal-enter-active,
+.vue-ui-modal-leave-active
   > .backdrop
     transition opacity .3s
   > .shell
@@ -181,8 +181,8 @@ export default {
     > .footer
       transition-delay .2s
 
-.vue-modal-enter,
-.vue-modal-leave-to
+.vue-ui-modal-enter,
+.vue-ui-modal-leave-to
   > .backdrop,
   > .shell
     opacity 0
@@ -190,7 +190,7 @@ export default {
   > .shell
     transform scale(.95)
 
-.vue-modal-enter
+.vue-ui-modal-enter
   > .shell
     > .body,
     > .footer

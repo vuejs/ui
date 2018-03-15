@@ -1,6 +1,6 @@
 <template>
   <div
-    class="vue-form-field"
+    class="vue-ui-form-field"
     :class="{
       focused: injectedData.focused,
       [`status-${injectedData.status}`]: injectedData.status,
@@ -18,7 +18,7 @@
       <div
         class="subtitle"
         :class="{
-          [`vue-text ${injectedData.status}`]: injectedData.status,
+          [`vue-ui-text ${injectedData.status}`]: injectedData.status,
         }"
       >
         <VueIcon
@@ -103,7 +103,7 @@ export default {
 <style lang="stylus">
 @import "../style/imports"
 
-.vue-form-field
+.vue-ui-form-field
   > .wrapper
     &,
     > .content
@@ -123,8 +123,8 @@ export default {
     > .subtitle
       font-size 14px
       &:not(.primary):not(.accent):not(.danger):not(.warning):not(.info):not(.success):not(.flat)
-        color lighten($vue-color-dark, 20%)
-        .vue-icon
+        color lighten($vue-ui-color-dark, 20%)
+        .vue-ui-icon
           svg
             fill @color
 

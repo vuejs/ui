@@ -1,7 +1,7 @@
 <template>
   <VueDropdown
     ref="dropdown"
-    class="vue-select"
+    class="vue-ui-select"
     v-bind="$attrs"
     v-on="$listeners"
     :disabled="finalDisabled"
@@ -9,7 +9,7 @@
     :icon-right="iconRight"
     :label="displayedLabel"
     :popover-class="['popover', 'select-popover', popoverClass]"
-    content-class="vue-select-popover-content"
+    content-class="vue-ui-select-popover-content"
     force-min-size
   >
     <template slot="trigger">
@@ -119,13 +119,13 @@ export default {
 </script>
 
 <style lang="stylus">
-.vue-select
+.vue-ui-select
   .dropdown-trigger
-    .vue-button
+    .vue-ui-button
       > .content > .default-slot
         flex auto 1 1
 
-.vue-select-popover-content
+.vue-ui-select-popover-content
   padding 0 4px
   max-height 220px
   overflow-y auto

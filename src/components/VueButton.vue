@@ -1,7 +1,7 @@
 <template>
   <component
     :is="component"
-    class="vue-button"
+    class="vue-ui-button"
     :class="[
       component,
       {
@@ -129,7 +129,7 @@ export default {
 
 @import "../style/imports"
 
-$focus-color = $vue-color-dark
+$focus-color = $vue-ui-color-dark
 
 colors($dark, $light, $invert = false)
   if $invert
@@ -144,10 +144,10 @@ colors($dark, $light, $invert = false)
     &:not(.ghost)
       &:hover,
       &:active,
-      .vue-dropdown.open .dropdown-trigger &
+      .vue-ui-dropdown.open .dropdown-trigger &
         button-colors($foreground, $background)
 
-.vue-button
+.vue-ui-button
   display inline-block
   vertical-align middle
   border none
@@ -166,7 +166,7 @@ colors($dark, $light, $invert = false)
     padding 0 20px
     font-size 16px
     height 50px
-    .vue-icon
+    .vue-ui-icon
       width 24px
       height @width
   // Round style
@@ -212,26 +212,26 @@ colors($dark, $light, $invert = false)
   &.loading
     > .content
       visibility hidden
-  > .vue-loading-indicator
+  > .vue-ui-loading-indicator
     position absolute
     top 0
     bottom 0
     left 0
     right 0
   // Colors
-  colors($vue-color-dark, $vue-color-light-neutral)
+  colors($vue-ui-color-dark, $vue-ui-color-light-neutral)
   &.primary
-    colors($vue-color-primary, $vue-color-light, true)
+    colors($vue-ui-color-primary, $vue-ui-color-light, true)
   &.accent
-    colors($vue-color-accent, $vue-color-light, true)
+    colors($vue-ui-color-accent, $vue-ui-color-light, true)
   &.danger
-    colors($vue-color-danger, $vue-color-light, true)
+    colors($vue-ui-color-danger, $vue-ui-color-light, true)
   &.warning
-    colors($vue-color-warning, $vue-color-light, true)
+    colors($vue-ui-color-warning, $vue-ui-color-light, true)
   &.info
-    colors($vue-color-info, $vue-color-light-neutral)
+    colors($vue-ui-color-info, $vue-ui-color-light-neutral)
   &.success
-    colors($vue-color-success, $vue-color-light-neutral)
+    colors($vue-ui-color-success, $vue-ui-color-light-neutral)
   disable-focus-styles()
   // Keyboard focus style
   &:focus:focus-visible
@@ -246,5 +246,5 @@ colors($dark, $light, $invert = false)
       right @top
       border 1px solid
       border-radius ($br + 1px)
-      animation vue-focus .3s forwards
+      animation vue-ui-focus .3s forwards
 </style>
