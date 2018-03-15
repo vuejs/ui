@@ -10844,7 +10844,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.2.0",
+  version: "0.2.1",
   install: install$3
 };
 
