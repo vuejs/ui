@@ -12,16 +12,38 @@ export default function (name) {
 
     computed: {
       active () {
-        return this[name].activeChild === this
+        return this[name].activeChild === this.$_proxy
       },
     },
 
     created () {
-      this[name].$_addCoupledChild(this)
+      const proxy = this.$_proxy = {}
+      for (const key in this.$data) {
+        if (key.charAt(0) === '$' || key.charAt(0) === '_') continue
+        Object.defineProperty(proxy, key, {
+          enumerable: true,
+          configurable: false,
+          get: () => this.$data[key],
+        })
+      }
+      for (const key in this.$props) {
+        if (key.charAt(0) === '$' || key.charAt(0) === '_') continue
+        Object.defineProperty(proxy, key, {
+          enumerable: true,
+          configurable: false,
+          get: () => this.$props[key],
+        })
+      }
+      Object.defineProperty(proxy, '$slots', {
+        enumerable: false,
+        configurable: false,
+        get: () => this.$slots,
+      })
+      this[name].$_addCoupledChild(proxy)
     },
 
     beforeDestroy () {
-      this[name].$_removeCoupledChild(this)
+      this[name].$_removeCoupledChild(this.$_proxy)
     },
   }
 }

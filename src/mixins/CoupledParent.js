@@ -9,8 +9,14 @@ export default function (name) {
   // @vue/component
   return {
     provide () {
+      const proxy = {}
+      Object.defineProperty(proxy, 'activeChild', {
+        get: () => this.activeChild,
+      })
+      proxy.$_addCoupledChild = this.$_addCoupledChild.bind(this)
+      proxy.$_removeCoupledChild = this.$_removeCoupledChild.bind(this)
       return {
-        [name]: this,
+        [name]: proxy,
       }
     },
 
@@ -81,7 +87,7 @@ export default function (name) {
             // We need to get the components in the slot
             const childComponents = this.$slots.default.reduce((list, vnode) => {
               if (vnode.child) {
-                list.push(vnode.child)
+                list.push(vnode.child.$_proxy)
               }
               return list
             }, [])
