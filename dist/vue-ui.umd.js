@@ -9758,7 +9758,7 @@ var $0_5 = { render: function render() {
                   };
                   parent = el.offsetParent;
 
-                  while (parent !== _this.$el) {
+                  while (parent && parent !== _this.$el) {
                     offset.top += parent.offsetTop;
                     offset.left += parent.offsetLeft;
                     parent = parent.offsetParent;
@@ -10858,7 +10858,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.2.3",
+  version: "0.2.4",
   install: install$3
 };
 
