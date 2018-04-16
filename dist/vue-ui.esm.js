@@ -9732,7 +9732,7 @@ var $0_5 = { render: function render() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/regenerator.mark(function _callee() {
-        var el;
+        var el, offset, parent;
         return regenerator.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -9744,12 +9744,20 @@ var $0_5 = { render: function render() {
                 el = _this.$el.querySelector('.selected');
 
                 if (el) {
-                  _this.indicatorStyle = {
+                  offset = {
                     top: el.offsetTop,
                     left: el.offsetLeft,
                     width: el.offsetWidth,
                     height: el.offsetHeight
                   };
+                  parent = el.offsetParent;
+
+                  while (parent !== _this.$el) {
+                    offset.top += parent.offsetTop;
+                    offset.left += parent.offsetLeft;
+                    parent = parent.offsetParent;
+                  }
+                  _this.indicatorStyle = offset;
                 } else {
                   _this.indicatorStyle = null;
                 }
@@ -10844,7 +10852,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.2.1",
+  version: "0.2.2",
   install: install$3
 };
 

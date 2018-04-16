@@ -3,6 +3,7 @@
   $tooltip-animation-duration = .12s
   $background = $vue-ui-color-dark
   $color = $vue-ui-color-light
+  $border = $vue-ui-color-light
 
   display block !important
   z-index 999999
@@ -13,7 +14,9 @@
     border-radius $br
     padding 4px 8px
     font-size .95em
-    max-width 200px
+    position relative
+    max-width 300px
+    border 1px solid $border
 
   .tooltip-arrow
     width $arrow-size
@@ -34,14 +37,16 @@
       left 0
 
     &::before
-      border-color $grey-alto
-      display none
+      border-color $border
 
     &::after
       border-color $background
 
   &[x-placement^='top']
     margin-bottom $arrow-size
+
+    .tooltip-inner
+      bottom -1px
 
     .tooltip-arrow
       bottom -($arrow-size)
@@ -66,6 +71,9 @@
   &[x-placement^='bottom']
     margin-top $arrow-size
 
+    .tooltip-inner
+      top -1px
+
     .tooltip-arrow
       top -($arrow-size)
       left 'calc(50% - %s)' % $arrow-size
@@ -88,6 +96,9 @@
 
   &[x-placement^='right']
     margin-left $arrow-size
+
+    .tooltip-inner
+      left -1px
 
     .tooltip-arrow
       left -($arrow-size)
@@ -112,6 +123,9 @@
   &[x-placement^='left']
     margin-right $arrow-size
 
+    .tooltip-inner
+      right -1px
+
     .tooltip-arrow
       right -($arrow-size)
       top 'calc(50% - %s)' % $arrow-size
@@ -133,7 +147,7 @@
         border-bottom-color transparent !important
 
 
-  &.popover
+  &.popover:not(.force-tooltip)
     $background = $vue-ui-color-light-neutral
     $color = $vue-ui-color-dark
     $border = $vue-ui-color-light
@@ -142,7 +156,6 @@
       background $background
       border 1px solid $border
       color $color
-      position relative
       padding 4px 0
       border-radius $br
       max-width none
@@ -152,24 +165,7 @@
         border-color $background
 
       &::before
-        display block
         border-color $border
-
-    &[x-placement^='top']
-      .popover-inner
-        bottom -1px
-
-    &[x-placement^='bottom']
-      .popover-inner
-        top -1px
-
-    &[x-placement^='left']
-      .popover-inner
-        right -1px
-
-    &[x-placement^='right']
-      .popover-inner
-        left -1px
 
   // Hidden
   &[aria-hidden='true']
@@ -177,7 +173,7 @@
     opacity 0
     transition opacity $tooltip-animation-duration, visibility $tooltip-animation-duration
 
-    &.popover
+    &.popover:not(.force-tooltip)
       &[x-placement^='top']
         > .wrapper
           animation vue-ui-slide-to-bottom $tooltip-animation-duration
@@ -197,7 +193,7 @@
     opacity 1
     transition opacity $tooltip-animation-duration
 
-    &.popover
+    &.popover:not(.force-tooltip)
       &[x-placement^='top']
         > .wrapper
           animation vue-ui-slide-from-bottom $tooltip-animation-duration
