@@ -89,7 +89,7 @@ export default {
           height: el.offsetHeight,
         }
         let parent = el.offsetParent
-        while (parent !== this.$el) {
+        while (parent && parent !== this.$el) {
           offset.top += parent.offsetTop
           offset.left += parent.offsetLeft
           parent = parent.offsetParent
