@@ -7375,31 +7375,6 @@ onDOMReady(init);
 })));
 });
 
-/**
- * (Use with the CoupleParent mixin)
- * This mixin should be used on children components of a component implementing the CoupledParent mixin.
- * @param {string} name Name of the injection
- */
-function CoupledChild (name) {
-  // @vue/component
-  return {
-    inject: [name],
-
-    computed: {
-      active: function active() {
-        return this[name].activeChild === this;
-      }
-    },
-
-    created: function created() {
-      this[name].$_addCoupledChild(this);
-    },
-    beforeDestroy: function beforeDestroy() {
-      this[name].$_removeCoupledChild(this);
-    }
-  };
-}
-
 // 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
 _export(_export.S + _export.F * !_descriptors, 'Object', { defineProperty: _objectDp.f });
 
@@ -7412,9 +7387,78 @@ var defineProperty$2 = createCommonjsModule(function (module) {
 module.exports = { "default": defineProperty$1, __esModule: true };
 });
 
-unwrapExports(defineProperty$2);
+var _Object$defineProperty = unwrapExports(defineProperty$2);
 
-var defineProperty$4 = createCommonjsModule(function (module, exports) {
+/**
+ * (Use with the CoupleParent mixin)
+ * This mixin should be used on children components of a component implementing the CoupledParent mixin.
+ * @param {string} name Name of the injection
+ */
+function CoupledChild (name) {
+  // @vue/component
+  return {
+    inject: [name],
+
+    computed: {
+      active: function active() {
+        return this[name].activeChild === this.$_proxy;
+      }
+    },
+
+    created: function created() {
+      var _this = this;
+
+      var proxy = this.$_proxy = {};
+
+      var _loop = function _loop(key) {
+        if (key.charAt(0) === '$' || key.charAt(0) === '_') return 'continue';
+        _Object$defineProperty(proxy, key, {
+          enumerable: true,
+          configurable: false,
+          get: function get() {
+            return _this.$data[key];
+          }
+        });
+      };
+
+      for (var key in this.$data) {
+        var _ret = _loop(key);
+
+        if (_ret === 'continue') continue;
+      }
+
+      var _loop2 = function _loop2(key) {
+        if (key.charAt(0) === '$' || key.charAt(0) === '_') return 'continue';
+        _Object$defineProperty(proxy, key, {
+          enumerable: true,
+          configurable: false,
+          get: function get() {
+            return _this.$props[key];
+          }
+        });
+      };
+
+      for (var key in this.$props) {
+        var _ret2 = _loop2(key);
+
+        if (_ret2 === 'continue') continue;
+      }
+      Object.defineProperty(proxy, '$slots', {
+        enumerable: false,
+        configurable: false,
+        get: function get() {
+          return _this.$slots;
+        }
+      });
+      this[name].$_addCoupledChild(proxy);
+    },
+    beforeDestroy: function beforeDestroy() {
+      this[name].$_removeCoupledChild(this.$_proxy);
+    }
+  };
+}
+
+var defineProperty$3 = createCommonjsModule(function (module, exports) {
 
 exports.__esModule = true;
 
@@ -7440,7 +7484,7 @@ exports.default = function (obj, key, value) {
 };
 });
 
-var _defineProperty = unwrapExports(defineProperty$4);
+var _defineProperty = unwrapExports(defineProperty$3);
 
 /**
  * (Use with the CoupledChild mixin)
@@ -7453,7 +7497,17 @@ function CoupledParent (name) {
   // @vue/component
   return {
     provide: function provide() {
-      return _defineProperty({}, name, this);
+      var _this = this;
+
+      var proxy = {};
+      Object.defineProperty(proxy, 'activeChild', {
+        get: function get() {
+          return _this.activeChild;
+        }
+      });
+      proxy.$_addCoupledChild = this.$_addCoupledChild.bind(this);
+      proxy.$_removeCoupledChild = this.$_removeCoupledChild.bind(this);
+      return _defineProperty({}, name, proxy);
     },
 
 
@@ -7522,16 +7576,16 @@ function CoupledParent (name) {
        * @param {object} vm Vue instance
        */
       $_addCoupledChild: function $_addCoupledChild(vm) {
-        var _this = this;
+        var _this2 = this;
 
         // Guard
         if (this.$slots && this.$slots.default) {
           // We need to wait for the instances creation
           this.$nextTick(function () {
             // We need to get the components in the slot
-            var childComponents = _this.$slots.default.reduce(function (list, vnode) {
+            var childComponents = _this2.$slots.default.reduce(function (list, vnode) {
               if (vnode.child) {
-                list.push(vnode.child);
+                list.push(vnode.child.$_proxy);
               }
               return list;
             }, []);
@@ -7540,10 +7594,10 @@ function CoupledParent (name) {
             var index = childComponents.indexOf(vm);
             // Add child
             if (index !== -1) {
-              _this.children.splice(index, 0, vm);
+              _this2.children.splice(index, 0, vm);
             }
             // Hook
-            _this.$_updateChildren('add', index, vm);
+            _this2.$_updateChildren('add', index, vm);
           });
         }
       },
@@ -10858,7 +10912,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.2.4",
+  version: "0.2.5",
   install: install$3
 };
 
