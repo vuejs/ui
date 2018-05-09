@@ -61,8 +61,8 @@ colors($foreground, $background)
     height 0
     z-index 300
     background transparent
-      .bar
-        height 3px
+    .bar
+      height 3px
 
 @keyframes bar-animation
   0%
