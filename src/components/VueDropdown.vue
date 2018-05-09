@@ -169,6 +169,12 @@ export default {
   vertical-align middle
   position relative
 
+  .trigger
+    &:focus
+      outline none
+    &::-moz-focus-inner
+      border 0
+
   .trigger,
   .dropdown-trigger,
   .dropdown-trigger > *
