@@ -39,7 +39,7 @@ export default {
 
 .side-pane
   flex auto 0 0
-  background $vue-color-light-neutral
+  background $vue-ui-color-light-neutral
   overflow-y auto
 
 .content
@@ -50,13 +50,13 @@ export default {
 .nav-link
   display block
   padding 12px
-  color $vue-color-dark
+  color $vue-ui-color-dark
   min-width 150px
 
   &:hover
-    background lighten($vue-color-light-neutral, 25%)
+    background lighten($vue-ui-color-light-neutral, 25%)
 
   &.router-link-active
-    background $vue-color-primary
-    color $vue-color-light
+    background $vue-ui-color-primary
+    color $vue-ui-color-light
 </style>
