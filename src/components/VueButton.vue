@@ -158,14 +158,14 @@ colors($dark, $light, $invert = false)
   position relative
   box-sizing border-box
   border-radius $br
-  padding 0 16px
+  padding 0 14px
   font-size 14px
   line-height 16px
   height 32px
   &.big
-    padding 0 20px
+    padding 0 18px
     font-size 16px
-    height 50px
+    height 44px
     .vue-ui-icon
       width 24px
       height @width
@@ -190,19 +190,22 @@ colors($dark, $light, $invert = false)
   &:not(.icon-button)
     > .content
       > .button-icon
+        position relative
         &.left
           margin-right 6px
+          left -2px
         &.right
           margin-left 6px
+          left 2px
       > .loading-secondary
         margin-right 6px
   &.icon-button
-    padding 8px
+    padding 0 8px
     width 32px
     height @width
     &.big
-      padding 12px
-      width 50px
+      padding 0 12px
+      width 44px
       height @width
   &.ghost
     cursor default

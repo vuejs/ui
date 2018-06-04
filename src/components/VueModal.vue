@@ -43,7 +43,7 @@
 
         <VueButton
           v-if="!locked"
-          class="close-button icon-button flat"
+          class="close-button icon-button flat round"
           icon-left="close"
           @click="close()"
         />
@@ -113,11 +113,11 @@ export default {
 
   > .shell
     background $vue-ui-color-light
-    border-radius $br
+    border-radius ($br * 2)
     position relative
     max-width calc(100vw - 100px)
     max-height calc(100vh - 100px)
-    box-shadow 0 10px 60px rgba($md-black, .16)
+    box-shadow 0 20px 60px rgba($md-black, .1)
     v-box()
     align-items stretch
 
