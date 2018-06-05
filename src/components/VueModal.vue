@@ -137,10 +137,6 @@ export default {
       padding 24px
 
     > .header
-      border-bottom solid 1px $vue-ui-color-light-neutral
-      .vue-ui-dark-mode &
-        border-bottom-color $vue-ui-color-dark
-
       > .title
         font-size 18px
 

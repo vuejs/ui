@@ -209,7 +209,7 @@ colors($dark, $light, $invert = false)
       height @width
   &.ghost
     cursor default
-  &.disabled
+  &.disabled:not(.tab-button)
     opacity .5
     filter grayscale(50%)
   &.loading

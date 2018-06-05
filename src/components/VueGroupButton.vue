@@ -69,7 +69,7 @@ export default {
     .vue-ui-group.has-indicator.accent &
       button-colors($vue-ui-color-accent, $vue-ui-color-light-neutral)
       .vue-ui-dark-mode &
-        button-colors(lighten($vue-ui-color-accent, 40%), $vue-ui-color-dark)
+        button-colors(lighten($vue-ui-color-accent, 60%), $vue-ui-color-dark)
 
   .vue-ui-group:not(.has-indicator) &
     &.selected
