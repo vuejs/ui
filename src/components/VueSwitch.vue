@@ -93,14 +93,18 @@ $height = 18px
       margin-left 8px
       border-radius (@height / 2)
       background $vue-ui-color-light-neutral
-      transition background .2s
+      transition background .3s
       position relative
+      .vue-ui-dark-mode &
+        background $vue-ui-color-dark
       .bullet
         width @height
         height @height
         border-radius 50%
         background $vue-ui-color-dark
         transition margin-left .2s ease-in-out, transform .2s ease-in-out
+        .vue-ui-dark-mode &
+          background $vue-ui-color-light
 
   &.no-margin
     > .content
@@ -136,6 +140,8 @@ $height = 18px
         > .wrapper
           .bullet
             background lighten($vue-ui-color-dark, 20%)
+            .vue-ui-dark-mode &
+              background darken($vue-ui-color-light, 5%)
     &:active
       > .content
         > .wrapper
@@ -170,10 +176,14 @@ $height = 18px
       > .content
         > .wrapper
           background $vue-ui-color-light
+          .vue-ui-dark-mode &
+            background $vue-ui-color-dark
 
     &:hover
       > .content
         background lighten($vue-ui-color-light-neutral, 25%)
+        .vue-ui-dark-mode &
+          background $vue-ui-color-dark
 
   // Focus
   &.focus,

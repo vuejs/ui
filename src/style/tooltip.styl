@@ -2,7 +2,9 @@
   $arrow-size = 6px
   $tooltip-animation-duration = .12s
   $background = $vue-ui-color-dark
+  $dark-background = $vue-ui-color-light
   $color = $vue-ui-color-light
+  $dark-color = $vue-ui-color-dark
 
   display block !important
   z-index 999999
@@ -16,6 +18,9 @@
     position relative
     max-width 300px
     box-shadow 0 2px 10px rgba(black, .1)
+    .vue-ui-dark-mode &
+      background $dark-background
+      color $dark-color
 
   .tooltip-arrow
     width $arrow-size
@@ -35,11 +40,11 @@
       top 0
       left 0
 
-    &::before
-      border-color $background
-
+    &::before,
     &::after
       border-color $background
+      .vue-ui-dark-mode &
+        border-color $dark-background
 
   &[x-placement^='top']
     margin-bottom $arrow-size
@@ -148,7 +153,9 @@
 
   &.popover:not(.force-tooltip)
     $background = $vue-ui-color-light-neutral
+    $dark-background = $vue-ui-color-dark-neutral
     $color = $vue-ui-color-dark
+    $dark-color = $vue-ui-color-light
 
     .popover-inner
       background $background
@@ -157,13 +164,16 @@
       border-radius $br
       max-width none
       box-shadow 0 2px 10px rgba(black, .025)
+      .vue-ui-dark-mode &
+        background $dark-background
+        color $dark-color
 
     .popover-arrow
-      &::after
-        border-color $background
-
+      &::after,
       &::before
         border-color $background
+        .vue-ui-dark-mode &
+          border-color $dark-background
 
   // Hidden
   &[aria-hidden='true']

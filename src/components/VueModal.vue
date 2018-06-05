@@ -110,6 +110,8 @@ export default {
     width 100%
     height 100%
     background rgba($vue-ui-color-light, .9)
+    .vue-ui-dark-mode &
+      background rgba($vue-ui-color-darker, .9)
 
   > .shell
     background $vue-ui-color-light
@@ -120,6 +122,9 @@ export default {
     box-shadow 0 20px 60px rgba($md-black, .1)
     v-box()
     align-items stretch
+    .vue-ui-dark-mode &
+      background $vue-ui-color-darker
+      box-shadow 0 20px 60px rgba($md-black, .5)
 
     > .close-button
       position absolute
@@ -133,6 +138,8 @@ export default {
 
     > .header
       border-bottom solid 1px $vue-ui-color-light-neutral
+      .vue-ui-dark-mode &
+        border-bottom-color $vue-ui-color-dark
 
       > .title
         font-size 18px

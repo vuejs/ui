@@ -245,6 +245,9 @@ colors($color)
     border-radius $br
     transition background .3s
     position relative
+    .vue-ui-dark-mode &
+      border-color $vue-ui-color-dark
+      color $vue-ui-color-light
 
     > .input-wrapper
       position relative
@@ -263,10 +266,14 @@ colors($color)
         display block
         border none
         background transparent
+        .vue-ui-dark-mode &
+          color $vue-ui-color-light
         &:not(textarea)
           height 30px
         &::placeholder
           color $lightened
+          .vue-ui-dark-mode &
+            color lighten($lightened, 30%)
         // Disable noisy browser styles
         outline none
         &::-moz-focus-inner
@@ -325,6 +332,8 @@ colors($color)
   &:not(.flat)
     > .content
       background lighten($vue-ui-color-light-neutral, 70%)
+      .vue-ui-dark-mode &
+        background $vue-ui-color-darker
 
   &.show-suggestion
     > .content > .input-wrapper > .input
@@ -335,6 +344,8 @@ colors($color)
   colors($vue-ui-color-primary)
   &.accent
     colors($vue-ui-color-accent)
+    .vue-ui-dark-mode &
+      colors(lighten($vue-ui-color-accent, 40%))
   &.danger,
   &.status-danger
     colors($vue-ui-color-danger)
@@ -352,6 +363,8 @@ colors($color)
     &:not(.flat)
       > .content
         background $vue-ui-color-light
+        .vue-ui-dark-mode &
+          background $vue-ui-color-dark
         > .border
           left 0
           right @left
@@ -359,7 +372,7 @@ colors($color)
 
   &.flat
     > .content
-      border-color $vue-ui-color-light
+      border-color transparent
       > .border
         display none
 

@@ -4,8 +4,7 @@
 @import "./animation"
 @import "./tooltip"
 
-html,
-body
+html
   background $vue-ui-color-light
 
 body
@@ -15,6 +14,12 @@ body
   -moz-osx-font-smoothing grayscale
   color $vue-ui-color-dark
   margin 0
+
+.vue-ui-dark-mode
+  color $vue-ui-color-light
+  background $vue-ui-color-darker
+  body
+    color @color
 
 hr
   border none

@@ -25,6 +25,8 @@ export default {
 </script>
 
 <style lang="stylus">
+@import "../style/imports"
+
 .vue-ui-icon
   display inline-block
   width 16px
@@ -33,8 +35,31 @@ export default {
   svg
     width 100%
     height 100%
-    fill black
+    fill $vue-ui-color-dark
     pointer-events none
+
+  .vue-ui-dark-mode &
+    svg
+      fill $vue-ui-color-light
+
+  &.primary
+    svg
+      fill $vue-ui-color-primary
+  &.accent
+    svg
+      fill $vue-ui-color-accent
+  &.danger
+    svg
+      fill $vue-ui-color-danger
+  &.warning
+    svg
+      fill $vue-ui-color-warning
+  &.info
+    svg
+      fill $vue-ui-color-info
+  &.success
+    svg
+      fill $vue-ui-color-success
 
   &.top
     position relative

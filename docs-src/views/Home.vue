@@ -41,6 +41,8 @@ export default {
   flex auto 0 0
   background $vue-ui-color-light-neutral
   overflow-y auto
+  .vue-ui-dark-mode &
+    background $vue-ui-color-dark
 
 .content
   flex 100% 1 1
@@ -52,9 +54,13 @@ export default {
   padding 12px
   color $vue-ui-color-dark
   min-width 150px
+  .vue-ui-dark-mode &
+    color $vue-ui-color-light
 
   &:hover
     background lighten($vue-ui-color-light-neutral, 25%)
+    .vue-ui-dark-mode &
+      background lighten($vue-ui-color-dark, 25%)
 
   &.router-link-active
     background $vue-ui-color-primary

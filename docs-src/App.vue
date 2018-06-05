@@ -3,10 +3,33 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
+      <div class="vue-ui-spacer"/>
+      <VueSwitch v-model="darkMode">Dark mode</VueSwitch>
     </div>
     <router-view class="main-page"/>
   </div>
 </template>
+
+<script>
+export default {
+  data () {
+    return {
+      darkMode: false,
+    }
+  },
+
+  watch: {
+    darkMode (value) {
+      const el = document.getElementsByTagName('html')[0]
+      if (value) {
+        el.classList.add('vue-ui-dark-mode')
+      } else {
+        el.classList.remove('vue-ui-dark-mode')
+      }
+    },
+  },
+}
+</script>
 
 <style lang="stylus">
 @import "~@style"
@@ -25,13 +48,19 @@ body,
 #nav
   padding 12px 24px
   border-bottom solid 1px $vue-ui-color-light-neutral
+  h-box()
+  .vue-ui-dark-mode &
+    border-bottom-color $vue-ui-color-dark
 
   a
-    font-weight bold
-    color #2c3e50
+    color $vue-ui-color-dark
+    display inline-block
+    padding 0 6px
+    .vue-ui-dark-mode &
+       color $vue-ui-color-light-neutral
 
     &.router-link-exact-active
-      color #42b983
+      color $vue-ui-color-primary
 
 .demo
   padding 24px

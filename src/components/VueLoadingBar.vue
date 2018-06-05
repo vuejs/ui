@@ -46,10 +46,18 @@ colors($foreground, $background)
     height 100%
 
   colors($vue-ui-color-dark, $vue-ui-color-light-neutral)
+  .vue-ui-dark-mode &
+    colors($vue-ui-color-dark-neutral, $vue-ui-color-dark)
+
   &.primary
     colors($vue-ui-color-primary, $vue-ui-color-light-neutral)
+    .vue-ui-dark-mode &
+      colors($vue-ui-color-primary, $vue-ui-color-dark)
+
   &.accent
     colors($vue-ui-color-accent, $vue-ui-color-light-neutral)
+    .vue-ui-dark-mode &
+      colors($vue-ui-color-accent, $vue-ui-color-dark)
 
   &.unknown
     .bar

@@ -223,6 +223,8 @@ colors($dark, $light, $invert = false)
     right 0
   // Colors
   colors($vue-ui-color-dark, $vue-ui-color-light-neutral)
+  .vue-ui-dark-mode &
+    colors($vue-ui-color-light, $vue-ui-color-dark)
   &.primary
     colors($vue-ui-color-primary, $vue-ui-color-light, true)
   &.accent
@@ -233,8 +235,12 @@ colors($dark, $light, $invert = false)
     colors($vue-ui-color-warning, $vue-ui-color-light, true)
   &.info
     colors($vue-ui-color-info, $vue-ui-color-light-neutral)
+    .vue-ui-dark-mode &
+      colors($vue-ui-color-info, $vue-ui-color-dark)
   &.success
     colors($vue-ui-color-success, $vue-ui-color-light-neutral)
+    .vue-ui-dark-mode &
+      colors($vue-ui-color-success, $vue-ui-color-dark)
   disable-focus-styles()
   // Keyboard focus style
   &:focus:focus-visible

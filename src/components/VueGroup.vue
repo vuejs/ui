@@ -111,6 +111,8 @@ indicator(direction)
     padding-{direction} 1px
     > .content
       border-{direction} solid 2px rgba($vue-ui-color-dark, .7)
+      .vue-ui-dark-mode &
+        border-{direction}-color $vue-ui-color-light
   &.primary
     > .indicator
       > .content
@@ -119,6 +121,8 @@ indicator(direction)
     > .indicator
       > .content
         border-{direction}-color rgba($vue-ui-color-accent, .7)
+        .vue-ui-dark-mode &
+          border-{direction}-color lighten($vue-ui-color-accent, 40%)
 
 .vue-ui-group
   position relative
