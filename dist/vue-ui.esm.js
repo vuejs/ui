@@ -10059,7 +10059,7 @@ var $0_11 = { render: function render() {
           if (!('button' in $event) && _vm._k($event.keyCode, "esc", 27, $event.key, "Escape")) {
             return null;
           }_vm.close();
-        } } }, [_c('div', { staticClass: "header" }, [_vm._t("header", [_vm.title ? _c('div', { staticClass: "title", domProps: { "innerHTML": _vm._s(_vm.title) } }) : _vm._e()])], 2), _vm._v(" "), _c('div', { staticClass: "body" }, [_vm._t("default")], 2), _vm._v(" "), _c('div', { staticClass: "footer" }, [_vm._t("footer")], 2), _vm._v(" "), !_vm.locked ? _c('VueButton', { staticClass: "close-button icon-button flat", attrs: { "icon-left": "close" }, on: { "click": function click($event) {
+        } } }, [_c('div', { staticClass: "header" }, [_vm._t("header", [_vm.title ? _c('div', { staticClass: "title", domProps: { "innerHTML": _vm._s(_vm.title) } }) : _vm._e()])], 2), _vm._v(" "), _c('div', { staticClass: "body" }, [_vm._t("default")], 2), _vm._v(" "), _c('div', { staticClass: "footer" }, [_vm._t("footer")], 2), _vm._v(" "), !_vm.locked ? _c('VueButton', { staticClass: "close-button icon-button flat round", attrs: { "icon-left": "close" }, on: { "click": function click($event) {
           _vm.close();
         } } }) : _vm._e()], 1)])]);
   }, staticRenderFns: [],
@@ -10820,7 +10820,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.2.8",
+  version: "0.3.0",
   install: install$3
 };
 
