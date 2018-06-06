@@ -11,14 +11,14 @@ function registerGlobalComponents (components) {
 }
 
 // Require all the components that start with 'BaseXXX.vue'
-const components = require.context('./components', true, /Base[a-z0-9]+\.(jsx?|vue)$/i)
+const components = require.context('../src/components', true, /Base[a-z0-9]+\.(jsx?|vue)$/i)
 // Registration
 registerGlobalComponents(components)
 
 // Webpack HMR
 if (module.hot) {
   module.hot.accept(components.id, () => {
-    const components = require.context('./components', true, /Base[a-z0-9]+\.(jsx?|vue)$/i)
+    const components = require.context('../src/components', true, /Base[a-z0-9]+\.(jsx?|vue)$/i)
     registerGlobalComponents(components)
   })
 }
