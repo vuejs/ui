@@ -10243,7 +10243,7 @@ var $0_13 = { render: function render() {
 };
 
 var $0_14 = { render: function render() {
-    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "vue-ui-switch", class: { selected: _vm.value, disabled: _vm.finalDisabled, focus: _vm.focused }, attrs: { "tabindex": _vm.disabled ? -1 : 0, "role": "checkbox", "aria-disabled": _vm.disabled, "aria-selected": !!_vm.value }, on: { "click": _vm.toggleValue, "keydown": [function ($event) {
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "vue-ui-switch", class: { selected: _vm.value, disabled: _vm.finalDisabled, focus: _vm.focused }, attrs: { "tabindex": _vm.disabled ? -1 : 0, "role": "checkbox", "aria-disabled": _vm.disabled, "aria-checked": !!_vm.value }, on: { "click": _vm.toggleValue, "keydown": [function ($event) {
           if (!('button' in $event) && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) {
             return null;
           }_vm.focused = true;_vm.toggleValue($event);
@@ -10826,7 +10826,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.3.0",
+  version: "0.3.1",
   install: install$3
 };
 
