@@ -9,7 +9,7 @@
     :tabindex="disabled ? -1 : 0"
     role="checkbox"
     :aria-disabled="disabled"
-    :aria-selected="!!value"
+    :aria-checked="!!value"
     @click="toggleValue"
     @keydown.enter="focused = true; toggleValue($event)"
     @keydown.space="focused = true; toggleValue($event)"
