@@ -114,3 +114,21 @@ ul
 
     .span-{n}
       grid-column span n
+
+::-webkit-scrollbar
+  width 10px
+::-webkit-scrollbar-track-piece
+  background transparent
+::-webkit-scrollbar-track:hover
+  background rgba($vue-ui-color-dark-neutral, .05)
+  .vue-ui-dark-mode &
+    background rgba($vue-ui-color-dark-neutral, .1)
+::-webkit-scrollbar-thumb
+  background lighten($vue-ui-color-dark-neutral, 60%)
+  border none
+  &:hover
+    background $vue-ui-color-dark-neutral
+  .vue-ui-dark-mode &
+    background $vue-ui-color-dark
+    &:hover
+      background lighten($vue-ui-color-dark-neutral, 10%)
