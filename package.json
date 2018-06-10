@@ -79,5 +79,8 @@
   },
   "peerDependencies": {
     "vue": "^2.5.13"
+  },
+  "resolutions": {
+    "upath": "1.1.0"
   }
 }
