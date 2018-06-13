@@ -249,11 +249,11 @@ colors($dark, $light, $invert = false)
       content ''
       display block
       position absolute
-      top -1px
+      top 0
       bottom @top
       left @top
       right @top
-      border 1px solid
+      border solid 1px
       border-radius ($br + 1px)
       animation vue-ui-focus .3s forwards
 </style>
