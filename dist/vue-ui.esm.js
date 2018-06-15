@@ -3377,6 +3377,7 @@ var Tooltip = function () {
 			return new Promise(function (resolve, reject) {
 				var allowHtml = options.html;
 				var rootNode = _this2._tooltipNode;
+				if (!rootNode) return;
 				var titleNode = rootNode.querySelector(_this2.options.innerSelector);
 				if (title.nodeType === 1) {
 					// if title is a node, append it only if allowHtml is true
@@ -3922,6 +3923,10 @@ function getOptions(options) {
 		};
 	}
 
+	if (result.trigger && result.trigger.indexOf('click') !== -1) {
+		result.hideOnTargetClick = false;
+	}
+
 	return result;
 }
 
@@ -4235,12 +4240,12 @@ if (typeof window !== 'undefined') {
 var Popover = { render: function render() {
 		var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "v-popover", class: _vm.cssClass }, [_c('span', { ref: "trigger", staticClass: "trigger", staticStyle: { "display": "inline-block" }, attrs: { "aria-describedby": _vm.popoverId, "tabindex": _vm.trigger.indexOf('focus') !== -1 ? 0 : -1 } }, [_vm._t("default")], 2), _vm._v(" "), _c('div', { ref: "popover", class: [_vm.popoverBaseClass, _vm.popoverClass, _vm.cssClass], style: {
 				visibility: _vm.isOpen ? 'visible' : 'hidden'
-			}, attrs: { "id": _vm.popoverId, "aria-hidden": _vm.isOpen ? 'false' : 'true' } }, [_c('div', { class: _vm.popoverWrapperClass }, [_c('div', { ref: "inner", class: _vm.popoverInnerClass, staticStyle: { "position": "relative" } }, [_c('div', [_vm._t("popover")], 2), _vm._v(" "), _vm.handleResize ? _c('ResizeObserver', { on: { "notify": _vm.$_handleResize } }) : _vm._e()], 1), _vm._v(" "), _c('div', { ref: "arrow", class: _vm.popoverArrowClass })])])]);
+			}, attrs: { "id": _vm.popoverId, "aria-hidden": _vm.isOpen ? 'false' : 'true' } }, [_c('div', { class: _vm.popoverWrapperClass }, [_c('div', { ref: "inner", class: _vm.popoverInnerClass, staticStyle: { "position": "relative" } }, [_c('div', [_vm._t("popover")], 2), _vm._v(" "), _vm.handleResize && false ? _vm._e() : _vm._e()], 1), _vm._v(" "), _c('div', { ref: "arrow", class: _vm.popoverArrowClass })])])]);
 	}, staticRenderFns: [],
 	name: 'VPopover',
 
 	components: {
-		ResizeObserver: ResizeObserver
+		// ResizeObserver: ResizeObserver
 	},
 
 	props: {
@@ -4277,13 +4282,13 @@ var Popover = { render: function render() {
 			}
 		},
 		container: {
-			type: [String, Object, Element],
+			type: [String, Object, Element, Boolean],
 			default: function _default() {
 				return getDefault('defaultContainer');
 			}
 		},
 		boundariesElement: {
-			type: Element,
+			type: [String, Element],
 			default: function _default() {
 				return getDefault('defaultBoundariesElement');
 			}
@@ -4527,23 +4532,23 @@ var Popover = { render: function render() {
 				});
 
 				popperOptions.modifiers = _extends$1({}, popperOptions.modifiers, {
-					arrow: {
+					arrow: _extends$1({}, popperOptions.modifiers && popperOptions.modifiers.arrow, {
 						element: this.$refs.arrow
-					}
+					})
 				});
 
 				if (this.offset) {
 					var offset = this.$_getOffset();
 
-					popperOptions.modifiers.offset = {
+					popperOptions.modifiers.offset = _extends$1({}, popperOptions.modifiers && popperOptions.modifiers.offset, {
 						offset: offset
-					};
+					});
 				}
 
 				if (this.boundariesElement) {
-					popperOptions.modifiers.preventOverflow = {
+					popperOptions.modifiers.preventOverflow = _extends$1({}, popperOptions.modifiers && popperOptions.modifiers.preventOverflow, {
 						boundariesElement: this.boundariesElement
-					};
+					});
 				}
 
 				this.popperInstance = new Popper(reference, popoverNode, popperOptions);
@@ -10804,7 +10809,10 @@ function install$3(Vue) {
 
   Vue.use(plugin, _Object$assign({
     defaultDelay: { show: 1000, hide: 0 },
-    defaultBoundariesElement: document.body
+    defaultBoundariesElement: document.body,
+    popover: {
+      defaultHandleResize: false
+    }
   }, options.vtooltip));
 
   Vue.use(plugin$1);
@@ -10820,7 +10828,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.3.3",
+  version: "0.4.0",
   install: install$3
 };
 
