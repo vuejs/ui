@@ -37,10 +37,10 @@
     "access": "public"
   },
   "dependencies": {
-    "focus-visible": "^4.1.0",
+    "focus-visible": "^4.1.4",
     "material-design-icons": "^3.0.1",
-    "v-tooltip": "^2.0.0-rc.31",
-    "vue-resize": "^0.4.3"
+    "v-tooltip": "^2.0.0-rc.33",
+    "vue-resize": "^0.4.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.1",
