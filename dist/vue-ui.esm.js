@@ -10289,6 +10289,7 @@ var $0_14 = { render: function render() {
 
   methods: {
     toggleValue: function toggleValue() {
+      if (this.finalDisabled) return;
       this.valueModel = !this.valueModel;
     }
   }
@@ -10828,7 +10829,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.4.0",
+  version: "0.4.1",
   install: install$3
 };
 
