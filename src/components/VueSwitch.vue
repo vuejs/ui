@@ -64,6 +64,7 @@ export default {
 
   methods: {
     toggleValue () {
+      if (this.finalDisabled) return
       this.valueModel = !this.valueModel
     },
   },
