@@ -229,6 +229,8 @@ colors($dark, $light, $invert = false)
     colors($vue-ui-color-primary, $vue-ui-color-light, true)
   &.accent
     colors($vue-ui-color-accent, $vue-ui-color-light, true)
+    .vue-ui-dark-mode &
+      colors(lighten($vue-ui-color-accent, 60%), $vue-ui-color-dark, true)
   &.danger
     colors($vue-ui-color-danger, $vue-ui-color-light, true)
   &.warning

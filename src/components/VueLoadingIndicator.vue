@@ -40,6 +40,8 @@ colors($color)
   &.accent
     > .animation
       colors($vue-ui-color-accent)
+      .vue-ui-dark-mode &
+        colors(lighten($vue-ui-color-accent, 60%))
   &.small
     > .animation
       width 10px
