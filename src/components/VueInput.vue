@@ -401,7 +401,7 @@ colors($color)
   &.disabled
     opacity .5
 
-  .vue-ui-dropdown-content &
+  .vue-ui-dropdown-content > &
     min-width 200px
     padding 0 4px 4px
 </style>
