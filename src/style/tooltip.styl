@@ -153,7 +153,7 @@
 
   &.popover:not(.force-tooltip)
     $background = $vue-ui-color-light
-    $dark-background = lighten($vue-ui-color-darker, 5%)
+    $dark-background = lighten($vue-ui-color-darker, 3%)
     $color = $vue-ui-color-dark
     $dark-color = $vue-ui-color-light
 
@@ -167,6 +167,7 @@
       .vue-ui-dark-mode &
         background $dark-background
         color $dark-color
+        box-shadow 0 2px 20px rgba(black, .3)
 
     .popover-arrow
       &::after,
