@@ -152,8 +152,8 @@
 
 
   &.popover:not(.force-tooltip)
-    $background = $vue-ui-color-light-neutral
-    $dark-background = $vue-ui-color-dark-neutral
+    $background = $vue-ui-color-light
+    $dark-background = lighten($vue-ui-color-darker, 5%)
     $color = $vue-ui-color-dark
     $dark-color = $vue-ui-color-light
 
@@ -163,7 +163,7 @@
       padding 4px 0
       border-radius $br
       max-width none
-      box-shadow 0 2px 10px rgba(black, .025)
+      box-shadow 0 2px 20px rgba(black, .1)
       .vue-ui-dark-mode &
         background $dark-background
         color $dark-color

@@ -5,6 +5,7 @@
     v-bind="$attrs"
     v-on="$listeners"
     v-close-popover="!keepOpen"
+    flat
     @selected="onSelect"
   >
     <slot/>

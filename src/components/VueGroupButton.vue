@@ -3,6 +3,7 @@
     class="vue-ui-group-button"
     :class="{
       selected,
+      flat: flat && !selected,
     }"
     :aria-selected="selected"
     v-bind="$attrs"
@@ -24,6 +25,11 @@ export default {
 
   props: {
     value: {},
+
+    flat: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   computed: {
