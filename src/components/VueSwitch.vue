@@ -170,7 +170,7 @@ $height = 18px
   .vue-ui-dropdown-content > &
     > .content
       min-width 100%
-      padding 8px 16px
+      padding 8px 14px
       box-sizing border-box
 
     &:not(.selected)
