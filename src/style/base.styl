@@ -119,6 +119,7 @@ ul
 
 ::-webkit-scrollbar
   width 10px
+  height @width
 ::-webkit-scrollbar-track-piece
   background transparent
 ::-webkit-scrollbar-track:hover
@@ -126,11 +127,13 @@ ul
   .vue-ui-dark-mode &
     background rgba($vue-ui-color-dark-neutral, .1)
 ::-webkit-scrollbar-thumb
-  background lighten($vue-ui-color-dark-neutral, 60%)
-  border none
+  background-color lighten($vue-ui-color-dark-neutral, 60%)
+  border 3px solid transparent
+  background-clip padding-box
+  border-radius 5px
   &:hover
-    background $vue-ui-color-dark-neutral
+    background-color $vue-ui-color-dark-neutral
   .vue-ui-dark-mode &
-    background $vue-ui-color-dark
+    background-color lighten($vue-ui-color-dark, 10%)
     &:hover
-      background lighten($vue-ui-color-dark-neutral, 10%)
+      background-color lighten($vue-ui-color-dark-neutral, 10%)
