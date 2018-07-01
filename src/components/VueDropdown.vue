@@ -186,4 +186,8 @@ export default {
     display block
     width 100%
     min-width 150px
+
+  > .section-title
+    padding 6px 14px
+    opacity .8
 </style>
