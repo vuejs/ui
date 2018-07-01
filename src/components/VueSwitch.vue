@@ -167,7 +167,7 @@ $height = 18px
       > .wrapper
         margin-left 0
 
-  .vue-ui-dropdown-content &
+  .vue-ui-dropdown-content > &
     > .content
       min-width 100%
       padding 8px 16px
