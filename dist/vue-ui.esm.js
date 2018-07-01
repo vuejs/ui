@@ -9813,7 +9813,7 @@ exports.default = function (arr) {
 var _toConsumableArray = unwrapExports(toConsumableArray);
 
 var $0_6 = { render: function render() {
-    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('VueButton', _vm._b({ staticClass: "vue-ui-group-button", class: { selected: _vm.selected }, attrs: { "aria-selected": _vm.selected }, on: { "click": _vm.handleClick } }, 'VueButton', _vm.$attrs, false), [_vm._t("default")], 2);
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('VueButton', _vm._b({ staticClass: "vue-ui-group-button", class: { selected: _vm.selected, flat: _vm.flat && !_vm.selected }, attrs: { "aria-selected": _vm.selected }, on: { "click": _vm.handleClick } }, 'VueButton', _vm.$attrs, false), [_vm._t("default")], 2);
   }, staticRenderFns: [],
   name: 'VueGroupButton',
 
@@ -9822,7 +9822,12 @@ var $0_6 = { render: function render() {
   inject: ['VueGroup'],
 
   props: {
-    value: {}
+    value: {},
+
+    flat: {
+      type: Boolean,
+      default: false
+    }
   },
 
   computed: {
@@ -10212,7 +10217,7 @@ var $0_12 = { render: function render() {
 };
 
 var $0_13 = { render: function render() {
-    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('VueGroupButton', _vm._g(_vm._b({ directives: [{ name: "close-popover", rawName: "v-close-popover", value: !_vm.keepOpen, expression: "!keepOpen" }], ref: "groupButton", staticClass: "vue-ui-select-button", on: { "selected": _vm.onSelect } }, 'VueGroupButton', _vm.$attrs, false), _vm.$listeners), [_vm._t("default")], 2);
+    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('VueGroupButton', _vm._g(_vm._b({ directives: [{ name: "close-popover", rawName: "v-close-popover", value: !_vm.keepOpen, expression: "!keepOpen" }], ref: "groupButton", staticClass: "vue-ui-select-button", attrs: { "flat": "" }, on: { "selected": _vm.onSelect } }, 'VueGroupButton', _vm.$attrs, false), _vm.$listeners), [_vm._t("default")], 2);
   }, staticRenderFns: [],
   name: 'VueSelectButton',
 
@@ -10829,7 +10834,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.4.3",
+  version: "0.4.4",
   install: install$3
 };
 
