@@ -369,6 +369,9 @@ colors($color)
           left 0
           right @left
           opacity 1
+      &.round
+        > .content > .border
+          display none
 
   &.flat
     > .content
@@ -394,6 +397,14 @@ colors($color)
           margin-right 10px
         &.right
           margin-left 10px
+
+  &.round
+    > .content
+      border-radius 17px
+    // Big button
+    &.big
+      > .content
+        border-radius 22px
 
   &:not(.disabled)
     cursor text
