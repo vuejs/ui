@@ -489,6 +489,10 @@ var VueIcons = {
   }
 };
 
+function generateHtmlIcon(icon) {
+  return '<div class="svg-icon"><svg><use xlink:href="#ic_' + icon + '_24px"></use></svg></div>';
+}
+
 /**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
  * @version 1.14.3
@@ -10834,7 +10838,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.4.6",
+  version: "0.4.7",
   install: install$3
 };
 
@@ -10850,4 +10854,4 @@ if (GlobalVue$3) {
 }
 
 export default plugin$3;
-export { install$3 as install, CoupledChild, CoupledParent, DisabledChild, DisableScroll };
+export { install$3 as install, CoupledChild, CoupledParent, DisabledChild, DisableScroll, generateHtmlIcon };
