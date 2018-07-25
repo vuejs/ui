@@ -9,6 +9,9 @@ export { default as CoupledParent } from './mixins/CoupledParent'
 export { default as DisabledChild } from './mixins/DisabledChild'
 export { default as DisableScroll } from './mixins/DisableScroll'
 
+// Exported utils
+export { generateHtmlIcon } from './icons'
+
 // Require all the components that start with 'BaseXXX.vue'
 const components = require.context('./components', true, /[a-z0-9]+\.vue$/)
 
