@@ -14,5 +14,5 @@ export default {
 }
 
 export function generateHtmlIcon (icon) {
-  return `<div class="svg-icon"><svg><use xlink:href="#ic_${icon}_24px"></use></svg></div>`
+  return `<div class="vue-ui-icon"><svg><use xlink:href="#ic_${icon}_24px"></use></svg></div>`
 }
