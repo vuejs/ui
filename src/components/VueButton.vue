@@ -200,13 +200,15 @@ colors($dark, $light, $invert = false)
       > .loading-secondary
         margin-right 6px
   &.icon-button
-    padding 0 8px
+    padding 0
     width 32px
     height @width
     &.big
-      padding 0 12px
+      padding 0
       width 44px
       height @width
+    > .content
+      width 100%
   &.ghost
     cursor default
   &.disabled:not(.tab-button)
