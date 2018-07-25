@@ -496,7 +496,7 @@ var VueIcons = {
 };
 
 function generateHtmlIcon(icon) {
-  return '<div class="svg-icon"><svg><use xlink:href="#ic_' + icon + '_24px"></use></svg></div>';
+  return '<div class="vue-ui-icon"><svg><use xlink:href="#ic_' + icon + '_24px"></use></svg></div>';
 }
 
 /**!
@@ -10844,7 +10844,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.4.7",
+  version: "0.4.8",
   install: install$3
 };
 
