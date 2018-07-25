@@ -140,7 +140,7 @@ export default {
   },
 
   methods: {
-    async childActivated (index, oldIndex, external) {
+    childActivated (index, oldIndex, external) {
       const tab = this.children[index]
       if (tab && tab.id !== this.currentTabId) {
         this.currentTabId = tab.id
@@ -149,11 +149,12 @@ export default {
       this.direction = index === oldIndex ? '' : index < oldIndex ? 'to-left' : 'to-right'
 
       if (!external) {
-        await this.$nextTick()
-        const item = this.$refs.tabButtons[index]
-        if (item) {
-          item.$el.focus()
-        }
+        this.$nextTick(() => {
+          const item = this.$refs.tabButtons[index]
+          if (item) {
+            item.$el.focus()
+          }
+        })
       }
     },
 

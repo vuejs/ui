@@ -78,26 +78,27 @@ export default {
       this.$emit('input', value)
     },
 
-    async updateIndicator () {
-      await this.$nextTick()
-      const el = this.$el.querySelector('.selected')
-      if (el) {
-        const offset = {
-          top: el.offsetTop,
-          left: el.offsetLeft,
-          width: el.offsetWidth,
-          height: el.offsetHeight,
+    updateIndicator () {
+      this.$nextTick(() => {
+        const el = this.$el.querySelector('.selected')
+        if (el) {
+          const offset = {
+            top: el.offsetTop,
+            left: el.offsetLeft,
+            width: el.offsetWidth,
+            height: el.offsetHeight,
+          }
+          let parent = el.offsetParent
+          while (parent && parent !== this.$el) {
+            offset.top += parent.offsetTop
+            offset.left += parent.offsetLeft
+            parent = parent.offsetParent
+          }
+          this.indicatorStyle = offset
+        } else {
+          this.indicatorStyle = null
         }
-        let parent = el.offsetParent
-        while (parent && parent !== this.$el) {
-          offset.top += parent.offsetTop
-          offset.left += parent.offsetLeft
-          parent = parent.offsetParent
-        }
-        this.indicatorStyle = offset
-      } else {
-        this.indicatorStyle = null
-      }
+      })
     },
   },
 }

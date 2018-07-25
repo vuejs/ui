@@ -171,33 +171,33 @@ export default {
       }
     },
 
-    async onBlur () {
-      await this.$nextTick()
-
-      if (!this.$_popoverMousedown) {
-        this.focused = false
-        this.open = false
-        if (!this.directSelect) {
-          // Get final value depending on restrictChoice
-          let value = this.getFinalChoice(this.tempValue)
-          // Reset to initial value
-          if (this.restrictChoice && !value) {
-            value = this.getFinalChoice(this.value)
-          }
-          // Emit new value
-          if (this.dirty && value !== this.value) {
-            this.$emit('input', value)
-            // Reset temp value
-            this.tempValue = value
-          } else {
-            // Reset temp value
-            this.tempValue = this.value
+    onBlur () {
+      this.$nextTick(() => {
+        if (!this.$_popoverMousedown) {
+          this.focused = false
+          this.open = false
+          if (!this.directSelect) {
+            // Get final value depending on restrictChoice
+            let value = this.getFinalChoice(this.tempValue)
+            // Reset to initial value
+            if (this.restrictChoice && !value) {
+              value = this.getFinalChoice(this.value)
+            }
+            // Emit new value
+            if (this.dirty && value !== this.value) {
+              this.$emit('input', value)
+              // Reset temp value
+              this.tempValue = value
+            } else {
+              // Reset temp value
+              this.tempValue = this.value
+            }
           }
         }
-      }
+      })
     },
 
-    async onFocus () {
+    onFocus () {
       this.focused = true
       this.directSelect = false
       this.dirty = false
@@ -214,7 +214,7 @@ export default {
       this.$_popoverMousedown = true
     },
 
-    async onPopoverContentMouseup (event) {
+    onPopoverContentMouseup (event) {
       this.$_popoverMousedown = false
       setTimeout(() => {
         this.onBlur()

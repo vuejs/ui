@@ -74,9 +74,10 @@ export default {
     },
   },
 
-  async mounted () {
-    await this.$nextTick()
-    this.$el.focus()
+  mounted () {
+    this.$nextTick(() => {
+      this.$el.focus()
+    })
   },
 
   methods: {
