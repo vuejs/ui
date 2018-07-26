@@ -41,7 +41,7 @@
       <h3>Styles</h3>
       <div class="row">
         <VueButton icon-left="mic">Default</VueButton>
-        <VueButton class="primary" icon-left="flag">Primary</VueButton>
+        <VueButton class="primary" icon-left="flag" tag="21">Primary</VueButton>
         <VueButton class="accent" icon-left="star">Accent</VueButton>
         <VueButton class="danger" icon-left="error">Danger</VueButton>
         <VueButton class="warning" icon-left="warning">Warning</VueButton>
@@ -256,7 +256,7 @@
         <VueButton loading-secondary class="big flat success" icon-left="done">Success</VueButton>
       </div>
       <div class="row">
-        <VueButton class="big round" icon-left="mic">Default</VueButton>
+        <VueButton class="big round" icon-left="mic" tag="42">Default</VueButton>
         <VueButton class="big round primary" icon-left="flag">Primary</VueButton>
         <VueButton class="big round accent" icon-left="star">Accent</VueButton>
         <VueButton class="big round danger" icon-left="error">Danger</VueButton>
@@ -331,7 +331,7 @@
       <h3>Icon button</h3>
       <div class="row">
         <VueButton class="icon-button" icon-left="mic"/>
-        <VueButton class="icon-button primary" icon-left="flag"/>
+        <VueButton class="icon-button primary" icon-left="flag" tag="5"/>
         <VueButton class="icon-button accent" icon-left="star"/>
         <VueButton class="icon-button danger" icon-left="error"/>
         <VueButton class="icon-button warning" icon-left="warning"/>
@@ -340,7 +340,7 @@
       </div>
       <div class="row">
         <VueButton disabled class="icon-button" icon-left="mic"/>
-        <VueButton disabled class="icon-button primary" icon-left="flag"/>
+        <VueButton disabled class="icon-button primary" icon-left="flag" tag="5"/>
         <VueButton disabled class="icon-button accent" icon-left="star"/>
         <VueButton disabled class="icon-button danger" icon-left="error"/>
         <VueButton disabled class="icon-button warning" icon-left="warning"/>
@@ -438,12 +438,12 @@
         <VueButton loading-secondary class="icon-button round success" icon-left="done"/>
       </div>
       <div class="row">
-        <VueButton class="icon-button round flat" icon-left="mic"/>
-        <VueButton class="icon-button round flat primary" icon-left="flag"/>
+        <VueButton class="icon-button round flat" icon-left="mic" tag="14"/>
+        <VueButton class="icon-button round flat primary" icon-left="flag" tag="14"/>
         <VueButton class="icon-button round flat accent" icon-left="star"/>
         <VueButton class="icon-button round flat danger" icon-left="error"/>
         <VueButton class="icon-button round flat warning" icon-left="warning"/>
-        <VueButton class="icon-button round flat info" icon-left="info"/>
+        <VueButton class="icon-button round flat info" icon-left="info" tag="14"/>
         <VueButton class="icon-button round flat success" icon-left="done"/>
       </div>
       <div class="row">
@@ -510,13 +510,13 @@
         <VueButton loading-secondary class="big icon-button success" icon-left="done"/>
       </div>
       <div class="row">
-        <VueButton class="big icon-button flat" icon-left="mic"/>
-        <VueButton class="big icon-button flat primary" icon-left="flag"/>
-        <VueButton class="big icon-button flat accent" icon-left="star"/>
-        <VueButton class="big icon-button flat danger" icon-left="error"/>
-        <VueButton class="big icon-button flat warning" icon-left="warning"/>
-        <VueButton class="big icon-button flat info" icon-left="info"/>
-        <VueButton class="big icon-button flat success" icon-left="done"/>
+        <VueButton class="big icon-button flat" icon-left="mic" tag="7"/>
+        <VueButton class="big icon-button flat primary" icon-left="flag" tag="7"/>
+        <VueButton class="big icon-button flat accent" icon-left="star" tag="7"/>
+        <VueButton class="big icon-button flat danger" icon-left="error" tag="7"/>
+        <VueButton class="big icon-button flat warning" icon-left="warning" tag="7"/>
+        <VueButton class="big icon-button flat info" icon-left="info" tag="7"/>
+        <VueButton class="big icon-button flat success" icon-left="done" tag="7"/>
       </div>
       <div class="row">
         <VueButton disabled class="big icon-button flat" icon-left="mic"/>

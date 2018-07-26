@@ -98,6 +98,11 @@ button-colors($foreground, $background)
     .animation
       border-right-color $foreground
       border-bottom-color $foreground
+  > .content > .tag-wrapper > .tag
+    background $foreground
+    color $background
+    if $background is transparent
+      color $md-white
   &::before
     background $background
 

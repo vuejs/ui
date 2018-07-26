@@ -41,6 +41,10 @@
         </slot>
       </span>
 
+      <div v-if="tag != null" class="tag-wrapper">
+        <div class="tag">{{ tag }}</div>
+      </div>
+
       <VueIcon
         v-if="iconRight"
         :icon="iconRight"
@@ -91,6 +95,11 @@ export default {
     type: {
       type: String,
       default: 'button',
+    },
+
+    tag: {
+      type: [Number, String],
+      default: null,
     },
   },
   computed: {
@@ -162,6 +171,21 @@ colors($dark, $light, $invert = false)
   font-size 14px
   line-height 16px
   height 32px
+  > .content
+    height 100%
+    h-box()
+    box-center()
+    > .tag-wrapper
+      display flex
+      box-center()
+      margin-left 6px
+      > .tag
+        padding 2px 2px 0
+        border-radius 4px
+        font-size 10px
+        line-height 10px
+        // font-weight bold
+        font-family monospace
   &.big
     padding 0 18px
     font-size 16px
@@ -169,7 +193,13 @@ colors($dark, $light, $invert = false)
     .vue-ui-icon
       width 24px
       height @width
-  // Round style
+    > .content
+      > .tag-wrapper
+        > .tag
+          padding 2px 4px 0
+          border-radius 7px
+          font-size 12px
+          line-height 12px
   &.round
     border-radius 17px
     // Focus
@@ -183,10 +213,6 @@ colors($dark, $light, $invert = false)
         border-radius (@border-radius + 1px)
   &.flat
     button-transitions()
-  > .content
-    height 100%
-    h-box()
-    box-center()
   &:not(.icon-button)
     > .content
       > .button-icon
@@ -209,6 +235,16 @@ colors($dark, $light, $invert = false)
       height @width
     > .content
       width 100%
+      > .tag-wrapper
+        position absolute
+        right 2px
+        bottom @right
+  &.big-tag
+    > .content
+      > .tag-wrapper
+        right 6px
+        bottom @right
+  // Round style
   &.ghost
     cursor default
   &.disabled:not(.tab-button)
