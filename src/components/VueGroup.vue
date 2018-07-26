@@ -182,4 +182,11 @@ indicator(direction)
         > .content
           height 12px
 
+  &.extend
+    > .content
+      > .vue-ui-button
+        &:not(.icon-button)
+          flex 100% 1 1
+          width 0
+
 </style>
