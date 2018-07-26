@@ -7182,7 +7182,7 @@ var $0_0 = { render: function render() {
           return _vm.handleClick($event);
         } }, nativeOn: { "!click": function click($event) {
           return _vm.handleClick($event);
-        } } }, 'component', _vm.$attrs, false), [_vm.loading ? _c('VueLoadingIndicator') : _vm._e(), _vm._v(" "), _c('span', { staticClass: "content" }, [_vm.loadingSecondary ? _c('VueLoadingIndicator', { staticClass: "inline small loading-secondary" }) : _vm.iconLeft ? _c('VueIcon', { staticClass: "button-icon left", attrs: { "icon": _vm.iconLeft } }) : _vm._e(), _vm._v(" "), _c('span', { staticClass: "default-slot" }, [_vm._t("default", [_vm._v(" " + _vm._s(_vm.label) + " ")])], 2), _vm._v(" "), _vm.iconRight ? _c('VueIcon', { staticClass: "button-icon right", attrs: { "icon": _vm.iconRight } }) : _vm._e()], 1)], 1);
+        } } }, 'component', _vm.$attrs, false), [_vm.loading ? _c('VueLoadingIndicator') : _vm._e(), _vm._v(" "), _c('span', { staticClass: "content" }, [_vm.loadingSecondary ? _c('VueLoadingIndicator', { staticClass: "inline small loading-secondary" }) : _vm.iconLeft ? _c('VueIcon', { staticClass: "button-icon left", attrs: { "icon": _vm.iconLeft } }) : _vm._e(), _vm._v(" "), _c('span', { staticClass: "default-slot" }, [_vm._t("default", [_vm._v(" " + _vm._s(_vm.label) + " ")])], 2), _vm._v(" "), _vm.tag != null ? _c('div', { staticClass: "tag-wrapper" }, [_c('div', { staticClass: "tag" }, [_vm._v(_vm._s(_vm.tag))])]) : _vm._e(), _vm._v(" "), _vm.iconRight ? _c('VueIcon', { staticClass: "button-icon right", attrs: { "icon": _vm.iconRight } }) : _vm._e()], 1)], 1);
   }, staticRenderFns: [],
   name: 'VueButton',
 
@@ -7219,6 +7219,11 @@ var $0_0 = { render: function render() {
     type: {
       type: String,
       default: 'button'
+    },
+
+    tag: {
+      type: [Number, String],
+      default: null
     }
   },
   computed: {
@@ -8545,7 +8550,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.5.0",
+  version: "0.5.1",
   install: install$3
 };
 
