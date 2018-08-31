@@ -173,19 +173,6 @@ $height = 18px
       padding 8px 14px
       box-sizing border-box
 
-    &:not(.selected)
-      > .content
-        > .wrapper
-          background $vue-ui-color-light
-          .vue-ui-dark-mode &
-            background $vue-ui-color-dark
-
-    &:hover
-      > .content
-        background lighten($vue-ui-color-light-neutral, 25%)
-        .vue-ui-dark-mode &
-          background $vue-ui-color-dark
-
   // Focus
   &.focus,
   &:focus:focus-visible
