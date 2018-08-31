@@ -97,7 +97,7 @@ $height = 18px
       transition background .3s
       position relative
       .vue-ui-dark-mode &
-        background $vue-ui-color-dark
+        background $vue-ui-color-dark-neutral
       .bullet
         width @height
         height @height
