@@ -178,7 +178,8 @@ export default {
   .trigger,
   .dropdown-trigger,
   .dropdown-trigger > *
-    width 100%
+    &:not(.icon-button)
+      width 100%
 
 .vue-ui-dropdown-content.vue-ui-disable
   box-sizing border-box
