@@ -102,7 +102,9 @@ button-colors($foreground, $background)
     background $foreground
     color $background
     if $background is transparent
-      color $md-white
+      color $vue-ui-color-light
+      .vue-ui-dark-mode &
+        color $vue-ui-color-dark !important
   &::before
     background $background
 
