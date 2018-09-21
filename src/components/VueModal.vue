@@ -8,9 +8,6 @@
   >
     <div
       class="vue-ui-modal"
-      :class="{
-        locked,
-      }"
       tabindex="0"
       role="dialog"
       aria-modal="true"
