@@ -36,7 +36,7 @@
           :placeholder="placeholder"
           :disabled="finalDisabled"
           v-bind="$attrs"
-          v-on="listeners"
+          v-on="$listeners"
           @input="valueModel = $event.currentTarget.value"
           @focus="onFocus"
           @blur="onBlur"
@@ -84,6 +84,10 @@ export default {
 
   inject: {
     VueFormField: { default: null },
+  },
+
+  model: {
+    event: 'update',
   },
 
   props: {
@@ -142,22 +146,13 @@ export default {
   },
 
   computed: {
-    listeners () {
-      return Object.keys(this.$listeners).filter(
-        key => key !== 'input' && key !== 'focus' && key !== 'blur'
-      ).reduce((obj, key) => {
-        obj[key] = this.$listeners[key]
-        return obj
-      }, {})
-    },
-
     showSuggestion () {
       return this.suggestion !== null && this.suggestion !== this.value && this.focused && this.value
     },
 
     valueModel: {
       get () { return this.value },
-      set (value) { this.$emit('input', value) },
+      set (value) { this.$emit('update', value) },
     },
   },
 

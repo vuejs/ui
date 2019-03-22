@@ -33,6 +33,10 @@ export default {
 
   inheritAttrs: false,
 
+  model: {
+    event: 'update',
+  },
+
   mixins: [
     DisabledChild,
   ],
@@ -106,7 +110,7 @@ export default {
 
     valueModel: {
       get () { return this.value },
-      set (value) { this.$emit('input', value) },
+      set (value) { this.$emit('update', value) },
     },
   },
 

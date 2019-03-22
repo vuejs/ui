@@ -36,6 +36,10 @@ import DisabledChild from '../mixins/DisabledChild'
 export default {
   name: 'VueSwitch',
 
+  model: {
+    event: 'update',
+  },
+
   mixins: [
     DisabledChild,
   ],
@@ -58,7 +62,7 @@ export default {
   computed: {
     valueModel: {
       get () { return this.value },
-      set (value) { this.$emit('input', value) },
+      set (value) { this.$emit('update', value) },
     },
   },
 

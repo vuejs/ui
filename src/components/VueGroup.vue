@@ -32,6 +32,10 @@
 export default {
   name: 'VueGroup',
 
+  model: {
+    event: 'update',
+  },
+
   provide () {
     return {
       VueGroup: {
@@ -75,7 +79,7 @@ export default {
 
   methods: {
     setValue (value) {
-      this.$emit('input', value)
+      this.$emit('update', value)
     },
 
     updateIndicator () {

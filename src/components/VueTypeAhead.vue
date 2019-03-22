@@ -40,6 +40,10 @@ export default {
 
   inheritAttrs: false,
 
+  model: {
+    event: 'udpate',
+  },
+
   props: {
     loading: {
       type: Boolean,
@@ -137,7 +141,7 @@ export default {
       set (value) {
         this.directSelect = true
         this.tempValue = value
-        this.$emit('input', value)
+        this.$emit('update', value)
       },
     },
   },
@@ -185,7 +189,7 @@ export default {
             }
             // Emit new value
             if (this.dirty && value !== this.value) {
-              this.$emit('input', value)
+              this.$emit('update', value)
               // Reset temp value
               this.tempValue = value
             } else {
