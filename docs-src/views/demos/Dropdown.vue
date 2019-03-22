@@ -46,6 +46,24 @@
           <VueDropdownButton>Result 2</VueDropdownButton>
           <VueDropdownButton>Result 3</VueDropdownButton>
         </VueDropdown>
+
+        <VueDropdown label="Grid menu">
+          <div class="vue-ui-grid default-gap col-2">
+            <VueDropdownButton icon-left="edit">Edit</VueDropdownButton>
+            <VueDropdownButton icon-left="delete">Delete</VueDropdownButton>
+            <VueDropdownButton icon-left="lock" keep-open>Keep open</VueDropdownButton>
+            <VueDropdownButton icon-left="mood">Hello</VueDropdownButton>
+          </div>
+        </VueDropdown>
+
+        <VueDropdown label="Grid with big gap">
+          <div class="vue-ui-grid big-gap col-2">
+            <VueDropdownButton icon-left="edit" class="big">Edit</VueDropdownButton>
+            <VueDropdownButton icon-left="delete" class="big">Delete</VueDropdownButton>
+            <VueDropdownButton icon-left="lock" class="big" keep-open>Keep open</VueDropdownButton>
+            <VueDropdownButton icon-left="mood" class="big">Hello</VueDropdownButton>
+          </div>
+        </VueDropdown>
       </div>
     </div>
   </div>

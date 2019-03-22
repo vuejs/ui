@@ -184,9 +184,16 @@ export default {
 .vue-ui-dropdown-content.vue-ui-disable
   box-sizing border-box
   > *
-    display block
-    width 100%
-    min-width 150px
+    &:not(.vue-ui-grid)
+      display block
+      width 100%
+      min-width 150px
+
+    &.vue-ui-grid
+      &.default-gap
+        padding 8px 12px
+      &.big-gap
+        padding 20px 24px
 
   > .section-title
     padding 6px 14px
