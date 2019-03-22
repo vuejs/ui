@@ -115,7 +115,8 @@ export default {
 
   .vue-ui-group.vertical &
     display flex
-    width 100%
+    &:not(.icon-button)
+      width 100%
     &:not(.flat)
       &:not(:first-child)
         border-top-left-radius 0
