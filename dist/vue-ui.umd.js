@@ -7541,6 +7541,10 @@ var $0_5 = { render: function render() {
   }, staticRenderFns: [],
   name: 'VueGroup',
 
+  model: {
+    event: 'update'
+  },
+
   provide: function provide() {
     return {
       VueGroup: {
@@ -7587,7 +7591,7 @@ var $0_5 = { render: function render() {
 
   methods: {
     setValue: function setValue(value) {
-      this.$emit('input', value);
+      this.$emit('update', value);
     },
     updateIndicator: function updateIndicator() {
       var _this = this;
@@ -7693,7 +7697,7 @@ var $0_8 = { render: function render() {
           if (!('button' in $event) && _vm._k($event.keyCode, "tab", 9, $event.key, "Tab")) {
             return null;
           }return _vm.onKeyTab($event);
-        } } }, 'component', _vm.$attrs, false), _vm.listeners)), _vm._v(" "), _vm.showSuggestion ? _c('input', { staticClass: "input suggestion", attrs: { "disabled": "disabled" }, domProps: { "value": _vm.suggestion } }) : _vm._e()], 1), _vm._v(" "), _vm._t("right"), _vm._v(" "), _vm.iconRight ? _c('VueIcon', { staticClass: "input-icon right", attrs: { "icon": _vm.iconRight } }) : _vm._e(), _vm._v(" "), _vm.loadingRight ? _c('VueLoadingIndicator', { staticClass: "small right" }) : _vm._e(), _vm._v(" "), _c('div', { staticClass: "border" })], 2)]);
+        } } }, 'component', _vm.$attrs, false), _vm.$listeners)), _vm._v(" "), _vm.showSuggestion ? _c('input', { staticClass: "input suggestion", attrs: { "disabled": "disabled" }, domProps: { "value": _vm.suggestion } }) : _vm._e()], 1), _vm._v(" "), _vm._t("right"), _vm._v(" "), _vm.iconRight ? _c('VueIcon', { staticClass: "input-icon right", attrs: { "icon": _vm.iconRight } }) : _vm._e(), _vm._v(" "), _vm.loadingRight ? _c('VueLoadingIndicator', { staticClass: "small right" }) : _vm._e(), _vm._v(" "), _c('div', { staticClass: "border" })], 2)]);
   }, staticRenderFns: [],
   name: 'VueInput',
 
@@ -7703,6 +7707,10 @@ var $0_8 = { render: function render() {
 
   inject: {
     VueFormField: { default: null }
+  },
+
+  model: {
+    event: 'update'
   },
 
   props: {
@@ -7762,16 +7770,6 @@ var $0_8 = { render: function render() {
 
 
   computed: {
-    listeners: function listeners() {
-      var _this = this;
-
-      return Object.keys(this.$listeners).filter(function (key) {
-        return key !== 'input' && key !== 'focus' && key !== 'blur';
-      }).reduce(function (obj, key) {
-        obj[key] = _this.$listeners[key];
-        return obj;
-      }, {});
-    },
     showSuggestion: function showSuggestion() {
       return this.suggestion !== null && this.suggestion !== this.value && this.focused && this.value;
     },
@@ -7782,7 +7780,7 @@ var $0_8 = { render: function render() {
         return this.value;
       },
       set: function set$$1(value) {
-        this.$emit('input', value);
+        this.$emit('update', value);
       }
     }
   },
@@ -7920,6 +7918,10 @@ var $0_12 = { render: function render() {
 
   inheritAttrs: false,
 
+  model: {
+    event: 'update'
+  },
+
   mixins: [DisabledChild],
 
   provide: function provide() {
@@ -7993,7 +7995,7 @@ var $0_12 = { render: function render() {
         return this.value;
       },
       set: function set(value) {
-        this.$emit('input', value);
+        this.$emit('update', value);
       }
     }
   },
@@ -8052,6 +8054,10 @@ var $0_14 = { render: function render() {
   }],
   name: 'VueSwitch',
 
+  model: {
+    event: 'update'
+  },
+
   mixins: [DisabledChild],
 
   props: {
@@ -8076,7 +8082,7 @@ var $0_14 = { render: function render() {
         return this.value;
       },
       set: function set(value) {
-        this.$emit('input', value);
+        this.$emit('update', value);
       }
     }
   },
@@ -8316,6 +8322,10 @@ var $0_17 = { render: function render() {
 
   inheritAttrs: false,
 
+  model: {
+    event: 'udpate'
+  },
+
   props: {
     loading: {
       type: Boolean,
@@ -8409,7 +8419,7 @@ var $0_17 = { render: function render() {
       set: function set(value) {
         this.directSelect = true;
         this.tempValue = value;
-        this.$emit('input', value);
+        this.$emit('update', value);
       }
     }
   },
@@ -8457,7 +8467,7 @@ var $0_17 = { render: function render() {
             }
             // Emit new value
             if (_this.dirty && value !== _this.value) {
-              _this.$emit('input', value);
+              _this.$emit('update', value);
               // Reset temp value
               _this.tempValue = value;
             } else {
@@ -8556,7 +8566,7 @@ function install$3(Vue) {
 
 var plugin$3 = {
   // eslint-disable-next-line no-undef
-  version: "0.5.6",
+  version: "0.6.0",
   install: install$3
 };
 

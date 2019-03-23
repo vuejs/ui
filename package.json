@@ -1,7 +1,7 @@
 {
   "name": "@vue/ui",
   "description": "UI components used in the vuejs organization apps",
-  "version": "0.5.6",
+  "version": "0.6.0",
   "author": {
     "name": "Guillaume Chau",
     "email": "guillaume.b.chau@gmail.com"
@@ -40,7 +40,7 @@
     "@vue/cli-plugin-babel": "^3.0.0-beta.1",
     "@vue/cli-plugin-eslint": "^3.0.0-beta.1",
     "@vue/cli-service": "^3.0.0-beta.1",
-    "@vue/eslint-config-standard": "^3.0.0-beta.1",
+    "@vue/eslint-config-standard": "^4.0.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
     "babel-plugin-external-helpers": "^6.22.0",
@@ -52,7 +52,7 @@
     "focus-visible": "^4.1.4",
     "material-design-icons": "^3.0.1",
     "nodemon": "^1.17.5",
-    "postcss-focus-visible": "^2.0.0",
+    "postcss-focus-visible": "^4.0.0",
     "raw-loader": "^0.5.1",
     "rollup": "^0.56.3",
     "rollup-plugin-babel": "^3.0.3",
@@ -68,10 +68,10 @@
     "stylus-loader": "^3.0.1",
     "uglify-es": "^3.0.28",
     "v-tooltip": "^2.0.0-rc.33",
-    "vue": "^2.5.13",
+    "vue": "^2.6.10",
     "vue-resize": "^0.4.4",
     "vue-router": "^3.0.1",
-    "vue-template-compiler": "^2.5.13",
+    "vue-template-compiler": "^2.6.10",
     "vuex": "^3.0.1"
   },
   "peerDependencies": {
