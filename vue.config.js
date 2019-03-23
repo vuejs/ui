@@ -4,7 +4,7 @@ module.exports = {
   lintOnSave: false,
 
   outputDir: './docs',
-  baseUrl: './',
+  publicPath: './',
 
   configureWebpack: {
     entry: {
@@ -23,5 +23,14 @@ module.exports = {
       .rule('js')
       .include
       .add(path.resolve(__dirname, './docs-src'))
+
+    config.module
+      .rule('vue')
+      .use('vue-loader')
+      .loader('vue-loader')
+      .tap(options => {
+        options.compilerOptions.preserveWhitespace = true
+        return options
+      })
   },
 }

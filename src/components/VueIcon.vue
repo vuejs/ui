@@ -17,7 +17,7 @@ export default {
       h('svg', [
         h('use', { attrs: {
           'xlink:href': `#ic_${this.icon}_24px`,
-        }}),
+        } }),
       ]),
     ])
   },

@@ -6,6 +6,11 @@ const config = Object.assign({}, base, {
     file: 'dist/vue-ui.esm.js',
     format: 'es',
   },
+  external: [
+    'focus-visible',
+    'v-tooltip',
+    'vue-resize',
+  ],
 })
 
 export default config
