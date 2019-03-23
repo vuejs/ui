@@ -3,13 +3,13 @@ import resolve from 'rollup-plugin-node-resolve'
 import vue from 'rollup-plugin-vue'
 import cjs from 'rollup-plugin-commonjs'
 import replace from 'rollup-plugin-replace'
-import { eslint } from 'rollup-plugin-eslint'
 import requireContext from 'rollup-plugin-require-context'
 import { string } from 'rollup-plugin-string'
 import fs from 'fs'
 import CleanCSS from 'clean-css'
 import autoprefixer from 'autoprefixer'
 import focusVisible from 'postcss-focus-visible'
+import css from 'rollup-plugin-css-only'
 
 const config = require('../package.json')
 
@@ -22,16 +22,20 @@ export default {
       browser: true,
     }),
     cjs(),
-    eslint(),
     requireContext(),
     string({
       include: '**/*.svg',
     }),
     vue({
-      css (style) {
-        fs.writeFileSync('dist/vue-ui.css', new CleanCSS().minify(style).styles)
+      css: false,
+      style: {
+        postcssPlugins: [autoprefixer, focusVisible],
       },
-      postcss: [autoprefixer, focusVisible],
+    }),
+    css({
+      output: styles => {
+        fs.writeFileSync('dist/vue-ui.css', new CleanCSS().minify(styles).styles)
+      },
     }),
     babel({
       exclude: 'node_modules/**',

@@ -7426,6 +7426,14 @@ rollup-plugin-commonjs@^9.2.1:
     resolve "^1.10.0"
     rollup-pluginutils "^2.3.3"
 
+rollup-plugin-css-only@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-css-only/-/rollup-plugin-css-only-1.0.0.tgz#dc027d657d02e7706b855d856dcb0fdd49935135"
+  integrity sha512-WY8bISLKzWCnUmHMOhsgbQ/bZz1J1eigwMROixTWZb4yPrMCA4vbfQog6n3bsOQMfq39Kih6jWY9Xn9rYjiqXw==
+  dependencies:
+    mkdirp "^0.5.1"
+    rollup-pluginutils "^2.3.3"
+
 rollup-plugin-eslint@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/rollup-plugin-eslint/-/rollup-plugin-eslint-5.1.0.tgz#9acc575f9b162b160c18a7e59082303273ca0b10"
