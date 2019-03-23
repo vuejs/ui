@@ -3,6 +3,8 @@ import VTooltip from 'v-tooltip'
 import VueResize from 'vue-resize'
 import 'focus-visible'
 
+import 'vue-resize/dist/vue-resize.css'
+
 // Exported mixins
 export { default as CoupledChild } from './mixins/CoupledChild'
 export { default as CoupledParent } from './mixins/CoupledParent'
