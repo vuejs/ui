@@ -127,6 +127,11 @@ export default {
         .vue-ui-icon
           svg
             fill @color
+        .vue-ui-dark-mode &
+          color $vue-ui-color-light-neutral
+          .vue-ui-icon
+            svg
+              fill @color
 
   &:not(.focused)
     > .wrapper
