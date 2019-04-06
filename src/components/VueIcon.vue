@@ -2,6 +2,8 @@
 export default {
   name: 'VueIcon',
 
+  functional: true,
+
   props: {
     icon: {
       type: String,
@@ -9,14 +11,18 @@ export default {
     },
   },
 
-  render (h) {
+  render (h, { props, data }) {
     return h('div', {
-      staticClass: 'vue-ui-icon',
-      on: { click: event => this.$emit('click', event) },
+      staticClass: 'vue-ui-icon ' + data.staticClass,
+      on: data.on,
+      attrs: data.attrs,
+      class: data.class,
+      style: data.style,
+      staticStyle: data.staticStyle,
     }, [
       h('svg', [
         h('use', { attrs: {
-          'xlink:href': `#ic_${this.icon}_24px`,
+          'xlink:href': `#ic_${props.icon}_24px`,
         } }),
       ]),
     ])
