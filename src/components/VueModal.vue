@@ -5,6 +5,7 @@
       enter: 1000,
       leave: 300,
     }"
+    appear
   >
     <div
       class="vue-ui-modal"
