@@ -8784,7 +8784,8 @@
           duration: {
             enter: 1000,
             leave: 300
-          }
+          },
+          appear: ""
         }
       },
       [
@@ -10051,7 +10052,7 @@
   }
   var plugin$3 = {
     // eslint-disable-next-line no-undef
-    version: "0.8.0",
+    version: "0.8.1",
     install: install$3
   };
 

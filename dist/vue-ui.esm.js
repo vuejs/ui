@@ -1990,7 +1990,8 @@ var __vue_render__$a = function() {
         duration: {
           enter: 1000,
           leave: 300
-        }
+        },
+        appear: ""
       }
     },
     [
@@ -3257,7 +3258,7 @@ function install(Vue) {
 }
 var plugin = {
   // eslint-disable-next-line no-undef
-  version: "0.8.0",
+  version: "0.8.1",
   install: install
 };
 
