@@ -1498,25 +1498,26 @@ __vue_render__$6._withStripped = true;
 
 var script$7 = {
   name: 'VueIcon',
+  functional: true,
   props: {
     icon: {
       type: String,
       required: true
     }
   },
-  render: function render(h) {
-    var _this = this;
-
+  render: function render(h, _ref) {
+    var props = _ref.props,
+        data = _ref.data;
     return h('div', {
-      staticClass: 'vue-ui-icon',
-      on: {
-        click: function click(event) {
-          return _this.$emit('click', event);
-        }
-      }
+      staticClass: 'vue-ui-icon ' + data.staticClass,
+      on: data.on,
+      attrs: data.attrs,
+      class: data.class,
+      style: data.style,
+      staticStyle: data.staticStyle
     }, [h('svg', [h('use', {
       attrs: {
-        'xlink:href': "#ic_".concat(this.icon, "_24px")
+        'xlink:href': "#ic_".concat(props.icon, "_24px")
       }
     })])]);
   }
@@ -3256,7 +3257,7 @@ function install(Vue) {
 }
 var plugin = {
   // eslint-disable-next-line no-undef
-  version: "0.7.2",
+  version: "0.8.0",
   install: install
 };
 
