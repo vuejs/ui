@@ -12,20 +12,14 @@ export default {
   },
 
   render (h, { props, data }) {
-    return h('div', {
-      staticClass: 'vue-ui-icon ' + data.staticClass,
-      on: data.on,
-      attrs: data.attrs,
-      class: data.class,
-      style: data.style,
-      staticStyle: data.staticStyle,
-    }, [
-      h('svg', [
-        h('use', { attrs: {
-          'xlink:href': `#ic_${props.icon}_24px`,
-        } }),
-      ]),
-    ])
+    return <div
+      class="vue-ui-icon"
+      {...data}
+    >
+      <svg>
+        <use xlinkHref={`#ic_${props.icon}_24px`} />
+      </svg>
+    </div>
   },
 }
 </script>
