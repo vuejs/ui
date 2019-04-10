@@ -21,8 +21,6 @@ export default {
       main: true,
       browser: true,
     }),
-    cjs(),
-    requireContext(),
     string({
       include: '**/*.svg',
     }),
@@ -41,6 +39,8 @@ export default {
       exclude: 'node_modules/**',
       runtimeHelpers: true,
     }),
+    cjs(),
+    requireContext(),
     replace({
       VERSION: JSON.stringify(config.version),
     }),
