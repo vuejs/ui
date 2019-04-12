@@ -5107,11 +5107,6 @@ lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
 
-lodash.merge@^4.6.1:
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.1.tgz#adc25d9cb99b9391c59624f379fbba60d7111d54"
-  integrity sha512-AOYza4+Hf5z1/0Hztxpm2/xiPZgi/cjMqdnKTUWTBSKchJlxXXuUSxCCl8rJlf4g6yww/j6mA8nC8Hw/EZWxKQ==
-
 lodash.transform@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.transform/-/lodash.transform-4.6.0.tgz#12306422f63324aed8483d3f38332b5f670547a0"
@@ -8491,12 +8486,12 @@ uuid@^3.3.2:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
   integrity sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==
 
-v-tooltip@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/v-tooltip/-/v-tooltip-2.0.0.tgz#022c9019198119cd735f9f09d7208043c651bdae"
-  integrity sha512-AXUUA7G06AiGmmxh+Om0/kgw52OTNzNxAXxomgH+ehPVr5GRJKp9b8lxJBWwQkUcdULYOE5u8Nf2IQ1gIJeP3g==
+v-tooltip@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/v-tooltip/-/v-tooltip-2.0.1.tgz#ba959552651dfa33210170ac9cfcce3525abe797"
+  integrity sha512-Ifby9zx34MtzZRSYlr+tFQjXxHd8NZG9YoEHdeSQb8qwFGRQZhc8JVnxKBKUDGFowLUEzfX4e3mVmqrLw7b5oQ==
   dependencies:
-    lodash.merge "^4.6.1"
+    lodash "^4.17.11"
     popper.js "^1.15.0"
     vue-resize "^0.4.5"
 

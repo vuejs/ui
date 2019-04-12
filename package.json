@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "focus-visible": "^4.1.5",
-    "v-tooltip": "^2.0.0",
+    "v-tooltip": "^2.0.1",
     "vue-resize": "^0.4.5"
   },
   "devDependencies": {
