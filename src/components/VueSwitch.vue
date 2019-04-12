@@ -179,7 +179,7 @@ $height = 18px
 
   // Focus
   &.focus,
-  &:focus:focus-visible
+  &:focus.focus-visible
     > .content > .wrapper::after
       content ''
       display block

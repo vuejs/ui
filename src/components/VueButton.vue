@@ -203,13 +203,13 @@ colors($dark, $light, $invert = false)
   &.round
     border-radius 17px
     // Focus
-    &:focus:focus-visible::after
+    &:focus.focus-visible::after
       border-radius (@border-radius + 1px)
     // Big button
     &.big
       border-radius 22px
       // Focus
-      &:focus:focus-visible::after
+      &:focus.focus-visible::after
         border-radius (@border-radius + 1px)
   &.flat
     button-transitions()
@@ -283,7 +283,7 @@ colors($dark, $light, $invert = false)
       colors($vue-ui-color-success, $vue-ui-color-dark)
   disable-focus-styles()
   // Keyboard focus style
-  &:focus:focus-visible
+  &:focus.focus-visible
     z-index 1
     &::after
       content ''

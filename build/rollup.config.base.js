@@ -8,7 +8,6 @@ import { string } from 'rollup-plugin-string'
 import fs from 'fs'
 import CleanCSS from 'clean-css'
 import autoprefixer from 'autoprefixer'
-import focusVisible from 'postcss-focus-visible'
 import css from 'rollup-plugin-css-only'
 
 const config = require('../package.json')
@@ -27,7 +26,7 @@ export default {
     vue({
       css: false,
       style: {
-        postcssPlugins: [autoprefixer, focusVisible],
+        postcssPlugins: [autoprefixer],
       },
     }),
     css({
