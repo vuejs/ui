@@ -8485,7 +8485,7 @@
       },
       title: {
         type: String,
-        required: true
+        default: undefined
       }
     },
     data: function data() {
@@ -10608,7 +10608,7 @@
   }
   var plugin$2 = {
     // eslint-disable-next-line no-undef
-    version: "0.9.1",
+    version: "0.9.2",
     install: install$2
   };
 

@@ -1098,7 +1098,7 @@ var script$4 = {
     },
     title: {
       type: String,
-      required: true
+      default: undefined
     }
   },
   data: function data() {
@@ -3221,7 +3221,7 @@ function install(Vue) {
 }
 var plugin = {
   // eslint-disable-next-line no-undef
-  version: "0.9.1",
+  version: "0.9.2",
   install: install
 };
 
