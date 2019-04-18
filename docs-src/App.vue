@@ -12,21 +12,14 @@
 
 <script>
 export default {
-  data () {
-    return {
-      darkMode: false,
-    }
-  },
-
-  watch: {
-    darkMode (value) {
-      const el = document.getElementsByTagName('html')[0]
-      if (value) {
-        el.classList.add('vue-ui-dark-mode')
-      } else {
-        el.classList.remove('vue-ui-dark-mode')
-      }
+  computed: {
+    darkMode: {
+      get () { return this.$store.state.darkMode },
+      set (v) { this.$store.commit('SWITCH_THEME', v) },
     },
+  },
+  mounted () {
+    this.$store.commit('SWITCH_THEME', JSON.parse(localStorage.getItem('dark-mode')) || false)
   },
 }
 </script>
