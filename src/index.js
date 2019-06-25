@@ -4,6 +4,7 @@ import VueResize from 'vue-resize'
 import 'focus-visible'
 
 import 'vue-resize/dist/vue-resize.css'
+import 'v-tooltip/dist/v-tooltip.css'
 
 // Exported mixins
 export { default as CoupledChild } from './mixins/CoupledChild'
@@ -21,10 +22,10 @@ export function install (Vue, options = {}) {
   Vue.use(VueIcons)
 
   Vue.use(VTooltip, Object.assign({
-    defaultDelay: { show: 1000, hide: 0 },
-    defaultBoundariesElement: document.body,
-    popover: {
-      defaultHandleResize: false,
+    themes: {
+      dropdown: {
+        handleResize: false,
+      },
     },
   }, options.vtooltip))
 

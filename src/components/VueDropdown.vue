@@ -1,5 +1,5 @@
 <template>
-  <v-popover
+  <VDropdown
     ref="popover"
     class="vue-ui-dropdown"
     v-bind="$attrs"
@@ -22,25 +22,26 @@
       </slot>
     </div>
 
-    <VueDisable
-      slot="popover"
-      ref="popoverContent"
-      class="vue-ui-dropdown-content"
-      :class="contentClass"
-      :style="{
-        minWidth: forceMinSize ? `${width}px` : '0',
-      }"
-      :disabled="!isOpen"
-      @mousedown.native="onPopoverContentMousedown"
-    >
-      <slot/>
-    </VueDisable>
+    <template #popper>
+      <VueDisable
+        ref="popoverContent"
+        class="vue-ui-dropdown-content"
+        :class="contentClass"
+        :style="{
+          minWidth: forceMinSize ? `${width}px` : '0',
+        }"
+        :disabled="!isOpen"
+        @mousedown.native="onPopoverContentMousedown"
+      >
+        <slot/>
+      </VueDisable>
+    </template>
 
     <resize-observer
       v-if="forceMinSize"
       @notify="onResize"
     />
-  </v-popover>
+  </VDropdown>
 </template>
 
 <script>

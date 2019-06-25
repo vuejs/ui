@@ -4,7 +4,7 @@
     class="vue-ui-select-button"
     v-bind="$attrs"
     v-on="$listeners"
-    v-close-popover="!keepOpen"
+    v-close-popper="!keepOpen"
     flat
     @selected="onSelect"
   >
