@@ -17,8 +17,8 @@ export default {
 @import "../style/imports"
 
 colors($color)
+  border-color rgba($color, .1)
   border-right-color $color
-  border-bottom-color $color
 
 .vue-ui-loading-indicator
   display flex
