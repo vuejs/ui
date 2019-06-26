@@ -125,7 +125,7 @@ export default {
     v-box()
     align-items stretch
     .vue-ui-dark-mode &
-      background $vue-ui-grey-900
+      background $vue-ui-gray-900
       box-shadow 0 20px 60px rgba($md-black, .5)
 
     > .close-button

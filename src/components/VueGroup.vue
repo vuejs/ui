@@ -116,7 +116,7 @@ indicator(direction)
   > .indicator
     padding-{direction} 1px
     > .content
-      border-{direction} solid 2px rgba($vue-ui-grey-800, .7)
+      border-{direction} solid 2px rgba($vue-ui-gray-800, .7)
       .vue-ui-dark-mode &
         border-{direction}-color $vue-ui-white
   &.primary

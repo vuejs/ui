@@ -35,7 +35,7 @@ export default {
   svg
     width 100%
     height 100%
-    fill $vue-ui-grey-800
+    fill $vue-ui-gray-800
     pointer-events none
 
   .vue-ui-dark-mode &

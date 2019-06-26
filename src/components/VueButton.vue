@@ -138,7 +138,7 @@ export default {
 
 @import "../style/imports"
 
-$focus-color = $vue-ui-grey-800
+$focus-color = $vue-ui-gray-800
 
 colors($dark, $light, $invert = false)
   if $invert
@@ -260,15 +260,15 @@ colors($dark, $light, $invert = false)
     left 0
     right 0
   // Colors
-  colors($vue-ui-grey-800, $vue-ui-primary-100)
+  colors($vue-ui-gray-800, $vue-ui-primary-100)
   .vue-ui-dark-mode &
-    colors($vue-ui-white, $vue-ui-grey-800)
+    colors($vue-ui-white, $vue-ui-gray-800)
   &.primary
     colors($vue-ui-primary-500, $vue-ui-white, true)
   &.accent
     colors($vue-ui-accent-500, $vue-ui-white, true)
     .vue-ui-dark-mode &
-      colors($vue-ui-accent-300, $vue-ui-grey-800, true)
+      colors($vue-ui-accent-300, $vue-ui-gray-800, true)
   &.danger
     colors($vue-ui-danger-500, $vue-ui-white, true)
   &.warning
@@ -276,11 +276,11 @@ colors($dark, $light, $invert = false)
   &.info
     colors($vue-ui-info-500, $vue-ui-primary-100)
     .vue-ui-dark-mode &
-      colors($vue-ui-info-500, $vue-ui-grey-800)
+      colors($vue-ui-info-500, $vue-ui-gray-800)
   &.success
     colors($vue-ui-primary-500, $vue-ui-primary-100)
     .vue-ui-dark-mode &
-      colors($vue-ui-primary-500, $vue-ui-grey-800)
+      colors($vue-ui-primary-500, $vue-ui-gray-800)
   disable-focus-styles()
   // Keyboard focus style
   &:focus.focus-visible

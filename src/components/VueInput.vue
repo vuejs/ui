@@ -224,7 +224,7 @@ colors($color)
           fill rgba($color, .8)
 
 .vue-ui-input
-  $lightened = $vue-ui-grey-500
+  $lightened = $vue-ui-gray-500
   display inline-block
   vertical-align middle
   box-sizing border-box
@@ -236,12 +236,12 @@ colors($color)
     box-center()
     padding 0 10px
     border solid 1px $vue-ui-primary-100
-    color $vue-ui-grey-800
+    color $vue-ui-gray-800
     border-radius $br
     transition background .3s
     position relative
     .vue-ui-dark-mode &
-      border-color $vue-ui-grey-700
+      border-color $vue-ui-gray-700
       color $vue-ui-white
 
     > .input-wrapper
@@ -268,7 +268,7 @@ colors($color)
         &::placeholder
           color $lightened
           .vue-ui-dark-mode &
-            color $vue-ui-grey-300
+            color $vue-ui-gray-300
         // Disable noisy browser styles
         outline none
         &::-moz-focus-inner
@@ -328,7 +328,7 @@ colors($color)
     > .content
       background $vue-ui-white
       .vue-ui-dark-mode &
-        background $vue-ui-grey-900
+        background $vue-ui-gray-900
 
   &.show-suggestion
     > .content > .input-wrapper > .input

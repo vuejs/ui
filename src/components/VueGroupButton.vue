@@ -61,30 +61,30 @@ export default {
 .vue-ui-group-button.vue-ui-button
   button-transitions()
   &:not(.selected):not(.flat)
-    button-colors($vue-ui-grey-800, $vue-ui-primary-100)
+    button-colors($vue-ui-gray-800, $vue-ui-primary-100)
     .vue-ui-dark-mode &
-      button-colors($vue-ui-white, $vue-ui-grey-800)
+      button-colors($vue-ui-white, $vue-ui-gray-800)
       &.vue-ui-select-button
-        button-colors($vue-ui-white, $vue-ui-grey-600)
+        button-colors($vue-ui-white, $vue-ui-gray-600)
 
   &.selected
     .vue-ui-group.has-indicator.primary &
       button-colors($vue-ui-primary-500, $vue-ui-primary-100)
       .vue-ui-dark-mode &
-        button-colors($vue-ui-primary-500, $vue-ui-grey-800)
+        button-colors($vue-ui-primary-500, $vue-ui-gray-800)
     .vue-ui-group.has-indicator.accent &
       button-colors($vue-ui-accent-500, $vue-ui-primary-100)
       .vue-ui-dark-mode &
-        button-colors($vue-ui-accent-300, $vue-ui-grey-800)
+        button-colors($vue-ui-accent-300, $vue-ui-gray-800)
 
   .vue-ui-group:not(.has-indicator) &
     &.selected
       &:not(.primary):not(.accent):not(.danger):not(.warning):not(.info):not(.success):not(.flat)
-        button-colors($vue-ui-white, $vue-ui-grey-800)
+        button-colors($vue-ui-white, $vue-ui-gray-800)
         .vue-ui-dark-mode &
-          button-colors($vue-ui-white, $vue-ui-grey-600)
+          button-colors($vue-ui-white, $vue-ui-gray-600)
           &.vue-ui-select-button
-            background $vue-ui-grey-400
+            background $vue-ui-gray-400
 
   &,
   &.selected
@@ -127,7 +127,7 @@ export default {
       &.round.selected
         background $vue-ui-primary-100 !important
         .vue-ui-dark-mode &
-          background $vue-ui-grey-800 !important
+          background $vue-ui-gray-800 !important
         &::before
           content ''
           display block

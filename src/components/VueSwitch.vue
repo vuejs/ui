@@ -103,12 +103,12 @@ $height = 16px
       padding 1px
       box-sizing border-box
       .vue-ui-dark-mode &
-        background $vue-ui-grey-700
+        background $vue-ui-gray-700
       .bullet
         width (@height - 2px)
         height (@height - 2px)
         border-radius 50%
-        background $vue-ui-grey-800
+        background $vue-ui-gray-800
         transition margin-left .2s ease-in-out, transform .2s ease-in-out
         .vue-ui-dark-mode &
           background $vue-ui-white
@@ -146,9 +146,9 @@ $height = 16px
       > .content
         > .wrapper
           .bullet
-            background $vue-ui-grey-600
+            background $vue-ui-gray-600
             .vue-ui-dark-mode &
-              background $vue-ui-grey-100
+              background $vue-ui-gray-100
     &:active
       > .content
         > .wrapper

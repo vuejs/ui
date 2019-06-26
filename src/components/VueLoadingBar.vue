@@ -51,19 +51,19 @@ colors($foreground, $background)
   .bar
     height 100%
 
-  colors($vue-ui-grey-800, $vue-ui-primary-100)
+  colors($vue-ui-gray-800, $vue-ui-primary-100)
   .vue-ui-dark-mode &
-    colors($vue-ui-grey-600, $vue-ui-grey-800)
+    colors($vue-ui-gray-600, $vue-ui-gray-800)
 
   &.primary
     colors($vue-ui-primary-500, $vue-ui-primary-100)
     .vue-ui-dark-mode &
-      colors($vue-ui-primary-500, $vue-ui-grey-800)
+      colors($vue-ui-primary-500, $vue-ui-gray-800)
 
   &.accent
     colors($vue-ui-accent-500, $vue-ui-primary-100)
     .vue-ui-dark-mode &
-      colors($vue-ui-accent-300, $vue-ui-grey-800)
+      colors($vue-ui-accent-300, $vue-ui-gray-800)
 
   &.unknown
     .bar

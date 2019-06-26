@@ -33,9 +33,9 @@ colors($color)
     height @width
     border-radius 50%
     border transparent 2px solid
-    colors($vue-ui-grey-800)
+    colors($vue-ui-gray-800)
     .vue-ui-dark-mode &
-      colors($vue-ui-grey-600)
+      colors($vue-ui-gray-600)
   &.primary
     > .animation
       colors($vue-ui-primary-500)
@@ -66,7 +66,7 @@ colors($color)
     &:not(.transparent)
       background rgba($vue-ui-white, .95)
       .vue-ui-dark-mode &
-        background rgba($vue-ui-grey-900, .95)
+        background rgba($vue-ui-gray-900, .95)
     &.fixed
       position fixed
 
