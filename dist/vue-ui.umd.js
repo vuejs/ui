@@ -16559,7 +16559,7 @@
   }
   var plugin$2 = {
     // eslint-disable-next-line no-undef
-    version: "0.10.3",
+    version: "0.10.4",
     install: install$2
   };
 
