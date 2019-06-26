@@ -21,8 +21,16 @@ const components = require.context('./components', true, /[a-z0-9]+\.vue$/)
 export function install (Vue, options = {}) {
   Vue.use(VueIcons)
 
-  Vue.use(VTooltip, Object.assign({
+  Vue.use(VTooltip, mergeOptions({
+    boundariesElement: document.body,
     themes: {
+      tooltip: {
+        delay: {
+          show: 1000,
+          hide: 800,
+        },
+        instantMove: true,
+      },
       dropdown: {
         handleResize: false,
       },
@@ -47,6 +55,17 @@ const plugin = {
 }
 
 export default plugin
+
+function mergeOptions (to, from) {
+  for (const key in from) {
+    if (to[key] && from[key] && typeof to[key] === 'object' && typeof from[key] === 'object') {
+      mergeOptions(to[key], from[key])
+    } else {
+      to[key] = from[key]
+    }
+  }
+  return to
+}
 
 // Auto-install
 let GlobalVue = null
