@@ -241,7 +241,7 @@ colors($color)
     transition background .3s
     position relative
     .vue-ui-dark-mode &
-      border-color $vue-ui-grey-800
+      border-color $vue-ui-grey-700
       color $vue-ui-white
 
     > .input-wrapper
@@ -357,9 +357,6 @@ colors($color)
   &.focused
     &:not(.flat)
       > .content
-        background $vue-ui-white
-        .vue-ui-dark-mode &
-          background $vue-ui-grey-800
         > .border
           left 0
           right @left
