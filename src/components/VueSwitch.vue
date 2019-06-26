@@ -103,7 +103,7 @@ $height = 16px
       padding 1px
       box-sizing border-box
       .vue-ui-dark-mode &
-        background $vue-ui-grey-600
+        background $vue-ui-grey-700
       .bullet
         width (@height - 2px)
         height (@height - 2px)
