@@ -221,7 +221,7 @@ colors($color)
           border-bottom-color $color
       > .input-icon
         svg
-          fill darken($color, 20%)
+          fill rgba($color, .8)
 
 .vue-ui-input
   $lightened = lighten($vue-ui-color-dark, 50%)
@@ -340,7 +340,7 @@ colors($color)
   &.accent
     colors($vue-ui-color-accent)
     .vue-ui-dark-mode &
-      colors(lighten($vue-ui-color-accent, 40%))
+      colors($vue-ui-color-accent-light)
   &.danger,
   &.status-danger
     colors($vue-ui-color-danger)
