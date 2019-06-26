@@ -78,8 +78,8 @@ export default {
 <style lang="stylus">
 @import "../style/imports"
 
-$width = 28px
-$height = 18px
+$width = 32px
+$height = 16px
 
 .vue-ui-switch
   display inline-block
@@ -100,11 +100,13 @@ $height = 18px
       background $vue-ui-color-light-neutral
       transition background .3s
       position relative
+      padding 1px
+      box-sizing border-box
       .vue-ui-dark-mode &
         background $vue-ui-color-dark-neutral
       .bullet
-        width @height
-        height @height
+        width (@height - 2px)
+        height (@height - 2px)
         border-radius 50%
         background $vue-ui-color-dark
         transition margin-left .2s ease-in-out, transform .2s ease-in-out
