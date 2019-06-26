@@ -4,7 +4,11 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
       <div class="vue-ui-spacer"/>
-      <VueSwitch v-model="darkMode">Dark mode</VueSwitch>
+      <VueGroup v-model="theme" class="inline">
+        <VueGroupButton value="default">Default</VueGroupButton>
+        <VueGroupButton value="dark">Dark</VueGroupButton>
+        <VueGroupButton value="high-contrast">High contrast</VueGroupButton>
+      </VueGroup>
     </div>
     <router-view class="main-page"/>
   </div>
@@ -13,13 +17,13 @@
 <script>
 export default {
   computed: {
-    darkMode: {
-      get () { return this.$store.state.darkMode },
+    theme: {
+      get () { return this.$store.state.theme },
       set (v) { this.$store.commit('SWITCH_THEME', v) },
     },
   },
   mounted () {
-    this.$store.commit('SWITCH_THEME', JSON.parse(localStorage.getItem('dark-mode')) || false)
+    this.$store.commit('SWITCH_THEME', localStorage.getItem('vue-ui:theme') || 'default')
   },
 }
 </script>
