@@ -133,24 +133,24 @@ indicator(direction)
 .vue-ui-group
   position relative
 
-  > .content
-    h-box()
-    align-items stretch
-    justify-content center
-
   > .content-wrapper
     position relative
 
-  &.start
     > .content
+      h-box()
+      align-items stretch
+      justify-content center
+
+  &.start
+    > .content-wrapper > .content
       justify-content flex-start
 
   &.end
-    > .content
+    > .content-wrapper > .content
       justify-content flex-end
 
   &.vertical
-    > .content
+    > .content-wrapper > .content
       flex-direction column
 
   &.inline
@@ -191,7 +191,7 @@ indicator(direction)
           height 12px
 
   &.extend
-    > .content
+    > .content-wrapper > .content
       > .vue-ui-button
         &:not(.icon-button)
           flex 100% 1 1
