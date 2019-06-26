@@ -63,7 +63,7 @@ colors($foreground, $background)
   &.accent
     colors($vue-ui-color-accent, $vue-ui-color-light-neutral)
     .vue-ui-dark-mode &
-      colors(lighten($vue-ui-color-accent, 60%), $vue-ui-color-dark)
+      colors($vue-ui-color-accent-light, $vue-ui-color-dark)
 
   &.unknown
     .bar

@@ -127,7 +127,7 @@ indicator(direction)
       > .content
         border-{direction}-color rgba($vue-ui-color-accent, .7)
         .vue-ui-dark-mode &
-          border-{direction}-color lighten($vue-ui-color-accent, 60%)
+          border-{direction}-color $vue-ui-color-accent-light
 
 .vue-ui-group
   position relative

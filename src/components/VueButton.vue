@@ -268,7 +268,7 @@ colors($dark, $light, $invert = false)
   &.accent
     colors($vue-ui-color-accent, $vue-ui-color-light, true)
     .vue-ui-dark-mode &
-      colors(lighten($vue-ui-color-accent, 60%), $vue-ui-color-dark, true)
+      colors($vue-ui-color-accent-light, $vue-ui-color-dark, true)
   &.danger
     colors($vue-ui-color-danger, $vue-ui-color-light, true)
   &.warning
@@ -296,4 +296,6 @@ colors($dark, $light, $invert = false)
       border solid 1px
       border-radius ($br + 1px)
       animation vue-ui-focus .3s forwards
+      .vue-ui-dark-mode &
+        animation vue-ui-focus-dark .3s forwards
 </style>
