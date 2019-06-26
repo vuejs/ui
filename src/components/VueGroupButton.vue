@@ -61,30 +61,30 @@ export default {
 .vue-ui-group-button.vue-ui-button
   button-transitions()
   &:not(.selected):not(.flat)
-    button-colors($vue-ui-color-dark, $vue-ui-color-light-neutral)
+    button-colors($vue-ui-grey-800, $vue-ui-primary-100)
     .vue-ui-dark-mode &
-      button-colors($vue-ui-color-light, $vue-ui-color-dark)
+      button-colors($vue-ui-white, $vue-ui-grey-800)
       &.vue-ui-select-button
-        button-colors($vue-ui-color-light, $vue-ui-color-dark-neutral)
+        button-colors($vue-ui-white, $vue-ui-grey-600)
 
   &.selected
     .vue-ui-group.has-indicator.primary &
-      button-colors($vue-ui-color-primary, $vue-ui-color-light-neutral)
+      button-colors($vue-ui-primary-500, $vue-ui-primary-100)
       .vue-ui-dark-mode &
-        button-colors($vue-ui-color-primary, $vue-ui-color-dark)
+        button-colors($vue-ui-primary-500, $vue-ui-grey-800)
     .vue-ui-group.has-indicator.accent &
-      button-colors($vue-ui-color-accent, $vue-ui-color-light-neutral)
+      button-colors($vue-ui-accent-500, $vue-ui-primary-100)
       .vue-ui-dark-mode &
-        button-colors($vue-ui-color-accent-light, $vue-ui-color-dark)
+        button-colors($vue-ui-accent-300, $vue-ui-grey-800)
 
   .vue-ui-group:not(.has-indicator) &
     &.selected
       &:not(.primary):not(.accent):not(.danger):not(.warning):not(.info):not(.success):not(.flat)
-        button-colors($vue-ui-color-light, $vue-ui-color-dark)
+        button-colors($vue-ui-white, $vue-ui-grey-800)
         .vue-ui-dark-mode &
-          button-colors($vue-ui-color-light, $vue-ui-color-dark-neutral)
+          button-colors($vue-ui-white, $vue-ui-grey-600)
           &.vue-ui-select-button
-            background lighten($vue-ui-color-dark-neutral, 30%)
+            background lighten($vue-ui-grey-600, 30%)
 
   &,
   &.selected
@@ -125,9 +125,9 @@ export default {
         border-bottom-left-radius 0
         border-bottom-right-radius 0
       &.round.selected
-        background $vue-ui-color-light-neutral !important
+        background $vue-ui-primary-100 !important
         .vue-ui-dark-mode &
-          background $vue-ui-color-dark !important
+          background $vue-ui-grey-800 !important
         &::before
           content ''
           display block

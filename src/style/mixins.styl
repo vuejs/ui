@@ -77,16 +77,16 @@ button-colors($foreground, $background)
     .vue-ui-dropdown.open .dropdown-trigger &
       background lighten($background, 25%)
     .vue-ui-dark-mode .vue-ui-dropdown.open .dropdown-trigger &
-      background $vue-ui-color-dark-neutral
-      color $vue-ui-color-light
+      background $vue-ui-grey-600
+      color $vue-ui-white
       > .content
         > .button-icon
           svg
-            fill $vue-ui-color-light
+            fill $vue-ui-white
 
     &:hover
       .vue-ui-dark-mode .popover &
-        background $vue-ui-color-dark !important
+        background $vue-ui-grey-800 !important
     &:active
       background darken($background, 8%)
   > .content
@@ -102,24 +102,24 @@ button-colors($foreground, $background)
     background $foreground
     color $background
     if $background is transparent
-      color $vue-ui-color-light
+      color $vue-ui-white
       .vue-ui-dark-mode &
-        color $vue-ui-color-dark !important
+        color $vue-ui-grey-800 !important
   &::before
     background $background
 
   &.vue-ui-dropdown-button
     background transparent
     &:not(:hover)
-      color $vue-ui-color-dark
+      color $vue-ui-grey-800
       .vue-ui-dark-mode &
-        color $vue-ui-color-light !important
+        color $vue-ui-white !important
       > .content
         > .button-icon
           svg
             fill @color
             .vue-ui-dark-mode &
-              fill $vue-ui-color-light !important
+              fill $vue-ui-white !important
 
 button-transitions()
   transition background .1s, color .1s

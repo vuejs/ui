@@ -97,21 +97,21 @@ $height = 16px
       height $height
       margin-left 8px
       border-radius (@height / 2)
-      background $vue-ui-color-light-neutral
+      background $vue-ui-primary-100
       transition background .3s
       position relative
       padding 1px
       box-sizing border-box
       .vue-ui-dark-mode &
-        background $vue-ui-color-dark-neutral
+        background $vue-ui-grey-600
       .bullet
         width (@height - 2px)
         height (@height - 2px)
         border-radius 50%
-        background $vue-ui-color-dark
+        background $vue-ui-grey-800
         transition margin-left .2s ease-in-out, transform .2s ease-in-out
         .vue-ui-dark-mode &
-          background $vue-ui-color-light
+          background $vue-ui-white
 
   &.no-margin
     > .content
@@ -121,7 +121,7 @@ $height = 16px
   &.selected
     > .content
       > .wrapper
-        background $vue-ui-color-primary
+        background $vue-ui-primary-500
         .bullet
           margin-left ($width - $height)
 
@@ -146,9 +146,9 @@ $height = 16px
       > .content
         > .wrapper
           .bullet
-            background lighten($vue-ui-color-dark, 20%)
+            background lighten($vue-ui-grey-800, 20%)
             .vue-ui-dark-mode &
-              background darken($vue-ui-color-light, 5%)
+              background darken($vue-ui-white, 5%)
     &:active
       > .content
         > .wrapper

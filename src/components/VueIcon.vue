@@ -35,31 +35,31 @@ export default {
   svg
     width 100%
     height 100%
-    fill $vue-ui-color-dark
+    fill $vue-ui-grey-800
     pointer-events none
 
   .vue-ui-dark-mode &
     svg
-      fill $vue-ui-color-light
+      fill $vue-ui-white
 
   &.primary
     svg
-      fill $vue-ui-color-primary
+      fill $vue-ui-primary-500
   &.accent
     svg
-      fill $vue-ui-color-accent
+      fill $vue-ui-accent-500
   &.danger
     svg
-      fill $vue-ui-color-danger
+      fill $vue-ui-danger-500
   &.warning
     svg
-      fill $vue-ui-color-warning
+      fill $vue-ui-warning-500
   &.info
     svg
-      fill $vue-ui-color-info
+      fill $vue-ui-info-500
   &.success
     svg
-      fill $vue-ui-color-success
+      fill $vue-ui-primary-500
 
   &.top
     position relative

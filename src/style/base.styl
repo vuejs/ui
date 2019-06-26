@@ -5,29 +5,29 @@
 @import "./tooltip"
 
 html
-  background $vue-ui-color-light
+  background $vue-ui-white
 
 body
   font-size 16px
   font-family 'Roboto', 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
-  color $vue-ui-color-dark
+  color $vue-ui-grey-800
   margin 0
 
 .vue-ui-dark-mode
-  color $vue-ui-color-light
-  background $md-black
+  color $vue-ui-white
+  background $vue-ui-black
   body
     color @color
 
 hr
   border none
   height 1px
-  background $vue-ui-color-light-neutral
+  background $vue-ui-primary-100
 
 a
-  color $vue-ui-color-primary
+  color $vue-ui-primary-500
   text-decoration none
   .vue-ui-icon
     svg
@@ -72,7 +72,7 @@ ul
   height 0
 
 .vue-ui-empty
-  color rgba($vue-ui-color-dark, .5)
+  color rgba($vue-ui-grey-800, .5)
   padding 24px
   text-align center
   box-sizing border-box
@@ -80,7 +80,7 @@ ul
     svg
       fill @color
   .vue-ui-dark-mode &
-    color rgba($vue-ui-color-light, .5)
+    color rgba($vue-ui-white, .5)
 
 .vue-ui-text
   &.banner
@@ -92,17 +92,17 @@ ul
       &:first-child
         margin-right 10px
   &.primary
-    vue-ui-text-colors($vue-ui-color-primary)
+    vue-ui-text-colors($vue-ui-primary-500)
   &.accent
-    vue-ui-text-colors($vue-ui-color-accent)
+    vue-ui-text-colors($vue-ui-accent-500)
   &.danger
-    vue-ui-text-colors($vue-ui-color-danger)
+    vue-ui-text-colors($vue-ui-danger-500)
   &.warning
-    vue-ui-text-colors($vue-ui-color-warning)
+    vue-ui-text-colors($vue-ui-warning-500)
   &.info
-    vue-ui-text-colors($vue-ui-color-info)
+    vue-ui-text-colors($vue-ui-info-500)
   &.success
-    vue-ui-text-colors($vue-ui-color-success)
+    vue-ui-text-colors($vue-ui-primary-500)
 
 .vue-ui-grid
   display grid
@@ -123,17 +123,20 @@ ul
 ::-webkit-scrollbar-track-piece
   background transparent
 ::-webkit-scrollbar-track:hover
-  background rgba($vue-ui-color-dark-neutral, .05)
+  background rgba($vue-ui-grey-600, .05)
   .vue-ui-dark-mode &
-    background rgba($vue-ui-color-dark-neutral, .1)
+    background rgba($vue-ui-grey-600, .1)
 ::-webkit-scrollbar-thumb
-  background-color lighten($vue-ui-color-dark-neutral, 60%)
+  background-color lighten($vue-ui-grey-600, 60%)
   border 3px solid transparent
   background-clip padding-box
   border-radius 5px
   &:hover
-    background-color $vue-ui-color-dark-neutral
+    background-color $vue-ui-grey-600
   .vue-ui-dark-mode &
-    background-color lighten($vue-ui-color-dark, 10%)
+    background-color $vue-ui-grey-800
     &:hover
-      background-color lighten($vue-ui-color-dark-neutral, 10%)
+      background-color lighten($vue-ui-grey-600, 10%)
+
+.vue-ui-dark-mode
+  scrollbar-color $vue-ui-grey-800 $vue-ui-black

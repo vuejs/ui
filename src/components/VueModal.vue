@@ -111,12 +111,12 @@ export default {
     left 0
     width 100%
     height 100%
-    background rgba($vue-ui-color-light, .9)
+    background rgba($vue-ui-white, .9)
     .vue-ui-dark-mode &
       background rgba($md-black, .7)
 
   > .shell
-    background $vue-ui-color-light
+    background $vue-ui-white
     border-radius ($br * 2)
     position relative
     max-width calc(100vw - 100px)
@@ -125,7 +125,7 @@ export default {
     v-box()
     align-items stretch
     .vue-ui-dark-mode &
-      background $vue-ui-color-darker
+      background $vue-ui-grey-900
       box-shadow 0 20px 60px rgba($md-black, .5)
 
     > .close-button

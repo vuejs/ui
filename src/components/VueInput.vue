@@ -224,7 +224,7 @@ colors($color)
           fill rgba($color, .8)
 
 .vue-ui-input
-  $lightened = lighten($vue-ui-color-dark, 50%)
+  $lightened = lighten($vue-ui-grey-800, 50%)
   display inline-block
   vertical-align middle
   box-sizing border-box
@@ -235,14 +235,14 @@ colors($color)
     h-box()
     box-center()
     padding 0 10px
-    border solid 1px $vue-ui-color-light-neutral
-    color $vue-ui-color-dark
+    border solid 1px $vue-ui-primary-100
+    color $vue-ui-grey-800
     border-radius $br
     transition background .3s
     position relative
     .vue-ui-dark-mode &
-      border-color $vue-ui-color-dark
-      color $vue-ui-color-light
+      border-color $vue-ui-grey-800
+      color $vue-ui-white
 
     > .input-wrapper
       position relative
@@ -262,7 +262,7 @@ colors($color)
         border none
         background transparent
         .vue-ui-dark-mode &
-          color $vue-ui-color-light
+          color $vue-ui-white
         &:not(textarea)
           height 30px
         &::placeholder
@@ -326,9 +326,9 @@ colors($color)
 
   &:not(.flat)
     > .content
-      background lighten($vue-ui-color-light-neutral, 70%)
+      background lighten($vue-ui-primary-100, 70%)
       .vue-ui-dark-mode &
-        background $vue-ui-color-darker
+        background $vue-ui-grey-900
 
   &.show-suggestion
     > .content > .input-wrapper > .input
@@ -336,30 +336,30 @@ colors($color)
         color transparent
 
   // Colors
-  colors($vue-ui-color-primary)
+  colors($vue-ui-primary-500)
   &.accent
-    colors($vue-ui-color-accent)
+    colors($vue-ui-accent-500)
     .vue-ui-dark-mode &
-      colors($vue-ui-color-accent-light)
+      colors($vue-ui-accent-300)
   &.danger,
   &.status-danger
-    colors($vue-ui-color-danger)
+    colors($vue-ui-danger-500)
   &.warning,
   &.status-warning
-    colors($vue-ui-color-warning)
+    colors($vue-ui-warning-500)
   &.info,
   &.status-info
-    colors($vue-ui-color-info)
+    colors($vue-ui-info-500)
   &.success,
   &.status-success
-    colors($vue-ui-color-success)
+    colors($vue-ui-primary-500)
 
   &.focused
     &:not(.flat)
       > .content
-        background $vue-ui-color-light
+        background $vue-ui-white
         .vue-ui-dark-mode &
-          background $vue-ui-color-dark
+          background $vue-ui-grey-800
         > .border
           left 0
           right @left

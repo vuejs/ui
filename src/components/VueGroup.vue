@@ -116,19 +116,19 @@ indicator(direction)
   > .indicator
     padding-{direction} 1px
     > .content
-      border-{direction} solid 2px rgba($vue-ui-color-dark, .7)
+      border-{direction} solid 2px rgba($vue-ui-grey-800, .7)
       .vue-ui-dark-mode &
-        border-{direction}-color $vue-ui-color-light
+        border-{direction}-color $vue-ui-white
   &.primary
     > .indicator
       > .content
-        border-{direction}-color rgba($vue-ui-color-primary, .7)
+        border-{direction}-color rgba($vue-ui-primary-500, .7)
   &.accent
     > .indicator
       > .content
-        border-{direction}-color rgba($vue-ui-color-accent, .7)
+        border-{direction}-color rgba($vue-ui-accent-500, .7)
         .vue-ui-dark-mode &
-          border-{direction}-color $vue-ui-color-accent-light
+          border-{direction}-color $vue-ui-accent-300
 
 .vue-ui-group
   position relative

@@ -33,17 +33,17 @@ colors($color)
     height @width
     border-radius 50%
     border transparent 2px solid
-    colors($vue-ui-color-dark)
+    colors($vue-ui-grey-800)
     .vue-ui-dark-mode &
-      colors($vue-ui-color-dark-neutral)
+      colors($vue-ui-grey-600)
   &.primary
     > .animation
-      colors($vue-ui-color-primary)
+      colors($vue-ui-primary-500)
   &.accent
     > .animation
-      colors($vue-ui-color-accent)
+      colors($vue-ui-accent-500)
       .vue-ui-dark-mode &
-        colors($vue-ui-color-accent-light)
+        colors($vue-ui-accent-300)
   &.small
     > .animation
       width 10px
@@ -64,9 +64,9 @@ colors($color)
     > .animation
       margin-bottom 32px
     &:not(.transparent)
-      background rgba($vue-ui-color-light, .95)
+      background rgba($vue-ui-white, .95)
       .vue-ui-dark-mode &
-        background rgba($vue-ui-color-darker, .95)
+        background rgba($vue-ui-grey-900, .95)
     &.fixed
       position fixed
 
