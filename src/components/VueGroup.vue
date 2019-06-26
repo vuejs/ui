@@ -7,6 +7,8 @@
   >
     <div class="content">
       <slot/>
+
+      <resize-observer v-if="indicator" @notify="updateIndicator()"/>
     </div>
 
     <div
@@ -23,8 +25,6 @@
         <slot name="indicator"/>
       </div>
     </div>
-
-    <resize-observer v-if="indicator" @notify="updateIndicator()"/>
   </div>
 </template>
 
@@ -136,6 +136,7 @@ indicator(direction)
     h-box()
     align-items stretch
     justify-content center
+    position relative
 
   &.start
     > .content
