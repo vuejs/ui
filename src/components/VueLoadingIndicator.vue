@@ -54,6 +54,10 @@ colors($color)
       height @width
       border-width 3px
 
+  .vue-ui-high-contrast &
+    > .animation
+      border-width 4px
+
   &.overlay
     position absolute
     top 0

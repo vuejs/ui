@@ -407,4 +407,10 @@ colors($color)
   .vue-ui-dropdown-content > &
     min-width 200px
     padding 0 4px 4px
+
+  .vue-ui-high-contrast &
+    > .content
+      border-width 2px
+      border-style dashed
+      background $md-black !important
 </style>

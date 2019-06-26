@@ -155,6 +155,25 @@ colors($dark, $light, $invert = false)
       &:active,
       .vue-ui-dropdown.open .dropdown-trigger &
         button-colors($foreground, $background)
+  .vue-ui-high-contrast &
+    border solid 2px $background
+    background $md-black !important
+    color $vue-ui-white !important
+    .vue-ui-icon
+      svg
+        fill @color
+    .vue-ui-loading-indicator
+      .animation
+        border-right-color @color
+    &:hover, &:focus
+      background $background !important
+      color $md-black !important
+      .vue-ui-icon
+        svg
+          fill @color
+      .vue-ui-loading-indicator
+        .animation
+          border-right-color @color
 
 .vue-ui-button
   display inline-block
@@ -186,6 +205,12 @@ colors($dark, $light, $invert = false)
         line-height 10px
         // font-weight bold
         font-family monospace
+      .vue-ui-high-contrast &
+        > .tag
+          padding 2px 4px 0
+          border white 2px solid
+          font-size 12px
+          font-weight bold
   &.big
     padding 0 18px
     font-size 16px
@@ -239,11 +264,17 @@ colors($dark, $light, $invert = false)
         position absolute
         right 2px
         bottom @right
+        .vue-ui-high-contrast &
+          right -4px
+          bottom -4px
   &.big-tag
     > .content
       > .tag-wrapper
         right 6px
         bottom @right
+        .vue-ui-high-contrast &
+          right -2px
+          bottom -2px
   // Round style
   &.ghost
     cursor default

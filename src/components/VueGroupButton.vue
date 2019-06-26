@@ -128,6 +128,8 @@ export default {
         background $vue-ui-primary-100 !important
         .vue-ui-dark-mode &
           background $vue-ui-gray-800 !important
+        .vue-ui-high-contrast &
+          background white !important
         &::before
           content ''
           display block
@@ -138,7 +140,19 @@ export default {
           height 100%
           z-index 0
           border-radius 17px
+          .vue-ui-high-contrast &
+            display none
         > .content
           position relative
           z-index 1
+
+  &.selected
+    &,
+    .vue-ui-group.vertical &
+      .vue-ui-high-contrast &
+        background white !important
+        color black !important
+        font-weight bold
+        svg
+          fill @color
 </style>
