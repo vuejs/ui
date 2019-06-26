@@ -1,8 +1,46 @@
-.v-popper--theme-dropdown
+.v-popper--theme-tooltip
+  $background = $vue-ui-color-dark
+  $dark-background = $vue-ui-color-light
+  $color = $vue-ui-color-light
+  $dark-color = $vue-ui-color-dark
 
   .v-popper__inner
+    background $background
+    color $color
+  
+  .v-popper__arrow
+    border-color $background
+
+  .vue-ui-dark-mode &
+    .v-popper__inner
+      background $dark-background
+      color $dark-color
+    
+    .v-popper__arrow
+      border-color $dark-background
+
+.v-popper--theme-dropdown
+  $background = $vue-ui-color-light
+  $dark-background = lighten($vue-ui-color-darker, 3%)
+  $color = $vue-ui-color-dark
+  $dark-color = $vue-ui-color-light
+
+  .v-popper__inner
+    background $background
+    color $color
     padding 4px 0
     box-shadow 0 0 3px rgba(black, .05), 0 10px 30px rgba(black, .1)
+  
+  .v-popper__arrow
+    border-color $background
+
+  .vue-ui-dark-mode &
+    .v-popper__inner
+      background $dark-background
+      color $dark-color
+    
+    .v-popper__arrow
+      border-color $dark-background
 
   &[x-placement^='top']
     .v-popper__arrow
