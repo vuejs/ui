@@ -14515,6 +14515,7 @@
   //
   //
   //
+  //
   var script$b = {
     name: 'VueGroup',
     model: {
@@ -14606,9 +14607,9 @@
       [
         _c(
           "div",
-          { staticClass: "content" },
+          { staticClass: "content-wrapper" },
           [
-            _vm._t("default"),
+            _c("div", { staticClass: "content" }, [_vm._t("default")], 2),
             _vm._v(" "),
             _vm.indicator
               ? _c("resize-observer", {
@@ -14620,7 +14621,7 @@
                 })
               : _vm._e()
           ],
-          2
+          1
         ),
         _vm._v(" "),
         _vm.indicator && _vm.indicatorStyle
@@ -16498,7 +16499,7 @@
   }
   var plugin$2 = {
     // eslint-disable-next-line no-undef
-    version: "0.10.0",
+    version: "0.10.1",
     install: install$2
   };
 

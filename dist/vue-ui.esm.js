@@ -1254,6 +1254,7 @@ __vue_render__$4._withStripped = true;
 //
 //
 //
+//
 var script$5 = {
   name: 'VueGroup',
   model: {
@@ -1345,9 +1346,9 @@ var __vue_render__$5 = function() {
     [
       _c(
         "div",
-        { staticClass: "content" },
+        { staticClass: "content-wrapper" },
         [
-          _vm._t("default"),
+          _c("div", { staticClass: "content" }, [_vm._t("default")], 2),
           _vm._v(" "),
           _vm.indicator
             ? _c("resize-observer", {
@@ -1359,7 +1360,7 @@ var __vue_render__$5 = function() {
               })
             : _vm._e()
         ],
-        2
+        1
       ),
       _vm._v(" "),
       _vm.indicator && _vm.indicatorStyle
@@ -3237,7 +3238,7 @@ function install(Vue) {
 }
 var plugin = {
   // eslint-disable-next-line no-undef
-  version: "0.10.0",
+  version: "0.10.1",
   install: install
 };
 
