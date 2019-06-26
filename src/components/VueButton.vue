@@ -295,7 +295,7 @@ colors($dark, $light, $invert = false)
       right @top
       border solid 1px
       border-radius ($br + 1px)
-      animation vue-ui-focus .3s forwards
+      animation vue-ui-focus .6s forwards
       .vue-ui-dark-mode &
-        animation vue-ui-focus-dark .3s forwards
+        animation vue-ui-focus-dark .6s forwards
 </style>

@@ -192,7 +192,7 @@ $height = 16px
       right @top
       border 1px solid
       border-radius ($height / 2 + 1px)
-      animation vue-ui-focus .3s forwards
+      animation vue-ui-focus .6s forwards
       .vue-ui-dark-mode &
-        animation vue-ui-focus-dark .3s forwards
+        animation vue-ui-focus-dark .6s forwards
 </style>
