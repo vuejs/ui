@@ -5,7 +5,15 @@ import store from './store'
 import VueUiFramework from '../'
 import '../dist/vue-ui.css'
 
-Vue.use(VueUiFramework)
+Vue.use(VueUiFramework, /* {
+  vtooltip: {
+    themes: {
+      tooltip: {
+        delay: 2000,
+      },
+    },
+  },
+} */)
 
 Vue.config.productionTip = false
 
