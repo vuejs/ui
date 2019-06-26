@@ -84,7 +84,7 @@ export default {
         .vue-ui-dark-mode &
           button-colors($vue-ui-white, $vue-ui-grey-600)
           &.vue-ui-select-button
-            background lighten($vue-ui-grey-600, 30%)
+            background $vue-ui-grey-400
 
   &,
   &.selected

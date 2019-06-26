@@ -224,7 +224,7 @@ colors($color)
           fill rgba($color, .8)
 
 .vue-ui-input
-  $lightened = lighten($vue-ui-grey-800, 50%)
+  $lightened = $vue-ui-grey-500
   display inline-block
   vertical-align middle
   box-sizing border-box
@@ -268,7 +268,7 @@ colors($color)
         &::placeholder
           color $lightened
           .vue-ui-dark-mode &
-            color lighten($lightened, 30%)
+            color $vue-ui-grey-300
         // Disable noisy browser styles
         outline none
         &::-moz-focus-inner
@@ -326,7 +326,7 @@ colors($color)
 
   &:not(.flat)
     > .content
-      background lighten($vue-ui-primary-100, 70%)
+      background $vue-ui-white
       .vue-ui-dark-mode &
         background $vue-ui-grey-900
 

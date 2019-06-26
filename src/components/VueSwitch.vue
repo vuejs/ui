@@ -146,9 +146,9 @@ $height = 16px
       > .content
         > .wrapper
           .bullet
-            background lighten($vue-ui-grey-800, 20%)
+            background $vue-ui-grey-600
             .vue-ui-dark-mode &
-              background darken($vue-ui-white, 5%)
+              background $vue-ui-grey-100
     &:active
       > .content
         > .wrapper

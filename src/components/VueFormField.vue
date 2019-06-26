@@ -123,7 +123,7 @@ export default {
     > .subtitle
       font-size 14px
       &:not(.primary):not(.accent):not(.danger):not(.warning):not(.info):not(.success):not(.flat)
-        color lighten($vue-ui-grey-800, 20%)
+        color $vue-ui-grey-600
         .vue-ui-icon
           svg
             fill @color
