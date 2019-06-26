@@ -113,7 +113,7 @@ export default {
     height 100%
     background rgba($vue-ui-color-light, .9)
     .vue-ui-dark-mode &
-      background rgba($vue-ui-color-darker, .9)
+      background rgba($md-black, .7)
 
   > .shell
     background $vue-ui-color-light
