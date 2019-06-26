@@ -6,663 +6,433 @@
       <div class="row">
         Choice: {{ choice }}
         <VueButton icon-left="replay" @click="choice = null">Reset</VueButton>
+
+        <VueSwitch v-model="showOrange">
+          Show orange fruit
+        </VueSwitch>
       </div>
 
       <div class="row">
         <VueGroup v-model="choice" class="inline">
-          <VueGroupButton value="apple">Apple</VueGroupButton>
-          <VueGroupButton value="orange">Orange</VueGroupButton>
-          <VueGroupButton value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="inline">
-          <VueGroupButton class="round" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="round" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="round" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="inline">
-          <VueGroupButton class="icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="inline">
-          <VueGroupButton class="round icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="round icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="round icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
 
       <h3>Vertical</h3>
       <div class="row">
         <VueGroup v-model="choice" class="inline vertical">
-          <VueGroupButton value="apple">Apple</VueGroupButton>
-          <VueGroupButton value="orange">Orange</VueGroupButton>
-          <VueGroupButton value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="inline vertical">
-          <VueGroupButton class="round" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="round" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="round" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="inline vertical">
-          <VueGroupButton class="icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="inline vertical">
-          <VueGroupButton class="round icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="round icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="round icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="inline vertical">
-          <VueGroupButton class="primary" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="primary" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="primary" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="primary" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="inline vertical">
-          <VueGroupButton class="primary round" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="primary round" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="primary round" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="primary round" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="inline vertical">
-          <VueGroupButton class="primary icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="primary icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="primary icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="primary icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="inline vertical">
-          <VueGroupButton class="primary round icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="primary round icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="primary round icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="primary round icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="inline vertical">
-          <VueGroupButton class="accent" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="accent" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="accent" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="accent" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="inline vertical">
-          <VueGroupButton class="accent round" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="accent round" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="accent round" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="accent round" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="inline vertical">
-          <VueGroupButton class="accent icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="accent icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="accent icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="accent icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="inline vertical">
-          <VueGroupButton class="accent round icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="accent round icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="accent round icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="accent round icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
 
       <h3>Styles</h3>
       <div class="grid col-4">
         <VueGroup v-model="choice">
-          <VueGroupButton value="apple" icon-left="flag">Apple</VueGroupButton>
-          <VueGroupButton value="orange" icon-left="star">Orange</VueGroupButton>
-          <VueGroupButton value="banana" icon-left="build">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" :value="fruit" :icon-left="icons[fruit]">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice">
-          <VueGroupButton class="primary" value="apple" icon-left="flag">Apple</VueGroupButton>
-          <VueGroupButton class="primary" value="orange" icon-left="star">Orange</VueGroupButton>
-          <VueGroupButton class="primary" value="banana" icon-left="build">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="primary" :value="fruit" :icon-left="icons[fruit]">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice">
-          <VueGroupButton class="accent" value="apple" icon-left="flag">Apple</VueGroupButton>
-          <VueGroupButton class="accent" value="orange" icon-left="star">Orange</VueGroupButton>
-          <VueGroupButton class="accent" value="banana" icon-left="build">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="accent" :value="fruit" :icon-left="icons[fruit]">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice">
-          <VueGroupButton class="danger" value="apple" icon-left="flag">Apple</VueGroupButton>
-          <VueGroupButton class="danger" value="orange" icon-left="star">Orange</VueGroupButton>
-          <VueGroupButton class="danger" value="banana" icon-left="build">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="danger" :value="fruit" :icon-left="icons[fruit]">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice">
-          <VueGroupButton class="warning" value="apple" icon-left="flag">Apple</VueGroupButton>
-          <VueGroupButton class="warning" value="orange" icon-left="star">Orange</VueGroupButton>
-          <VueGroupButton class="warning" value="banana" icon-left="build">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="warning" :value="fruit" :icon-left="icons[fruit]">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice">
-          <VueGroupButton class="info" value="apple" icon-left="flag">Apple</VueGroupButton>
-          <VueGroupButton class="info" value="orange" icon-left="star">Orange</VueGroupButton>
-          <VueGroupButton class="info" value="banana" icon-left="build">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="info" :value="fruit" :icon-left="icons[fruit]">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice">
-          <VueGroupButton class="success" value="apple" icon-left="flag">Apple</VueGroupButton>
-          <VueGroupButton class="success" value="orange" icon-left="star">Orange</VueGroupButton>
-          <VueGroupButton class="success" value="banana" icon-left="build">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="success" :value="fruit" :icon-left="icons[fruit]">{{ fruit }}</VueGroupButton>
         </VueGroup>
       </div>
 
       <h3>With indicator</h3>
       <div class="row">
         <VueGroup v-model="choice" class="inline" indicator>
-          <VueGroupButton value="apple">Apple</VueGroupButton>
-          <VueGroupButton value="orange">Orange</VueGroupButton>
-          <VueGroupButton value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="inline small-indicator" indicator>
-          <VueGroupButton class="round" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="round" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="round" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="inline" indicator>
-          <VueGroupButton class="icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="inline small-indicator" indicator>
-          <VueGroupButton class="round icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="round icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="round icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <!-- Top indicator -->
         <VueGroup v-model="choice" class="top-indicator inline" indicator>
-          <VueGroupButton value="apple">Apple</VueGroupButton>
-          <VueGroupButton value="orange">Orange</VueGroupButton>
-          <VueGroupButton value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="top-indicator inline small-indicator" indicator>
-          <VueGroupButton class="round" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="round" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="round" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="top-indicator inline" indicator>
-          <VueGroupButton class="icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="top-indicator inline small-indicator" indicator>
-          <VueGroupButton class="round icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="round icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="round icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
       <div class="row">
         <VueGroup v-model="choice" class="primary inline" indicator>
-          <VueGroupButton value="apple">Apple</VueGroupButton>
-          <VueGroupButton value="orange">Orange</VueGroupButton>
-          <VueGroupButton value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="primary inline small-indicator" indicator>
-          <VueGroupButton class="round" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="round" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="round" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="primary inline" indicator>
-          <VueGroupButton class="icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="primary inline small-indicator" indicator>
-          <VueGroupButton class="round icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="round icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="round icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <!-- Top indicator -->
         <VueGroup v-model="choice" class="top-indicator primary inline" indicator>
-          <VueGroupButton value="apple">Apple</VueGroupButton>
-          <VueGroupButton value="orange">Orange</VueGroupButton>
-          <VueGroupButton value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="top-indicator primary inline small-indicator" indicator>
-          <VueGroupButton class="round" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="round" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="round" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="top-indicator primary inline" indicator>
-          <VueGroupButton class="icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="top-indicator primary inline small-indicator" indicator>
-          <VueGroupButton class="round icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="round icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="round icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
       <div class="row">
         <VueGroup v-model="choice" class="accent inline" indicator>
-          <VueGroupButton value="apple">Apple</VueGroupButton>
-          <VueGroupButton value="orange">Orange</VueGroupButton>
-          <VueGroupButton value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="accent inline small-indicator" indicator>
-          <VueGroupButton class="round" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="round" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="round" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="accent inline" indicator>
-          <VueGroupButton class="icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="accent inline small-indicator" indicator>
-          <VueGroupButton class="round icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="round icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="round icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <!-- Top indicator -->
         <VueGroup v-model="choice" class="top-indicator accent inline" indicator>
-          <VueGroupButton value="apple">Apple</VueGroupButton>
-          <VueGroupButton value="orange">Orange</VueGroupButton>
-          <VueGroupButton value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="top-indicator accent inline small-indicator" indicator>
-          <VueGroupButton class="round" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="round" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="round" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="top-indicator accent inline" indicator>
-          <VueGroupButton class="icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="top-indicator accent inline small-indicator" indicator>
-          <VueGroupButton class="round icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="round icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="round icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
       <div class="row">
         <VueGroup v-model="choice" class="inline" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="inline small-indicator" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="inline" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="inline small-indicator" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
       <div class="row">
         <!-- Top indicator -->
         <VueGroup v-model="choice" class="top-indicator inline" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="top-indicator inline small-indicator" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="top-indicator inline" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="top-indicator inline small-indicator" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
       <div class="row">
         <VueGroup v-model="choice" class="primary inline" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="primary inline small-indicator" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="primary inline" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="primary inline small-indicator" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
       <div class="row">
         <!-- Top indicator -->
         <VueGroup v-model="choice" class="top-indicator primary inline" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="top-indicator primary inline small-indicator" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="top-indicator primary inline" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="top-indicator primary inline small-indicator" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
       <div class="row">
         <VueGroup v-model="choice" class="accent inline" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="accent inline small-indicator" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="accent inline" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="accent inline small-indicator" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
       <div class="row">
         <!-- Top indicator -->
         <VueGroup v-model="choice" class="top-indicator accent inline" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="top-indicator accent inline small-indicator" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="top-indicator accent inline" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="top-indicator accent inline small-indicator" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
 
       <h3>With indicator - Vertical</h3>
       <div class="row">
         <VueGroup v-model="choice" class="vertical inline" indicator>
-          <VueGroupButton value="apple">Apple</VueGroupButton>
-          <VueGroupButton value="orange">Orange</VueGroupButton>
-          <VueGroupButton value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical inline small-indicator" indicator>
-          <VueGroupButton class="round" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="round" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="round" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical inline" indicator>
-          <VueGroupButton class="icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical inline small-indicator" indicator>
-          <VueGroupButton class="round icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="round icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="round icon-button" value="banana" icon-left="build"/>
-        </VueGroup>
-        <!-- Left indicator -->
-        <VueGroup v-model="choice" class="vertical left-indicator inline" indicator>
-          <VueGroupButton value="apple">Apple</VueGroupButton>
-          <VueGroupButton value="orange">Orange</VueGroupButton>
-          <VueGroupButton value="banana">Banana</VueGroupButton>
-        </VueGroup>
-        <VueGroup v-model="choice" class="vertical left-indicator inline small-indicator" indicator>
-          <VueGroupButton class="round" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="round" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="round" value="banana">Banana</VueGroupButton>
-        </VueGroup>
-        <VueGroup v-model="choice" class="vertical left-indicator inline" indicator>
-          <VueGroupButton class="icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="icon-button" value="banana" icon-left="build"/>
-        </VueGroup>
-        <VueGroup v-model="choice" class="vertical left-indicator inline small-indicator" indicator>
-          <VueGroupButton class="round icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="round icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="round icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
       <div class="row">
-        <VueGroup v-model="choice" class="vertical primary inline" indicator>
-          <VueGroupButton value="apple">Apple</VueGroupButton>
-          <VueGroupButton value="orange">Orange</VueGroupButton>
-          <VueGroupButton value="banana">Banana</VueGroupButton>
-        </VueGroup>
-        <VueGroup v-model="choice" class="vertical primary inline small-indicator" indicator>
-          <VueGroupButton class="round" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="round" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="round" value="banana">Banana</VueGroupButton>
-        </VueGroup>
-        <VueGroup v-model="choice" class="vertical primary inline" indicator>
-          <VueGroupButton class="icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="icon-button" value="banana" icon-left="build"/>
-        </VueGroup>
-        <VueGroup v-model="choice" class="vertical primary inline small-indicator" indicator>
-          <VueGroupButton class="round icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="round icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="round icon-button" value="banana" icon-left="build"/>
-        </VueGroup>
         <!-- Left indicator -->
-        <VueGroup v-model="choice" class="vertical left-indicator primary inline" indicator>
-          <VueGroupButton value="apple">Apple</VueGroupButton>
-          <VueGroupButton value="orange">Orange</VueGroupButton>
-          <VueGroupButton value="banana">Banana</VueGroupButton>
+        <VueGroup v-model="choice" class="vertical left-indicator inline" indicator>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
-        <VueGroup v-model="choice" class="vertical left-indicator primary inline small-indicator" indicator>
-          <VueGroupButton class="round" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="round" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="round" value="banana">Banana</VueGroupButton>
+        <VueGroup v-model="choice" class="vertical left-indicator inline small-indicator" indicator>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
-        <VueGroup v-model="choice" class="vertical left-indicator primary inline" indicator>
-          <VueGroupButton class="icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="icon-button" value="banana" icon-left="build"/>
+        <VueGroup v-model="choice" class="vertical left-indicator inline" indicator>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
-        <VueGroup v-model="choice" class="vertical left-indicator primary inline small-indicator" indicator>
-          <VueGroupButton class="round icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="round icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="round icon-button" value="banana" icon-left="build"/>
+        <VueGroup v-model="choice" class="vertical left-indicator inline small-indicator" indicator>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round icon-button" :value="fruit" :icon-left="icons[fruit]"/>
+        </VueGroup>
+      </div>
+      <div class="row">
+        <VueGroup v-model="choice" class="vertical primary inline fixed-height" indicator>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" :value="fruit">{{ fruit }}</VueGroupButton>
+        </VueGroup>
+        <VueGroup v-model="choice" class="vertical primary inline fixed-height small-indicator" indicator>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round" :value="fruit">{{ fruit }}</VueGroupButton>
+        </VueGroup>
+        <VueGroup v-model="choice" class="vertical primary inline fixed-height" indicator>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="icon-button" :value="fruit" :icon-left="icons[fruit]"/>
+        </VueGroup>
+        <VueGroup v-model="choice" class="vertical primary inline fixed-height small-indicator" indicator>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round icon-button" :value="fruit" :icon-left="icons[fruit]"/>
+        </VueGroup>
+      </div>
+      <div class="row">
+        <!-- Left indicator -->
+        <VueGroup v-model="choice" class="vertical left-indicator primary inline fixed-height" indicator>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" :value="fruit">{{ fruit }}</VueGroupButton>
+        </VueGroup>
+        <VueGroup v-model="choice" class="vertical left-indicator primary inline fixed-height small-indicator" indicator>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round" :value="fruit">{{ fruit }}</VueGroupButton>
+        </VueGroup>
+        <VueGroup v-model="choice" class="vertical left-indicator primary inline fixed-height" indicator>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="icon-button" :value="fruit" :icon-left="icons[fruit]"/>
+        </VueGroup>
+        <VueGroup v-model="choice" class="vertical left-indicator primary inline fixed-height small-indicator" indicator>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
       <div class="row">
         <VueGroup v-model="choice" class="vertical accent inline" indicator>
-          <VueGroupButton value="apple">Apple</VueGroupButton>
-          <VueGroupButton value="orange">Orange</VueGroupButton>
-          <VueGroupButton value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical accent inline small-indicator" indicator>
-          <VueGroupButton class="round" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="round" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="round" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical accent inline" indicator>
-          <VueGroupButton class="icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical accent inline small-indicator" indicator>
-          <VueGroupButton class="round icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="round icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="round icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <!-- Left indicator -->
         <VueGroup v-model="choice" class="vertical left-indicator accent inline" indicator>
-          <VueGroupButton value="apple">Apple</VueGroupButton>
-          <VueGroupButton value="orange">Orange</VueGroupButton>
-          <VueGroupButton value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical left-indicator accent inline small-indicator" indicator>
-          <VueGroupButton class="round" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="round" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="round" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical left-indicator accent inline" indicator>
-          <VueGroupButton class="icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical left-indicator accent inline small-indicator" indicator>
-          <VueGroupButton class="round icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="round icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="round icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="round icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
       <div class="row">
         <VueGroup v-model="choice" class="vertical inline" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical inline small-indicator" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical inline" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical inline small-indicator" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
       <div class="row">
         <!-- Left indicator -->
         <VueGroup v-model="choice" class="vertical left-indicator inline" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical left-indicator inline small-indicator" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical left-indicator inline" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical left-indicator inline small-indicator" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
       <div class="row">
         <VueGroup v-model="choice" class="vertical primary inline" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical primary inline small-indicator" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical primary inline" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical primary inline small-indicator" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
       <div class="row">
         <!-- Left indicator -->
         <VueGroup v-model="choice" class="vertical left-indicator primary inline" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical left-indicator primary inline small-indicator" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical left-indicator primary inline" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical left-indicator primary inline small-indicator" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
       <div class="row">
         <VueGroup v-model="choice" class="vertical accent inline" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical accent inline small-indicator" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical accent inline" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical accent inline small-indicator" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
       <div class="row">
         <!-- Left indicator -->
         <VueGroup v-model="choice" class="vertical accent inline" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical accent inline small-indicator" indicator>
-          <VueGroupButton class="flat big" value="apple">Apple</VueGroupButton>
-          <VueGroupButton class="flat big" value="orange">Orange</VueGroupButton>
-          <VueGroupButton class="flat big" value="banana">Banana</VueGroupButton>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big" :value="fruit">{{ fruit }}</VueGroupButton>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical accent inline" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
         <VueGroup v-model="choice" class="vertical accent inline small-indicator" indicator>
-          <VueGroupButton class="flat big icon-button" value="apple" icon-left="flag"/>
-          <VueGroupButton class="flat big icon-button" value="orange" icon-left="star"/>
-          <VueGroupButton class="flat big icon-button" value="banana" icon-left="build"/>
+          <VueGroupButton v-for="fruit of fruits" :key="fruit" class="flat big icon-button" :value="fruit" :icon-left="icons[fruit]"/>
         </VueGroup>
       </div>
     </div>
@@ -674,7 +444,31 @@ export default {
   data () {
     return {
       choice: '',
+      showOrange: true,
+      icons: {
+        apple: 'flag',
+        orange: 'star',
+        banana: 'build',
+      },
     }
+  },
+
+  computed: {
+    fruits () {
+      return ['apple', 'orange', 'banana'].filter(
+        fruit => fruit !== 'orange' || this.showOrange
+      )
+    },
   },
 }
 </script>
+
+<style lang="stylus" scoped>
+@import "~@style"
+
+.fixed-height
+  height 120px
+  background rgba($vue-ui-color-primary, .07)
+  padding 12px
+  border-radius 6px
+</style>

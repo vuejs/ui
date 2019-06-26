@@ -42,7 +42,7 @@ export default {
   background $vue-ui-color-light-neutral
   overflow-y auto
   .vue-ui-dark-mode &
-    background $vue-ui-color-dark
+    background $vue-ui-color-darker
 
 .content
   flex 100% 1 1

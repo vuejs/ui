@@ -56,7 +56,7 @@
           </div>
         </VueDropdown>
 
-        <VueDropdown label="Grid with big gap">
+        <VueDropdown label="Grid with big gap" placement="right">
           <div class="vue-ui-grid big-gap col-2">
             <VueDropdownButton icon-left="edit" class="big">Edit</VueDropdownButton>
             <VueDropdownButton icon-left="delete" class="big">Delete</VueDropdownButton>
