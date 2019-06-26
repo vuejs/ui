@@ -841,7 +841,7 @@ var __vue_render__$2 = function() {
   var _h = _vm.$createElement;
   var _c = _vm._self._c || _h;
   return _c(
-    "v-popover",
+    "VDropdown",
     _vm._g(
       _vm._b(
         {
@@ -864,9 +864,42 @@ var __vue_render__$2 = function() {
               }
               return _vm.onKeyTab($event)
             }
-          }
+          },
+          scopedSlots: _vm._u(
+            [
+              {
+                key: "popper",
+                fn: function() {
+                  return [
+                    _c(
+                      "VueDisable",
+                      {
+                        ref: "popoverContent",
+                        staticClass: "vue-ui-dropdown-content",
+                        class: _vm.contentClass,
+                        style: {
+                          minWidth: _vm.forceMinSize ? _vm.width + "px" : "0"
+                        },
+                        attrs: { disabled: !_vm.isOpen },
+                        nativeOn: {
+                          mousedown: function($event) {
+                            return _vm.onPopoverContentMousedown($event)
+                          }
+                        }
+                      },
+                      [_vm._t("default")],
+                      2
+                    )
+                  ]
+                },
+                proxy: true
+              }
+            ],
+            null,
+            true
+          )
         },
-        "v-popover",
+        "VDropdown",
         _vm.$attrs,
         false
       ),
@@ -895,26 +928,6 @@ var __vue_render__$2 = function() {
         2
       ),
       _vm._v(" "),
-      _c(
-        "VueDisable",
-        {
-          ref: "popoverContent",
-          staticClass: "vue-ui-dropdown-content",
-          class: _vm.contentClass,
-          style: {
-            minWidth: _vm.forceMinSize ? _vm.width + "px" : "0"
-          },
-          attrs: { slot: "popover", disabled: !_vm.isOpen },
-          nativeOn: {
-            mousedown: function($event) {
-              return _vm.onPopoverContentMousedown($event)
-            }
-          },
-          slot: "popover"
-        },
-        [_vm._t("default")],
-        2
-      ),
       _vm._v(" "),
       _vm.forceMinSize
         ? _c("resize-observer", { on: { notify: _vm.onResize } })
@@ -987,8 +1000,8 @@ var __vue_render__$3 = function() {
         {
           directives: [
             {
-              name: "close-popover",
-              rawName: "v-close-popover",
+              name: "close-popper",
+              rawName: "v-close-popper",
               value: !_vm.keepOpen,
               expression: "!keepOpen"
             }
@@ -1330,7 +1343,24 @@ var __vue_render__$5 = function() {
       }
     },
     [
-      _c("div", { staticClass: "content" }, [_vm._t("default")], 2),
+      _c(
+        "div",
+        { staticClass: "content" },
+        [
+          _vm._t("default"),
+          _vm._v(" "),
+          _vm.indicator
+            ? _c("resize-observer", {
+                on: {
+                  notify: function($event) {
+                    return _vm.updateIndicator()
+                  }
+                }
+              })
+            : _vm._e()
+        ],
+        2
+      ),
       _vm._v(" "),
       _vm.indicator && _vm.indicatorStyle
         ? _c(
@@ -1346,19 +1376,8 @@ var __vue_render__$5 = function() {
             },
             [_c("div", { staticClass: "content" }, [_vm._t("indicator")], 2)]
           )
-        : _vm._e(),
-      _vm._v(" "),
-      _vm.indicator
-        ? _c("resize-observer", {
-            on: {
-              notify: function($event) {
-                return _vm.updateIndicator()
-              }
-            }
-          })
         : _vm._e()
-    ],
-    1
+    ]
   )
 };
 var __vue_staticRenderFns__$5 = [];
@@ -2277,8 +2296,8 @@ var __vue_render__$a = function() {
         {
           directives: [
             {
-              name: "close-popover",
-              rawName: "v-close-popover",
+              name: "close-popper",
+              rawName: "v-close-popper",
               value: !_vm.keepOpen,
               expression: "!keepOpen"
             }
@@ -3201,13 +3220,10 @@ function install(Vue) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   Vue.use(VueIcons);
   Vue.use(VTooltip, Object.assign({
-    defaultDelay: {
-      show: 1000,
-      hide: 0
-    },
-    defaultBoundariesElement: document.body,
-    popover: {
-      defaultHandleResize: false
+    themes: {
+      dropdown: {
+        handleResize: false
+      }
     }
   }, options.vtooltip));
   Vue.use(VueResize); // To extract the component name
@@ -3221,7 +3237,7 @@ function install(Vue) {
 }
 var plugin = {
   // eslint-disable-next-line no-undef
-  version: "0.9.2",
+  version: "0.10.0",
   install: install
 };
 
