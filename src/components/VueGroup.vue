@@ -5,9 +5,10 @@
       'has-indicator': indicator,
     }"
   >
-    <div class="content">
-      <slot/>
-
+    <div class="content-wrapper">
+      <div class="content">
+        <slot/>
+      </div>
       <resize-observer v-if="indicator" @notify="updateIndicator()"/>
     </div>
 
@@ -136,6 +137,8 @@ indicator(direction)
     h-box()
     align-items stretch
     justify-content center
+
+  > .content-wrapper
     position relative
 
   &.start
