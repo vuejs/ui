@@ -146,6 +146,8 @@ export default {
       overflow-x hidden
       overflow-y auto
       flex auto 1 1
+      display flex
+      flex-direction column
 
     > .footer > .actions
       h-box()
@@ -171,6 +173,12 @@ export default {
     > .shell
       max-width 800px
       min-width 700px
+
+  &.large
+    > .shell
+      max-width 1200px
+      min-width 700px
+      width 60vw
 
 .vue-ui-modal-enter-active,
 .vue-ui-modal-leave-active
