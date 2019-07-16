@@ -87,6 +87,7 @@ $height = 16px
   user-select none
   position relative
   disable-focus-styles()
+  font-size 14px
   > .content
     h-box()
     align-items center
@@ -139,6 +140,9 @@ $height = 16px
   &.right
     > .content
       justify-content flex-end
+
+  &.big
+    font-size 16px
 
   &:not(.disabled)
     cursor pointer
