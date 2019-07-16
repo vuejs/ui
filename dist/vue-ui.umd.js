@@ -12158,7 +12158,7 @@
   function swapAttrs(node, attrFrom, attrTo) {
     var value = node.getAttribute(attrFrom);
 
-    if (typeof value !== 'undefined') {
+    if (value) {
       node.removeAttribute(attrFrom);
       node.setAttribute(attrTo, value);
     }
@@ -16559,7 +16559,7 @@
   }
   var plugin$2 = {
     // eslint-disable-next-line no-undef
-    version: "0.10.5",
+    version: "0.11.0",
     install: install$2
   };
 
