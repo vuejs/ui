@@ -3,7 +3,7 @@
     <div class="ui-test">
       <h2>VueTabs</h2>
 
-      <div class="row">
+      <!-- <div class="row">
         <VueTabs :tab-id.sync="tabId">
           <VueTab
             id="tab1"
@@ -50,28 +50,28 @@
             <div class="tab-content">Content 3</div>
           </VueTab>
         </VueTabs>
-      </div>
+      </div> -->
 
       <div class="row">
         <VueTabs :tab-id.sync="tabId" group-class="accent end">
-          <VueTab
+          <MyTab
             id="tab1"
             label="General"
           >
             <div class="tab-content">Content 1</div>
-          </VueTab>
-          <VueTab
+          </MyTab>
+          <MyTab
             id="tab2"
             label="Releases"
           >
             <div class="tab-content">Content 2</div>
-          </VueTab>
-          <VueTab
+          </MyTab>
+          <MyTab
             id="tab3"
             label="Stats"
           >
             <div class="tab-content">Content 3</div>
-          </VueTab>
+          </MyTab>
         </VueTabs>
       </div>
     </div>
@@ -79,7 +79,13 @@
 </template>
 
 <script>
+import MyTab from '../../components/MyTab.vue'
+
 export default {
+  components: {
+    MyTab,
+  },
+
   data () {
     return {
       tabId: 'tab1',
