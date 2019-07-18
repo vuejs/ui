@@ -193,6 +193,11 @@ indicator(direction)
         > .content
           height 12px
 
+  &.min-size
+    > .content-wrapper > .content
+      > .vue-ui-button
+        flex auto 0 0
+
   &.extend
     > .content-wrapper > .content
       > .vue-ui-button
