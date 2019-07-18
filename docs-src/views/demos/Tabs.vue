@@ -3,7 +3,7 @@
     <div class="ui-test">
       <h2>VueTabs</h2>
 
-      <!-- <div class="row">
+      <div class="row">
         <VueTabs :tab-id.sync="tabId">
           <VueTab
             id="tab1"
@@ -50,7 +50,7 @@
             <div class="tab-content">Content 3</div>
           </VueTab>
         </VueTabs>
-      </div> -->
+      </div>
 
       <div class="row">
         <VueTabs :tab-id.sync="tabId" group-class="accent end">
