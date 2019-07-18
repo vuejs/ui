@@ -2813,7 +2813,7 @@ var __vue_render__$d = function() {
       _c(
         "VueGroup",
         {
-          staticClass: "tabs",
+          staticClass: "tabs min-size",
           class: _vm.groupClass,
           attrs: { indicator: !_vm.groupNoIndicator },
           model: {
@@ -3308,7 +3308,7 @@ function install(Vue) {
 }
 var plugin = {
   // eslint-disable-next-line no-undef
-  version: "0.11.3",
+  version: "0.11.4",
   install: install
 };
 

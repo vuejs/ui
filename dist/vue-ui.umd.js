@@ -16112,7 +16112,7 @@
         _c(
           "VueGroup",
           {
-            staticClass: "tabs",
+            staticClass: "tabs min-size",
             class: _vm.groupClass,
             attrs: { indicator: !_vm.groupNoIndicator },
             model: {
@@ -16607,7 +16607,7 @@
   }
   var plugin$2 = {
     // eslint-disable-next-line no-undef
-    version: "0.11.3",
+    version: "0.11.4",
     install: install$2
   };
 
