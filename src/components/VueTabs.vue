@@ -10,7 +10,7 @@
   >
     <VueGroup
       v-model="currentTabId"
-      class="tabs"
+      class="tabs min-size"
       :class="groupClass"
       :indicator="!groupNoIndicator"
     >
