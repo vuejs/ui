@@ -77,54 +77,55 @@ export default function (name) {
 
       /**
        * Add a child component while preserving its order in the children list.
-       * @param {object} vm Vue instance
+       * @param {object} proxyVm Vue instance
        */
-      $_addCoupledChild (vm) {
+      $_addCoupledChild (proxyVm) {
         // Guard
         if (this.$slots && this.$slots.default) {
           // We need to wait for the instances creation
           this.$nextTick(() => {
             // We need to get the components in the slot
             const childComponents = this.$slots.default.reduce((list, vnode) => {
-              if (vnode.child) {
-                list.push(vnode.child.$_proxy)
+              const coupledChild = findCoupledChild(vnode)
+              if (coupledChild) {
+                list.push(coupledChild.$_couplingProxy)
               }
               return list
             }, [])
             // List has the child component in the right order
             // We can now register the child component in the right place
-            const index = childComponents.indexOf(vm)
+            const index = childComponents.indexOf(proxyVm)
             // Add child
             if (index !== -1) {
-              this.children.splice(index, 0, vm)
+              this.children.splice(index, 0, proxyVm)
+              // Hook
+              this.$_updateChildren('add', index, proxyVm)
             }
-            // Hook
-            this.$_updateChildren('add', index, vm)
           })
         }
       },
 
       /**
        * Removes a child component. Automatically activates the next remaining component.
-       * @param {object} vm Vue instance
+       * @param {object} proxyVm Vue instance
        */
-      $_removeCoupledChild (vm) {
-        const index = this.children.indexOf(vm)
+      $_removeCoupledChild (proxyVm) {
+        const index = this.children.indexOf(proxyVm)
         // Remove child
         if (index !== -1) {
           this.children.splice(index, 1)
         }
         // Hook
-        this.$_updateChildren('remove', index, vm)
+        this.$_updateChildren('remove', index, proxyVm)
       },
 
       /**
        * Hook called when an operation is processed. It will intelligently activate a child if needed.
        * @param {string} operation Name of the operation. Can be 'add' or 'remove'
        * @param {number} index Index of the related child.
-       * @param {object} vm Related child Vue instance
+       * @param {object} proxyVm Related child Vue instance
        */
-      $_updateChildren (operation, index, vm) {
+      $_updateChildren (operation, index, proxyVm) {
         if (operation === 'add') {
           // If the child was added before the currently active one,
           // we need to move the selection to the right
@@ -144,5 +145,28 @@ export default function (name) {
         }
       },
     },
+  }
+}
+
+function findCoupledChild (vnode) {
+  const vm = vnode.child
+  if (vm) {
+    if (vm.$_couplingProxy) {
+      return vm
+    } else {
+      return findCoupledChildInChildren([...vm.$children])
+    }
+  }
+}
+
+// Breadth-first search
+function findCoupledChildInChildren (queue) {
+  let child
+  while ((child = queue.shift())) {
+    if (child.$_couplingProxy) {
+      return child
+    } else {
+      queue.push(...child.$children)
+    }
   }
 }

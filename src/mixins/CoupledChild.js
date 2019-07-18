@@ -12,12 +12,12 @@ export default function (name) {
 
     computed: {
       active () {
-        return this[name].activeChild === this.$_proxy
+        return this[name].activeChild === this.$_couplingProxy
       },
     },
 
     created () {
-      const proxy = this.$_proxy = {}
+      const proxy = this.$_couplingProxy = {}
       for (const key in this.$data) {
         if (key.charAt(0) === '$' || key.charAt(0) === '_') continue
         Object.defineProperty(proxy, key, {
@@ -43,7 +43,7 @@ export default function (name) {
     },
 
     beforeDestroy () {
-      this[name].$_removeCoupledChild(this.$_proxy)
+      this[name].$_removeCoupledChild(this.$_couplingProxy)
     },
   }
 }

@@ -150,6 +150,8 @@ export default {
 
       if (!external) {
         this.$nextTick(() => {
+          if (!this.$refs.tabButtons) return
+
           const item = this.$refs.tabButtons[index]
           if (item) {
             item.$el.focus()
