@@ -137,9 +137,12 @@ indicator(direction)
     position relative
 
     > .content
-      h-box()
+      display flex
       align-items stretch
       justify-content center
+
+      > .vue-ui-button
+        flex auto 1 0
 
   &.start
     > .content-wrapper > .content
