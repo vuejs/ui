@@ -41,7 +41,7 @@ export default {
   inheritAttrs: false,
 
   model: {
-    event: 'udpate',
+    event: 'update',
   },
 
   props: {
