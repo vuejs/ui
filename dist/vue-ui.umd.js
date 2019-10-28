@@ -16256,7 +16256,7 @@
     name: 'VueTypeAhead',
     inheritAttrs: false,
     model: {
-      event: 'udpate'
+      event: 'update'
     },
     props: {
       loading: {
@@ -16506,7 +16506,13 @@
                         value: suggestion.value
                       }
                     },
-                    [_vm._v("\n        " + _vm._s(suggestion.value) + "\n      ")]
+                    [
+                      _vm._v(
+                        "\n        " +
+                          _vm._s(suggestion.label || suggestion.value) +
+                          "\n      "
+                      )
+                    ]
                   )
                 })
               : _vm._e()
@@ -16607,7 +16613,7 @@
   }
   var plugin$2 = {
     // eslint-disable-next-line no-undef
-    version: "0.11.4",
+    version: "0.11.5",
     install: install$2
   };
 

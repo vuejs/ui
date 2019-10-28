@@ -2957,7 +2957,7 @@ var script$h = {
   name: 'VueTypeAhead',
   inheritAttrs: false,
   model: {
-    event: 'udpate'
+    event: 'update'
   },
   props: {
     loading: {
@@ -3207,7 +3207,13 @@ var __vue_render__$e = function() {
                       value: suggestion.value
                     }
                   },
-                  [_vm._v("\n        " + _vm._s(suggestion.value) + "\n      ")]
+                  [
+                    _vm._v(
+                      "\n        " +
+                        _vm._s(suggestion.label || suggestion.value) +
+                        "\n      "
+                    )
+                  ]
                 )
               })
             : _vm._e()
@@ -3308,7 +3314,7 @@ function install(Vue) {
 }
 var plugin = {
   // eslint-disable-next-line no-undef
-  version: "0.11.4",
+  version: "0.11.5",
   install: install
 };
 
