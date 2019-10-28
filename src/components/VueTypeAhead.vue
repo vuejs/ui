@@ -27,7 +27,7 @@
           :icon-left="suggestion.icon"
           :value="suggestion.value"
         >
-          {{ suggestion.value }}
+          {{ suggestion.label || suggestion.value }}
         </VueSelectButton>
       </template>
     </VueSelect>
