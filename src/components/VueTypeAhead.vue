@@ -18,6 +18,7 @@
         :suggestion="suggestion"
         @focus="onFocus"
         @blur="onBlur"
+        @keyup.enter="onBlur"
       />
 
       <template v-if="shownSuggestions.length">
