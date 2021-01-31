@@ -46,6 +46,7 @@ export default {
     return {
       VueSelect: {
         setCurrentChild: this.setCurrentChild,
+        getCurrentChild: () => this.currentChild,
       },
     }
   },

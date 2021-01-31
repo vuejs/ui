@@ -39,6 +39,8 @@ export default {
     onSelect (selected) {
       if (selected) {
         this.VueSelect.setCurrentChild(this)
+      } else if (this.VueSelect.getCurrentChild() === this) {
+        this.VueSelect.setCurrentChild(null)
       }
     },
   },
