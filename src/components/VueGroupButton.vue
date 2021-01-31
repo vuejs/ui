@@ -14,8 +14,14 @@
 </template>
 
 <script>
+import CoupledChild from '../mixins/CoupledChild'
+
 export default {
   name: 'VueGroupButton',
+
+  mixins: [
+    CoupledChild('VueGroupCoupling'),
+  ],
 
   inheritAttrs: false,
 

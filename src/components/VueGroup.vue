@@ -30,8 +30,14 @@
 </template>
 
 <script>
+import CoupledParent from '../mixins/CoupledParent'
+
 export default {
   name: 'VueGroup',
+
+  mixins: [
+    CoupledParent('VueGroupCoupling'),
+  ],
 
   model: {
     event: 'update',
@@ -71,6 +77,10 @@ export default {
         this.injection.value = value
         this.updateIndicator()
       }
+    },
+
+    'children.length' () {
+      this.updateIndicator()
     },
   },
 
