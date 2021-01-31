@@ -58,31 +58,22 @@
       filter drop-shadow(-3px 0 3px rgba(black, .15))
 
   // Animation
-  $tooltip-animation-duration = .12s
+  &.v-popper__popper--show-to,
+  &.v-popper__popper--hide-to
+    > .v-popper__wrapper
+      transition transform .12s ease-out
 
-  &[data-popper-placement^='top']
-    > .v-popper__wrapper
-      animation vue-ui-slide-to-bottom $tooltip-animation-duration
-  &[data-popper-placement^='bottom']
-    > .v-popper__wrapper
-      animation vue-ui-slide-to-top $tooltip-animation-duration
-  &[data-popper-placement^='left']
-    > .v-popper__wrapper
-      animation vue-ui-slide-to-right $tooltip-animation-duration
-  &[data-popper-placement^='right']
-    > .v-popper__wrapper
-      animation vue-ui-slide-to-left $tooltip-animation-duration
-
-  &.v-popper__popper--shown
+  &.v-popper__popper--show-from,
+  &.v-popper__popper--hide-to
     &[data-popper-placement^='top']
       > .v-popper__wrapper
-        animation vue-ui-slide-from-bottom $tooltip-animation-duration
+        transform translateY(6px)
     &[data-popper-placement^='bottom']
       > .v-popper__wrapper
-        animation vue-ui-slide-from-top $tooltip-animation-duration
+        transform translateY(-6px)
     &[data-popper-placement^='left']
       > .v-popper__wrapper
-        animation vue-ui-slide-from-right $tooltip-animation-duration
+        transform translateX(6px)
     &[data-popper-placement^='right']
       > .v-popper__wrapper
-        animation vue-ui-slide-from-left $tooltip-animation-duration
+        transform translateX(-6px)
