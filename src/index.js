@@ -38,7 +38,7 @@ export function install (Vue, options = {}) {
   Vue.use(VueIcons)
 
   Vue.use(VTooltip, mergeOptions({
-    bondary: 'body',
+    bondary: document.body,
     themes: {
       tooltip: {
         delay: {
