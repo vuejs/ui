@@ -17,7 +17,7 @@ export default {
       {...data}
     >
       <svg>
-        <use xlinkHref={`#ic_${props.icon}_24px`} />
+        <use href={`#ic_${props.icon}_standard`} />
       </svg>
     </div>
   },

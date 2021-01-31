@@ -1,18 +1,23 @@
-const icons = require.context('../node_modules/material-design-icons/sprites/svg-sprite', true, /svg-sprite-(\w+)-symbol\.svg$/)
+const icons = require.context('../node_modules/material-design-icons/src', true, /materialicons\/24px\.svg$/)
 
 export default {
   install (Vue) {
-    const iconsWrapper = document.createElement('div')
-    iconsWrapper.style.display = 'none'
+    let html = ''
     // Load all the SVG symbols
     icons.keys().forEach(key => {
-      const result = icons(key)
-      iconsWrapper.innerHTML += result
+      let result = icons(key)
+      const [, iconName] = /(\w+)\/materialicons/.exec(key)
+      const [, content] = /<svg.+?>(.*)<\/svg>/.exec(result)
+      result = `<svg xmlns="http://www.w3.org/2000/svg" id="ic_${iconName}_standard" viewBox="0 0 24 24">${content}</svg>`
+      html += result
     })
+    const iconsWrapper = document.createElement('div')
+    iconsWrapper.style.display = 'none'
+    iconsWrapper.innerHTML = html
     document.body.insertBefore(iconsWrapper, document.body.firstChild)
   },
 }
 
 export function generateHtmlIcon (icon) {
-  return `<div class="vue-ui-icon"><svg><use xlink:href="#ic_${icon}_24px"></use></svg></div>`
+  return `<div class="vue-ui-icon"><svg><use href="#ic_${icon}_standard"></use></svg></div>`
 }
