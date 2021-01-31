@@ -11,6 +11,7 @@
     :popover-class="['popover', 'select-popover', popoverClass]"
     content-class="vue-ui-select-popover-content"
     force-min-size
+    eager-mount
   >
     <template slot="trigger">
       <slot name="trigger" :label="displayedLabel"/>

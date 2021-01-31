@@ -4,11 +4,10 @@
     class="vue-ui-dropdown"
     v-bind="$attrs"
     v-on="$listeners"
-    :popover-class="popoverClass"
     :auto-hide="autoHide"
     :offset="offset"
     :disabled="finalDisabled"
-    @update:open="onUpdateOpen"
+    @update:shown="onUpdateShown"
     @keydown.native.tab="onKeyTab"
   >
     <div class="dropdown-trigger">
@@ -93,17 +92,13 @@ export default {
     },
 
     offset: {
-      default: 4,
+      type: Array,
+      default: () => [0, 4],
     },
 
     noPopoverFocus: {
       type: Boolean,
       default: false,
-    },
-
-    popoverClass: {
-      type: [String, Array, Object],
-      default: undefined,
     },
   },
 
@@ -151,7 +146,7 @@ export default {
       this.width = this.$el.offsetWidth
     },
 
-    onUpdateOpen (value) {
+    onUpdateShown (value) {
       this.isOpen = value
     },
 

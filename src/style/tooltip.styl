@@ -44,45 +44,45 @@
     .v-popper__arrow
       border-color $dark-background
 
-  &[x-placement^='top']
+  &[data-popper-placement^='top']
     .v-popper__arrow
       filter drop-shadow(0 3px 3px rgba(black, .15))
-  &[x-placement^='bottom']
+  &[data-popper-placement^='bottom']
     .v-popper__arrow
       filter drop-shadow(0 -3px 3px rgba(black, .15))
-  &[x-placement^='left']
+  &[data-popper-placement^='left']
     .v-popper__arrow
       filter drop-shadow(3px 0 3px rgba(black, .15))
-  &[x-placement^='right']
+  &[data-popper-placement^='right']
     .v-popper__arrow
       filter drop-shadow(-3px 0 3px rgba(black, .15))
 
   // Animation
   $tooltip-animation-duration = .12s
 
-  &[x-placement^='top']
+  &[data-popper-placement^='top']
     > .v-popper__wrapper
       animation vue-ui-slide-to-bottom $tooltip-animation-duration
-  &[x-placement^='bottom']
+  &[data-popper-placement^='bottom']
     > .v-popper__wrapper
       animation vue-ui-slide-to-top $tooltip-animation-duration
-  &[x-placement^='left']
+  &[data-popper-placement^='left']
     > .v-popper__wrapper
       animation vue-ui-slide-to-right $tooltip-animation-duration
-  &[x-placement^='right']
+  &[data-popper-placement^='right']
     > .v-popper__wrapper
       animation vue-ui-slide-to-left $tooltip-animation-duration
 
-  &.v-popper__popper--open
-    &[x-placement^='top']
+  &.v-popper__popper--shown
+    &[data-popper-placement^='top']
       > .v-popper__wrapper
         animation vue-ui-slide-from-bottom $tooltip-animation-duration
-    &[x-placement^='bottom']
+    &[data-popper-placement^='bottom']
       > .v-popper__wrapper
         animation vue-ui-slide-from-top $tooltip-animation-duration
-    &[x-placement^='left']
+    &[data-popper-placement^='left']
       > .v-popper__wrapper
         animation vue-ui-slide-from-right $tooltip-animation-duration
-    &[x-placement^='right']
+    &[data-popper-placement^='right']
       > .v-popper__wrapper
         animation vue-ui-slide-from-left $tooltip-animation-duration

@@ -5,8 +5,10 @@ const config = Object.assign({}, base, {
     name: 'vue-ui',
     file: 'dist/vue-ui.esm.js',
     format: 'es',
+    sourcemap: true,
   },
   external: [
+    ...base.external,
     'focus-visible',
     'v-tooltip',
     'vue-resize',

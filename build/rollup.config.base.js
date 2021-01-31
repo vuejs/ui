@@ -1,11 +1,11 @@
-import babel from 'rollup-plugin-babel'
-import resolve from 'rollup-plugin-node-resolve'
+import { babel } from '@rollup/plugin-babel'
+import resolve from '@rollup/plugin-node-resolve'
 import vue from 'rollup-plugin-vue'
-import cjs from 'rollup-plugin-commonjs'
-import replace from 'rollup-plugin-replace'
+import cjs from '@rollup/plugin-commonjs'
+import replace from '@rollup/plugin-replace'
 import requireContext from 'rollup-plugin-require-context'
 import { string } from 'rollup-plugin-string'
-import fs from 'fs'
+import fs from 'fs-extra'
 import CleanCSS from 'clean-css'
 import autoprefixer from 'autoprefixer'
 import css from 'rollup-plugin-css-only'
@@ -16,9 +16,7 @@ export default {
   input: 'src/index.js',
   plugins: [
     resolve({
-      jsnext: true,
-      main: true,
-      browser: true,
+      mainFields: ['module', 'jsnext', 'main', 'browser'],
     }),
     string({
       include: '**/*.svg',
@@ -29,16 +27,26 @@ export default {
         postcssPlugins: [autoprefixer],
       },
     }),
+    babel({
+      exclude: 'node_modules/**',
+      presets: [
+        '@vue/babel-preset-jsx',
+        [
+          '@babel/env', {
+            'modules': false,
+          },
+        ],
+      ],
+    }),
     css({
       output: styles => {
+        fs.ensureDirSync('dist')
         fs.writeFileSync('dist/vue-ui.css', new CleanCSS().minify(styles).styles)
       },
     }),
-    babel({
-      exclude: 'node_modules/**',
-      runtimeHelpers: true,
+    cjs({
+      exclude: 'src/**',
     }),
-    cjs(),
     requireContext(),
     replace({
       VERSION: JSON.stringify(config.version),
@@ -47,4 +55,7 @@ export default {
   watch: {
     include: 'src/**',
   },
+  external: [
+    'vue',
+  ],
 }

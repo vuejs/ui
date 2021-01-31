@@ -6,6 +6,7 @@ const config = Object.assign({}, base, {
     name: 'vue-ui',
     file: 'dist/vue-ui.umd.js',
     format: 'umd',
+    sourcemap: true,
   },
 })
 

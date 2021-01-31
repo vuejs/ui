@@ -1,4 +1,4 @@
-const icons = require.context('../node_modules/material-design-icons/src', true, /materialicons\/24px\.svg$/)
+const icons = require.context('../node_modules/@akryum/md-icons-svg/svg/', true, /materialicons\/24px\.svg$/)
 
 export default {
   install (Vue) {

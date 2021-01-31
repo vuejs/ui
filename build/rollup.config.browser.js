@@ -7,6 +7,10 @@ const config = Object.assign({}, base, {
     name: 'VueUi',
     file: 'dist/vue-ui.min.js',
     format: 'iife',
+    sourcemap: true,
+    globals: {
+      vue: 'Vue',
+    },
   },
 })
 
