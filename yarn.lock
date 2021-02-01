@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@akryum/md-icons-svg@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@akryum/md-icons-svg/-/md-icons-svg-1.0.0.tgz#cf83e1754d7fa76d5841f16388a381fb9f266924"
-  integrity sha512-wz1BMlA8YS0W+rJhh/NhdBo3+rHkBwsHuvq5SLxUM63q4OxDFTYZqgiSl2GbOD6kdU45tlV/3dBXdTYU5h6/1A==
+"@akryum/md-icons-svg@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@akryum/md-icons-svg/-/md-icons-svg-1.0.1.tgz#bd4b88a70549e3e43acef342e1414c786544f72e"
+  integrity sha512-77uYSiIEKLlB4/lmVlOfcbypkD098rFC1jLaoIG8kQZARZD2HG7WhJNzwgGFFFuSO6WFSmAg/YtBJytHaMLRlQ==
 
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4", "@babel/code-frame@^7.12.11":
   version "7.12.11"

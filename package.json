@@ -43,7 +43,7 @@
     "vue-resize": "^1.0.0"
   },
   "devDependencies": {
-    "@akryum/md-icons-svg": "^1.0.0",
+    "@akryum/md-icons-svg": "^1.0.1",
     "@babel/core": "^7.12.10",
     "@babel/plugin-transform-runtime": "^7.4.0",
     "@babel/preset-env": "^7.4.2",
