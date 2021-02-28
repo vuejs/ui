@@ -180,18 +180,34 @@ export default {
     focus () {
       const input = this.$refs.input
       input.focus()
-      if (this.selectAll) {
-        input.setSelectionRange(0, input.value.length)
+    },
+
+    autoSelectAll () {
+      if (this.selectAll && this.$_autoSelect) {
+        const input = this.$refs.input
+        requestAnimationFrame(() => {
+          input.setSelectionRange(0, input.value.length)
+          clearTimeout(this.$_selectAllTimer)
+          this.$_selectAllTimer = setTimeout(() => {
+            this.$_autoSelect = false
+          }, 500)
+        })
       }
     },
 
     onBlur (event) {
       this.focused = false
+      this.$_autoSelect = false
       this.$emit('blur', event)
     },
 
     onFocus (event) {
+      if (!this.focused) {
+        clearTimeout(this.$_selectAllTimer)
+        this.$_autoSelect = true
+      }
       this.focused = true
+      this.autoSelectAll()
       this.$emit('focus', event)
     },
 
