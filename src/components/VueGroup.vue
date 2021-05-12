@@ -180,6 +180,7 @@ indicator(direction)
     box-center()
 
     > .content
+      box-sizing content-box
       width 100%
       height 100%
 
